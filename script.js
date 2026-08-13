@@ -9,12 +9,8 @@
    CONTACT SETTINGS
 ===================================================== */
 
-// Nomor WhatsApp toko
 const WHATSAPP_NUMBER = "6282261159669";
 
-// Username Telegram toko
-// GANTI dengan username Telegram toko kamu
-// Contoh: deegelvistore
 const TELEGRAM_USERNAME = "NewEra889";
 
 
@@ -52,7 +48,7 @@ const products = {
     },
 
     amber: {
-        name: "DEE GELVI Amber",
+        name: "DEE GELVI AMBER",
         price: 289000,
         category: "UNISEX",
         description:
@@ -60,17 +56,17 @@ const products = {
         image: "images/perfume4.jpg"
     },
 
-    oud: {
-        name: "DEE GELVI Oud",
+    shadow: {
+        name: "SHADOW MAN",
         price: 299000,
         category: "MEN",
         description:
-            "Oud, woody, warm, dan powerful.",
-        image: "images/perfume5.jpg"
+            "Dark, woody, maskulin, dan berkarakter kuat.",
+        image: "images/shadow.jpg"
     },
 
     bloom: {
-        name: "DEE GELVI Bloom",
+        name: "DEE GELVI BLOOM",
         price: 269000,
         category: "WOMEN",
         description:
@@ -150,15 +146,14 @@ const mobileMenu =
 
 function formatRupiah(number) {
 
-    return new Intl.NumberFormat("id-ID", {
-
-        style: "currency",
-
-        currency: "IDR",
-
-        maximumFractionDigits: 0
-
-    }).format(number);
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(number);
 
 }
 
@@ -170,11 +165,8 @@ function formatRupiah(number) {
 function saveCart() {
 
     localStorage.setItem(
-
         "deeGelviCart",
-
         JSON.stringify(cart)
-
     );
 
 }
@@ -665,7 +657,10 @@ categoryButtons.forEach(button => {
    SEARCH MODAL
 ===================================================== */
 
-if (searchButton && searchModal) {
+if (
+    searchButton &&
+    searchModal
+) {
 
     searchButton.addEventListener(
         "click",
@@ -740,6 +735,7 @@ document
 
                 const modalId =
                     button.dataset.close;
+
 
                 const modal =
                     document.getElementById(
@@ -874,6 +870,8 @@ document
                     );
 
 
+                /* IMAGE */
+
                 if (modalImage) {
 
                     modalImage.src =
@@ -885,6 +883,8 @@ document
                 }
 
 
+                /* NAME */
+
                 if (modalName) {
 
                     modalName.textContent =
@@ -893,6 +893,8 @@ document
                 }
 
 
+                /* CATEGORY */
+
                 if (modalCategory) {
 
                     modalCategory.textContent =
@@ -900,6 +902,8 @@ document
 
                 }
 
+
+                /* PRICE */
 
                 if (modalPrice) {
 
@@ -911,6 +915,8 @@ document
                 }
 
 
+                /* DESCRIPTION */
+
                 if (modalDescription) {
 
                     modalDescription.textContent =
@@ -918,6 +924,8 @@ document
 
                 }
 
+
+                /* NOTES */
 
                 if (modalNotes) {
 
@@ -940,6 +948,8 @@ document
                 }
 
 
+                /* MODAL ADD CART */
+
                 const modalAddCart =
                     document.getElementById(
                         "modalAddCart"
@@ -955,11 +965,13 @@ document
                                 productId
                             );
 
+
                             if (modal) {
 
                                 modal.classList.remove(
                                     "active"
                                 );
+
 
                                 modal.setAttribute(
                                     "aria-hidden",
@@ -973,11 +985,14 @@ document
                 }
 
 
+                /* OPEN MODAL */
+
                 if (modal) {
 
                     modal.classList.add(
                         "active"
                     );
+
 
                     modal.setAttribute(
                         "aria-hidden",
@@ -1077,7 +1092,7 @@ if (
 
 
 /* =====================================================
-   WHATSAPP MESSAGE
+   CREATE ORDER MESSAGE
 ===================================================== */
 
 function createOrderMessage() {
@@ -1107,11 +1122,14 @@ function createOrderMessage() {
             message +=
                 `${index + 1}. ${item.name}\n`;
 
+
             message +=
                 `Qty: ${item.qty}\n`;
 
+
             message +=
                 `Harga: ${formatRupiah(item.price)}\n`;
+
 
             message +=
                 `Subtotal: ${formatRupiah(subtotal)}\n\n`;
@@ -1126,6 +1144,7 @@ function createOrderMessage() {
 
     message +=
         "Mohon info stok dan pembayaran.\n";
+
 
     message +=
         "Terima kasih 🙏";
@@ -1153,15 +1172,17 @@ if (checkoutWhatsApp) {
                 );
 
                 return;
+
             }
+
 
             const message =
                 createOrderMessage();
 
-            if (!message) return;
 
             const url =
                 `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
 
             window.open(
                 url,
@@ -1191,20 +1212,17 @@ if (checkoutTelegram) {
                 );
 
                 return;
+
             }
+
 
             const message =
                 createOrderMessage();
 
-            if (!message) return;
-
-
-            /*
-               Buka Telegram toko
-            */
 
             const telegramUrl =
                 `https://t.me/${TELEGRAM_USERNAME}`;
+
 
             window.open(
                 telegramUrl,
@@ -1212,17 +1230,12 @@ if (checkoutTelegram) {
             );
 
 
-            /*
-               Salin detail pesanan
-               agar customer tinggal paste
-               ke chat Telegram.
-            */
-
             try {
 
                 await navigator.clipboard.writeText(
                     message
                 );
+
 
                 showNotification(
                     "Detail pesanan disalin. Paste di Telegram."
@@ -1261,6 +1274,7 @@ if (telegramContact) {
             const telegramUrl =
                 `https://t.me/${TELEGRAM_USERNAME}`;
 
+
             window.open(
                 telegramUrl,
                 "_blank"
@@ -1269,7 +1283,6 @@ if (telegramContact) {
         }
     );
 
-}
 }
 
 
@@ -1334,6 +1347,7 @@ document.addEventListener(
                     "active"
                 );
 
+
                 modal.setAttribute(
                     "aria-hidden",
                     "true"
@@ -1347,6 +1361,7 @@ document.addEventListener(
             cartPanel.classList.remove(
                 "active"
             );
+
 
             cartPanel.setAttribute(
                 "aria-hidden",
