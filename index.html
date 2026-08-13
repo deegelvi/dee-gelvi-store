@@ -1,72 +1,1086 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="DEE GELVI STORE — Luxury fragrance untuk signature identity kamu."
+    >
+
+    <title>
+        DEE GELVI STORE — Luxury Fragrance
+    </title>
+
+    <link
+         rel="stylesheet" 
+         href="style.css"
+    >
+
+</head>
+
+
+<body>    
+
+
+
 <!-- ==================================================
-     PRODUCT 5
+     HEADER
 ================================================== -->
 
-<article
-    class="product-card"
-    data-name="SHADOW MAN"
-    data-category="men"
->
+<header class="site-header">
 
-    <div class="product-image">
+    <div class="header-container">
 
-        <img
-            src="images/shadow.jpg"
-            alt="SHADOW MAN parfum pria"
-            loading="lazy"
+        <a
+            href="#home"
+            class="logo"
         >
-
-        <span class="badge">
-            SIGNATURE
-        </span>
-
-        <button
-            type="button"
-            class="quick-view"
-            data-product="shadow"
-        >
-            QUICK VIEW
-        </button>
-
-    </div>
+            DEE GELVI
+            <span>STORE</span>
+        </a>
 
 
-    <div class="product-info">
+        <nav class="desktop-nav">
 
-        <span class="product-category">
-            MEN
-        </span>
+            <a href="#home">
+                HOME
+            </a>
+
+            <a href="#shop">
+                SHOP
+            </a>
+
+            <a href="#about">
+                ABOUT
+            </a>
+
+            <a href="#contact">
+                CONTACT
+            </a>
+
+        </nav>
 
 
-        <h3>
-                TEST BROKU 999
+        <div class="header-actions">
 
-        </h3>
-
-
-        <p class="product-desc">
-            Dark, woody, maskulin,
-            dan berkarakter kuat.
-        </p>
-
-
-        <div class="product-price">
-
-            <strong>
-                Rp299.000
-            </strong>
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Cari produk"
+            >
+                🔍
+            </button>
 
 
             <button
                 type="button"
-                class="add-cart"
-                data-product="shadow"
+                id="openCart"
+                aria-label="Buka shopping bag"
             >
-                + BAG
+
+                🛍️
+
+                <span
+                    id="cartCount"
+                    class="cart-count"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                id="mobileMenuButton"
+                aria-label="Buka menu"
+            >
+                ☰
             </button>
 
         </div>
 
     </div>
 
-</article>
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobileMenu"
+        class="mobile-menu"
+    >
+
+        <a href="#home">
+            HOME
+        </a>
+
+        <a href="#shop">
+            SHOP
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<main>
+
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            DEE GELVI STORE
+        </span>
+
+
+        <h1>
+            YOUR SCENT.
+            <br>
+            YOUR
+            <em>IDENTITY.</em>
+        </h1>
+
+
+        <p>
+            Luxury fragrance dengan karakter
+            elegan untuk melengkapi signature
+            identity kamu.
+        </p>
+
+
+        <a
+            href="#shop"
+            class="hero-button"
+        >
+            EXPLORE COLLECTION
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SHOP
+================================================== -->
+
+<section
+    id="shop"
+    class="shop-section"
+>
+
+    <div class="section-heading">
+
+        <span>
+            OUR COLLECTION
+        </span>
+
+        <h2>
+            Find Your Signature
+        </h2>
+
+        <p>
+            Pilih aroma yang sesuai dengan
+            karakter dan gaya kamu.
+        </p>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="shop-tools">
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="productSearch"
+                placeholder="Cari parfum..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="searchButton"
+            >
+                SEARCH
+            </button>
+
+        </div>
+
+
+        <!-- CATEGORY -->
+
+        <div class="categories">
+
+            <button
+                type="button"
+                class="category active"
+                data-category="all"
+            >
+                ALL
+            </button>
+
+            <button
+                type="button"
+                class="category"
+                data-category="men"
+            >
+                MEN
+            </button>
+
+            <button
+                type="button"
+                class="category"
+                data-category="women"
+            >
+                WOMEN
+            </button>
+
+            <button
+                type="button"
+                class="category"
+                data-category="unisex"
+            >
+                UNISEX
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NO RESULT -->
+
+    <div
+        id="noResult"
+        hidden
+        class="no-result"
+    >
+
+        <p>
+            Produk tidak ditemukan.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         PRODUCT GRID
+    ================================================== -->
+
+    <div class="product-grid">
+
+
+
+        <!-- ==================================================
+             PRODUCT 1 — NOAM THE GENTLE
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="NOAM THE GENTLE"
+            data-category="men"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/noam.jpg"
+                    alt="NOAM THE GENTLE parfum pria"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    SIGNATURE
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="noir"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    MEN
+                </span>
+
+                <h3>
+                    NOAM THE GENTLE
+                </h3>
+
+                <p class="product-desc">
+                    Aroma maskulin, dark, elegant,
+                    dan berkarakter.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp199.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="noir"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 2 — FELIX EXCLUSIVE
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="FELIX EXCLUSIVE"
+            data-category="men"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/felix.jpg"
+                    alt="FELIX EXCLUSIVE parfum pria"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    EXCLUSIVE
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="royale"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    MEN
+                </span>
+
+                <h3>
+                    FELIX EXCLUSIVE
+                </h3>
+
+                <p class="product-desc">
+                    Fresh, sophisticated, dan cocok
+                    untuk acara spesial.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp199.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="royale"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 3 — VAN URBAN VOYAGER
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="VAN URBAN VOYAGER"
+            data-category="women"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/van.jpg"
+                    alt="VAN URBAN VOYAGER parfum wanita"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    NEW
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="velvet"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    WOMEN
+                </span>
+
+                <h3>
+                    VAN URBAN VOYAGER
+                </h3>
+
+                <p class="product-desc">
+                    Lembut, sensual, feminine,
+                    dan elegan.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp199.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="velvet"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 4 — DEE GELVI AMBER
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="DEE GELVI AMBER"
+            data-category="unisex"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/perfume4.jpg"
+                    alt="DEE GELVI AMBER parfum unisex"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    PREMIUM
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="amber"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    UNISEX
+                </span>
+
+                <h3>
+                    DEE GELVI AMBER
+                </h3>
+
+                <p class="product-desc">
+                    Warm amber dengan karakter
+                    mewah dan timeless.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp289.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="amber"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 5 — SHADOW MAN
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="SHADOW MAN"
+            data-category="men"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/shadow.jpg"
+                    alt="SHADOW MAN parfum pria"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    SIGNATURE
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="shadow"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    MEN
+                </span>
+
+                <h3>
+                  
+
+                <p class="product-desc">
+                    Dark, woody, maskulin,
+                    dan berkarakter kuat.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp299.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="shadow"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ==================================================
+             PRODUCT 6 — DEE GELVI BLOOM
+        ================================================== -->
+
+        <article
+            class="product-card"
+            data-name="DEE GELVI BLOOM"
+            data-category="women"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="images/perfume6.jpg"
+                    alt="DEE GELVI BLOOM parfum wanita"
+                    loading="lazy"
+                >
+
+                <span class="badge">
+                    BLOOM
+                </span>
+
+                <button
+                    type="button"
+                    class="quick-view"
+                    data-product="bloom"
+                >
+                    QUICK VIEW
+                </button>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    WOMEN
+                </span>
+
+                <h3>
+                    DEE GELVI BLOOM
+                </h3>
+
+                <p class="product-desc">
+                    Floral, fresh, manis,
+                    dan memorable.
+                </p>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        Rp269.000
+                    </strong>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-product="bloom"
+                    >
+                        + BAG
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section
+    id="about"
+    class="about-section"
+>
+
+    <div class="section-heading">
+
+        <span>
+            ABOUT DEE GELVI
+        </span>
+
+        <h2>
+            More Than Just A Fragrance
+        </h2>
+
+        <p>
+            DEE GELVI hadir untuk memberikan
+            pengalaman fragrance yang elegan,
+            modern, dan berkarakter.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section
+    id="contact"
+    class="contact-section"
+>
+
+    <div class="section-heading">
+
+        <span>
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            Need Help?
+        </h2>
+
+        <p>
+            Hubungi DEE GELVI untuk informasi
+            produk, stok, dan pemesanan.
+        </p>
+
+
+        <button
+            type="button"
+            id="telegramContact"
+            class="contact-button"
+        >
+            CONTACT VIA TELEGRAM
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ==================================================
+     PRODUCT QUICK VIEW MODAL
+================================================== -->
+
+<div
+    id="productModal"
+    class="modal"
+    aria-hidden="true"
+>
+
+    <div class="modal-content">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="productModal"
+            aria-label="Tutup"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-product">
+
+            <div class="modal-image">
+
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <span
+                    id="modalCategory"
+                    class="product-category"
+                >
+                </span>
+
+
+                <h2 id="modalName">
+                </h2>
+
+
+                <p
+                    id="modalDescription"
+                    class="modal-description"
+                >
+                </p>
+
+
+                <div
+                    id="modalNotes"
+                    class="modal-notes"
+                >
+                </div>
+
+
+                <strong
+                    id="modalPrice"
+                    class="modal-price"
+                >
+                </strong>
+
+
+                <button
+                    type="button"
+                    id="modalAddCart"
+                    class="modal-add-cart"
+                >
+                    ADD TO SHOPPING BAG
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     SEARCH MODAL
+================================================== -->
+
+<div
+    id="searchModal"
+    class="modal"
+    aria-hidden="true"
+>
+
+    <div class="modal-content search-modal-content">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="searchModal"
+            aria-label="Tutup"
+        >
+            ×
+        </button>
+
+
+        <div class="search-modal-inner">
+
+            <span>
+                SEARCH
+            </span>
+
+            <h2>
+                Find Your Fragrance
+            </h2>
+
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Cari nama parfum..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     SHOPPING CART
+================================================== -->
+
+<aside
+    id="cartPanel"
+    class="cart-panel"
+    aria-hidden="true"
+>
+
+    <div class="cart-header">
+
+        <div>
+
+            <span>
+                YOUR BAG
+            </span>
+
+            <h2>
+                Shopping Bag
+            </h2>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="closeCart"
+            aria-label="Tutup shopping bag"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        id="cartItems"
+        class="cart-items"
+    >
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total-row">
+
+            <span>
+                TOTAL
+            </span>
+
+            <strong id="cartTotal">
+                Rp0
+            </strong>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="checkoutWhatsApp"
+            class="checkout-button whatsapp"
+        >
+            CHECKOUT VIA WHATSAPP
+        </button>
+
+
+        <button
+            type="button"
+            id="checkoutTelegram"
+            class="checkout-button telegram"
+        >
+            CHECKOUT VIA TELEGRAM
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ==================================================
+     CART NOTIFICATION
+================================================== -->
+
+<div
+    id="cartNotification"
+    class="cart-notification"
+>
+</div>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <strong>
+                DEE GELVI
+            </strong>
+
+            <p>
+                Luxury fragrance for your
+                signature identity.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                © 2026 DEE GELVI STORE
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script
+    src="script.js"
+></script>
+
+
+</body>
+
+</html>
+```
