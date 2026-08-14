@@ -1,41 +1,49 @@
-/* =====================================================
+/* =========================================================
    DEE GELVI STORE
-   LUXURY CHAMPAGNE — CLEAN VERSION
-===================================================== */
+   LUXURY GREY / CHAMPAGNE
+   FINAL CLEAN CSS
+========================================================= */
 
 
-/* =====================================================
+/* =========================================================
    ROOT
-===================================================== */
+========================================================= */
 
 :root {
 
-    --black: #11100e;
-    --black-soft: #1b1815;
-    --black-light: #28231e;
+    --bg-main: #e3e4e6;
+    --bg-soft: #d5d6d8;
+    --bg-section: #ececed;
+
+    --card: #f7f7f5;
+    --card-soft: #eeeeed;
+
+    --dark: #3f4144;
+    --dark-soft: #4c4e51;
+    --dark-deep: #303235;
 
     --gold: #c8a56a;
     --gold-light: #e3cda3;
     --gold-dark: #9d7944;
 
-    --cream: #f6f0e5;
-    --cream-light: #fffdf8;
+    --text: #292a2c;
+    --text-soft: #626468;
+    --muted: #7b7d80;
+
     --white: #ffffff;
 
-    --text: #28231e;
-    --muted: #80766a;
-
-    --border: rgba(157,121,68,.25);
+    --border: rgba(63,65,68,.15);
 
     --shadow:
         0 20px 60px rgba(0,0,0,.12);
 
+    --serif: Georgia, "Times New Roman", serif;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -49,17 +57,20 @@ html {
 
 body {
 
+    margin: 0;
+
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    background: var(--cream);
+    background: var(--bg-main);
 
     color: var(--text);
 
     line-height: 1.6;
 
+    overflow-x: hidden;
 }
 
 body.no-scroll {
@@ -86,9 +97,22 @@ img {
 }
 
 
-/* =====================================================
+/* =========================================================
+   GLOBAL BACKGROUND
+========================================================= */
+
+main {
+    background: var(--bg-main);
+}
+
+section {
+    background: transparent;
+}
+
+
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 .site-header {
 
@@ -99,20 +123,21 @@ img {
     z-index: 1000;
 
     background:
-        rgba(17,16,14,.96);
+        rgba(63,65,68,.96);
 
     border-bottom:
         1px solid
-        rgba(200,165,106,.25);
+        rgba(200,165,106,.35);
 
-    backdrop-filter: blur(15px);
-
+    backdrop-filter:
+        blur(15px);
 }
 
 
 .header-container {
 
-    width: min(1250px, 92%);
+    width:
+        min(1250px, 92%);
 
     height: 82px;
 
@@ -123,19 +148,18 @@ img {
     align-items: center;
 
     justify-content: space-between;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    LOGO
-===================================================== */
+========================================================= */
 
 .logo {
 
     color: var(--white);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 22px;
 
@@ -144,7 +168,6 @@ img {
     font-weight: normal;
 
     line-height: 1;
-
 }
 
 .logo span {
@@ -162,13 +185,12 @@ img {
     letter-spacing: 5px;
 
     text-align: center;
-
 }
 
 
-/* =====================================================
-   DESKTOP NAV
-===================================================== */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .desktop-nav {
 
@@ -177,7 +199,6 @@ img {
     align-items: center;
 
     gap: 38px;
-
 }
 
 .desktop-nav a {
@@ -186,14 +207,13 @@ img {
 
     padding: 8px 0;
 
-    color: #d8d0c4;
+    color: #e0e0e0;
 
     font-size: 9px;
 
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .desktop-nav a::after {
@@ -213,25 +233,22 @@ img {
     background: var(--gold);
 
     transition: .3s ease;
-
 }
 
 .desktop-nav a:hover {
 
     color: var(--gold-light);
-
 }
 
 .desktop-nav a:hover::after {
 
     width: 100%;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER ACTIONS
-===================================================== */
+========================================================= */
 
 .header-actions {
 
@@ -239,8 +256,7 @@ img {
 
     align-items: center;
 
-    gap: 10px;
-
+    gap: 8px;
 }
 
 .header-actions button {
@@ -260,21 +276,20 @@ img {
     font-size: 17px;
 
     transition: .25s ease;
-
 }
 
 .header-actions button:hover {
 
     color: var(--gold-light);
 
-    transform: translateY(-2px);
-
+    transform:
+        translateY(-2px);
 }
 
 
-/* =====================================================
+/* =========================================================
    CART COUNT
-===================================================== */
+========================================================= */
 
 .cart-count {
 
@@ -300,27 +315,26 @@ img {
 
     background: var(--gold);
 
-    color: var(--black);
+    color: var(--dark);
 
     font-size: 8px;
 
     font-weight: bold;
-
 }
 
 
-/* =====================================================
-   MOBILE MENU BUTTON
-===================================================== */
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
 
 #mobileMenuButton {
     display: none;
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
 .mobile-menu {
 
@@ -328,10 +342,11 @@ img {
 
     padding: 25px;
 
-    background: var(--black);
+    background: var(--dark);
 
-    border-top: 1px solid var(--border);
-
+    border-top:
+        1px solid
+        rgba(200,165,106,.25);
 }
 
 .mobile-menu.active {
@@ -341,23 +356,21 @@ img {
     flex-direction: column;
 
     gap: 20px;
-
 }
 
 .mobile-menu a {
 
-    color: #ddd;
+    color: #eeeeee;
 
     font-size: 10px;
 
     letter-spacing: 3px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
 
@@ -374,28 +387,29 @@ img {
     background:
 
         radial-gradient(
-            circle at 75% 45%,
-            rgba(200,165,106,.32),
+            circle at 78% 45%,
+            rgba(200,165,106,.24),
             transparent 25%
         ),
 
         radial-gradient(
-            circle at 30% 80%,
-            rgba(100,75,45,.15),
+            circle at 20% 85%,
+            rgba(255,255,255,.08),
             transparent 35%
         ),
 
         linear-gradient(
             135deg,
-            #11100e,
-            #211c17 55%,
-            #0f0e0c
+            #707276 0%,
+            #585b5f 55%,
+            #3f4144 100%
         );
-
 }
 
 
-/* decorative glow */
+/* =========================================================
+   HERO DECORATION
+========================================================= */
 
 .hero::before {
 
@@ -411,56 +425,59 @@ img {
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(200,165,106,.18);
+        rgba(200,165,106,.25);
 
     box-shadow:
         0 0 100px
-        rgba(200,165,106,.08);
-
+        rgba(200,165,106,.10);
 }
 
 
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
 .hero-content {
 
-    width: min(1250px, 92%);
+    width:
+        min(1250px, 92%);
 
     margin: auto;
 
     position: relative;
 
     z-index: 2;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO LABEL
-===================================================== */
+========================================================= */
 
 .hero-label {
 
     display: inline-block;
+
+    margin-bottom: 25px;
 
     color: var(--gold-light);
 
     font-size: 9px;
 
     letter-spacing: 5px;
-
-    margin-bottom: 25px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO TITLE
-===================================================== */
+========================================================= */
 
 .hero h1 {
 
@@ -468,35 +485,29 @@ img {
 
     color: white;
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
-    font-size: clamp(
-        55px,
-        8vw,
-        105px
-    );
+    font-size:
+        clamp(55px, 8vw, 105px);
 
     font-weight: normal;
 
     line-height: .9;
 
     letter-spacing: -4px;
-
 }
-
 
 .hero h1 em {
 
-    color: var(--gold);
+    color: var(--gold-light);
 
     font-style: italic;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO DESCRIPTION
-===================================================== */
+========================================================= */
 
 .hero-content > p {
 
@@ -504,18 +515,17 @@ img {
 
     margin: 30px 0;
 
-    color: #aaa198;
+    color: #e0e0e0;
 
     font-size: 14px;
 
     line-height: 1.9;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO BUTTON
-===================================================== */
+========================================================= */
 
 .hero-button {
 
@@ -529,7 +539,7 @@ img {
 
     background: var(--gold);
 
-    color: var(--black);
+    color: #292a2c;
 
     font-size: 9px;
 
@@ -538,47 +548,46 @@ img {
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .hero-button:hover {
 
     background: var(--gold-light);
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
         0 15px 35px
         rgba(200,165,106,.22);
-
 }
 
 
-/* =====================================================
-   SHOP
-===================================================== */
+/* =========================================================
+   SHOP SECTION
+========================================================= */
 
 .shop-section {
 
     padding: 120px 4%;
 
-    background: var(--cream);
-
+    background:
+        var(--bg-main);
 }
 
 
-/* =====================================================
+/* =========================================================
    SECTION HEADING
-===================================================== */
+========================================================= */
 
 .section-heading {
 
     max-width: 750px;
 
-    margin: 0 auto 55px;
+    margin:
+        0 auto 55px;
 
     text-align: center;
-
 }
 
 .section-heading > span {
@@ -592,7 +601,6 @@ img {
     font-weight: bold;
 
     letter-spacing: 4px;
-
 }
 
 .section-heading h2 {
@@ -601,61 +609,61 @@ img {
 
     color: var(--text);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
-    font-size: clamp(
-        40px,
-        5vw,
-        65px
-    );
+    font-size:
+        clamp(40px, 5vw, 65px);
 
     font-weight: normal;
 
     line-height: 1;
-
 }
 
 .section-heading p {
 
-    color: var(--muted);
+    color: var(--text-soft);
 
     font-size: 13px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    SHOP TOOLS
-===================================================== */
+========================================================= */
 
 .shop-tools {
 
-    width: min(1200px, 100%);
+    width:
+        min(1200px, 100%);
 
-    margin: 0 auto 45px;
-
+    margin:
+        0 auto 45px;
 }
 
 
-/* =====================================================
-   SEARCH BOX
-===================================================== */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 .search-box {
 
-    width: min(600px, 100%);
+    width:
+        min(600px, 100%);
 
-    margin: 0 auto 25px;
+    margin:
+        0 auto 25px;
 
     display: flex;
+
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    background:
-        var(--cream-light);
-
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.04);
 }
 
 .search-box input {
@@ -675,29 +683,28 @@ img {
     color: var(--text);
 
     font-size: 12px;
-
 }
 
 .search-box button {
 
-    padding: 0 22px;
+    padding:
+        0 22px;
 
     border: 0;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
     font-size: 8px;
 
     letter-spacing: 2px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CATEGORIES
-===================================================== */
+========================================================= */
 
 .categories {
 
@@ -708,63 +715,49 @@ img {
     flex-wrap: wrap;
 
     gap: 8px;
-
 }
 
 .category {
 
-    padding: 11px 20px;
+    padding:
+        11px 20px;
 
     border:
         1px solid
         var(--border);
 
-    background: transparent;
+    background:
+        rgba(255,255,255,.35);
 
-    color: var(--muted);
+    color: var(--text-soft);
 
     font-size: 8px;
 
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .category:hover,
 .category.active {
 
-    background: var(--black);
+    background: var(--dark);
 
-    border-color: var(--black);
+    border-color:
+        var(--gold);
 
     color: var(--gold-light);
-
 }
 
 
-/* =====================================================
-   NO RESULT
-===================================================== */
-
-.no-result {
-
-    padding: 40px;
-
-    text-align: center;
-
-    color: var(--muted);
-
-}
-
-
-/* =====================================================
+/* =========================================================
    PRODUCT GRID
-===================================================== */
+========================================================= */
 
 .product-grid {
 
-    width: min(1200px, 100%);
+    width:
+        min(1200px, 100%);
 
     margin: auto;
 
@@ -774,13 +767,12 @@ img {
         repeat(3, 1fr);
 
     gap: 25px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT CARD
-===================================================== */
+========================================================= */
 
 .product-card {
 
@@ -788,20 +780,19 @@ img {
 
     overflow: hidden;
 
-    background: var(--cream-light);
+    background: var(--card);
 
     border:
         1px solid
-        rgba(157,121,68,.18);
+        rgba(63,65,68,.12);
 
     box-shadow:
         0 8px 25px
-        rgba(40,30,20,.04);
+        rgba(0,0,0,.06);
 
     transition:
         transform .4s ease,
         box-shadow .4s ease;
-
 }
 
 .product-card:hover {
@@ -811,14 +802,13 @@ img {
 
     box-shadow:
         0 25px 60px
-        rgba(40,30,20,.13);
-
+        rgba(0,0,0,.13);
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT IMAGE
-===================================================== */
+========================================================= */
 
 .product-image {
 
@@ -832,10 +822,9 @@ img {
 
         radial-gradient(
             circle at center,
-            #fffdf8,
-            #e9decb
+            #ffffff,
+            #dfe0e1
         );
-
 }
 
 .product-image img {
@@ -850,7 +839,6 @@ img {
 
     transition:
         transform .6s ease;
-
 }
 
 .product-card:hover
@@ -858,13 +846,12 @@ img {
 
     transform:
         scale(1.07);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BADGE
-===================================================== */
+========================================================= */
 
 .badge {
 
@@ -874,22 +861,22 @@ img {
 
     left: 16px;
 
-    padding: 8px 12px;
+    padding:
+        8px 12px;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
     font-size: 7px;
 
     letter-spacing: 2px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    QUICK VIEW
-===================================================== */
+========================================================= */
 
 .quick-view {
 
@@ -903,12 +890,14 @@ img {
 
     padding: 15px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     background:
-        rgba(255,253,248,.95);
+        rgba(255,255,255,.94);
 
-    color: var(--black);
+    color: var(--gold-dark);
 
     font-size: 8px;
 
@@ -917,33 +906,31 @@ img {
     letter-spacing: 2px;
 
     transition: .4s ease;
-
 }
 
 .product-card:hover
 .quick-view {
 
     bottom: 18px;
-
 }
 
 .quick-view:hover {
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT INFO
-===================================================== */
+========================================================= */
 
 .product-info {
 
     padding: 24px;
 
+    background: var(--card);
 }
 
 .product-category {
@@ -955,21 +942,20 @@ img {
     font-weight: bold;
 
     letter-spacing: 3px;
-
 }
 
 .product-info h3 {
 
-    margin: 8px 0;
+    margin:
+        8px 0;
 
     color: var(--text);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 24px;
 
     font-weight: normal;
-
 }
 
 .product-desc {
@@ -983,13 +969,12 @@ img {
     font-size: 12px;
 
     line-height: 1.7;
-
 }
 
 
-/* =====================================================
-   PRODUCT PRICE
-===================================================== */
+/* =========================================================
+   PRICE
+========================================================= */
 
 .product-price {
 
@@ -1000,26 +985,25 @@ img {
     justify-content: space-between;
 
     gap: 15px;
-
 }
 
 .product-price strong {
 
-    color: var(--black);
+    color: var(--dark);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 17px;
-
 }
 
 .add-cart {
 
-    padding: 11px 16px;
+    padding:
+        11px 16px;
 
     border: 0;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
@@ -1030,27 +1014,26 @@ img {
     letter-spacing: 1px;
 
     transition: .3s ease;
-
 }
 
 .add-cart:hover {
 
     background: var(--gold);
 
-    color: var(--black);
-
+    color: var(--dark);
 }
 
 
-/* =====================================================
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 
 .about-section {
 
     position: relative;
 
-    padding: 130px 5%;
+    padding:
+        130px 5%;
 
     overflow: hidden;
 
@@ -1058,36 +1041,29 @@ img {
 
         radial-gradient(
             circle at 80% 40%,
-            rgba(200,165,106,.15),
+            rgba(200,165,106,.16),
             transparent 30%
         ),
 
         linear-gradient(
             135deg,
-            #11100e,
-            #241e18
+            #55585c,
+            #3f4144
         );
 
     color: white;
-
 }
 
 .about-section .section-heading {
-
     margin-bottom: 0;
-
 }
 
 .about-section .section-heading > span {
-
-    color: var(--gold);
-
+    color: var(--gold-light);
 }
 
 .about-section .section-heading h2 {
-
     color: white;
-
 }
 
 .about-section .section-heading p {
@@ -1096,34 +1072,35 @@ img {
 
     margin: auto;
 
-    color: #aaa198;
+    color: #dedede;
 
     line-height: 1.9;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 
 .contact-section {
 
-    padding: 120px 5%;
+    padding:
+        120px 5%;
 
-    background: var(--cream-light);
-
+    background:
+        var(--bg-section);
 }
 
 .contact-button {
 
     margin-top: 25px;
 
-    padding: 16px 25px;
+    padding:
+        16px 25px;
 
     border: 0;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
@@ -1134,23 +1111,22 @@ img {
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .contact-button:hover {
 
     background: var(--gold);
 
-    color: var(--black);
+    color: var(--dark);
 
-    transform: translateY(-3px);
-
+    transform:
+        translateY(-3px);
 }
 
 
-/* =====================================================
-   MODAL BACKGROUND
-===================================================== */
+/* =========================================================
+   MODAL
+========================================================= */
 
 .modal {
 
@@ -1169,40 +1145,37 @@ img {
     padding: 20px;
 
     background:
-        rgba(0,0,0,.82);
+        rgba(25,27,29,.72);
 
     backdrop-filter:
         blur(10px);
-
 }
 
 .modal.active {
-
     display: flex;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MODAL CONTENT
-===================================================== */
+========================================================= */
 
 .modal-content {
 
     position: relative;
 
-    width: min(950px, 100%);
+    width:
+        min(950px, 100%);
 
     max-height: 90vh;
 
     overflow: auto;
 
-    background: var(--cream-light);
+    background: var(--card);
 
     box-shadow:
         0 35px 100px
         rgba(0,0,0,.35);
-
 }
 
 .modal-close {
@@ -1223,28 +1196,27 @@ img {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.85);
+    background:
+        rgba(255,255,255,.9);
 
-    color: var(--black);
+    color: var(--dark);
 
     font-size: 25px;
 
     transition: .25s ease;
-
 }
 
 .modal-close:hover {
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT MODAL
-===================================================== */
+========================================================= */
 
 .modal-product {
 
@@ -1252,7 +1224,6 @@ img {
 
     grid-template-columns:
         1fr 1fr;
-
 }
 
 .modal-image {
@@ -1269,10 +1240,9 @@ img {
 
         radial-gradient(
             circle,
-            #fffdf8,
-            #e8dcc8
+            #ffffff,
+            #dfe0e1
         );
-
 }
 
 .modal-image img {
@@ -1286,12 +1256,12 @@ img {
     padding: 40px;
 
     object-fit: contain;
-
 }
 
 .modal-info {
 
-    padding: 60px 50px;
+    padding:
+        60px 50px;
 
     display: flex;
 
@@ -1299,20 +1269,23 @@ img {
 
     justify-content: center;
 
+    background: var(--card);
 }
 
 .modal-info h2 {
 
-    margin: 12px 0 20px;
+    margin:
+        12px 0 20px;
 
-    font-family: Georgia, serif;
+    color: var(--text);
+
+    font-family: var(--serif);
 
     font-size: 45px;
 
     font-weight: normal;
 
     line-height: 1;
-
 }
 
 .modal-description {
@@ -1322,19 +1295,18 @@ img {
     font-size: 13px;
 
     line-height: 1.9;
-
 }
 
 .modal-notes {
 
-    margin: 20px 0;
+    margin:
+        20px 0;
 
     color: var(--gold-dark);
 
     font-size: 10px;
 
     letter-spacing: 1px;
-
 }
 
 .modal-price {
@@ -1345,10 +1317,9 @@ img {
 
     color: var(--gold-dark);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 22px;
-
 }
 
 .modal-add-cart {
@@ -1359,7 +1330,7 @@ img {
 
     border: 0;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
@@ -1370,32 +1341,31 @@ img {
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .modal-add-cart:hover {
 
     background: var(--gold);
 
-    color: var(--black);
-
+    color: var(--dark);
 }
 
 
-/* =====================================================
+/* =========================================================
    SEARCH MODAL
-===================================================== */
+========================================================= */
 
 .search-modal-content {
 
     max-width: 650px;
-
 }
 
 .search-modal-inner {
 
-    padding: 70px 50px;
+    padding:
+        70px 50px;
 
+    background: var(--card);
 }
 
 .search-modal-inner > span {
@@ -1405,45 +1375,48 @@ img {
     font-size: 9px;
 
     letter-spacing: 4px;
-
 }
 
 .search-modal-inner h2 {
 
-    margin: 15px 0 30px;
+    margin:
+        15px 0 30px;
 
-    font-family: Georgia, serif;
+    color: var(--text);
+
+    font-family: var(--serif);
 
     font-size: 42px;
 
     font-weight: normal;
-
 }
 
 .search-modal-inner input {
 
     width: 100%;
 
-    padding: 16px 0;
+    padding:
+        16px 0;
 
     border: 0;
 
     border-bottom:
         1px solid
-        var(--black);
+        var(--dark);
 
     outline: 0;
 
     background: transparent;
 
-    font-size: 16px;
+    color: var(--text);
 
+    font-size: 16px;
 }
 
 
-/* =====================================================
+/* =========================================================
    CART PANEL
-===================================================== */
+========================================================= */
 
 .cart-panel {
 
@@ -1465,7 +1438,7 @@ img {
 
     flex-direction: column;
 
-    background: var(--cream-light);
+    background: var(--card);
 
     box-shadow:
         -20px 0 60px
@@ -1473,19 +1446,16 @@ img {
 
     transition:
         right .4s ease;
-
 }
 
 .cart-panel.active {
-
     right: 0;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CART HEADER
-===================================================== */
+========================================================= */
 
 .cart-header {
 
@@ -1500,7 +1470,6 @@ img {
     border-bottom:
         1px solid
         var(--border);
-
 }
 
 .cart-header span {
@@ -1510,19 +1479,19 @@ img {
     font-size: 8px;
 
     letter-spacing: 3px;
-
 }
 
 .cart-header h2 {
 
     margin-top: 5px;
 
-    font-family: Georgia, serif;
+    color: var(--text);
+
+    font-family: var(--serif);
 
     font-size: 26px;
 
     font-weight: normal;
-
 }
 
 #closeCart {
@@ -1535,16 +1504,15 @@ img {
 
     background: transparent;
 
-    color: var(--black);
+    color: var(--dark);
 
     font-size: 28px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CART ITEMS
-===================================================== */
+========================================================= */
 
 .cart-items {
 
@@ -1552,24 +1520,24 @@ img {
 
     overflow-y: auto;
 
-    padding: 10px 25px;
-
+    padding:
+        10px 25px;
 }
 
 .cart-item {
 
-    padding: 18px 0;
+    padding:
+        18px 0;
 
     border-bottom:
         1px solid
-        #e9dfd1;
-
+        #d9d9d9;
 }
 
 
-/* =====================================================
+/* =========================================================
    CART FOOTER
-===================================================== */
+========================================================= */
 
 .cart-footer {
 
@@ -1579,6 +1547,7 @@ img {
         1px solid
         var(--border);
 
+    background: var(--card);
 }
 
 .cart-total-row {
@@ -1590,7 +1559,6 @@ img {
     justify-content: space-between;
 
     margin-bottom: 18px;
-
 }
 
 .cart-total-row span {
@@ -1598,17 +1566,15 @@ img {
     font-size: 9px;
 
     letter-spacing: 2px;
-
 }
 
 .cart-total-row strong {
 
     color: var(--gold-dark);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 20px;
-
 }
 
 .checkout-button {
@@ -1628,37 +1594,35 @@ img {
     letter-spacing: 2px;
 
     transition: .3s ease;
-
 }
 
 .checkout-button.whatsapp {
 
-    background: #1c1a18;
+    background: var(--dark);
 
-    color: #e3cda3;
-
+    color: var(--gold-light);
 }
 
 .checkout-button.telegram {
 
-    background: #d6b98c;
+    background: var(--gold);
 
-    color: #1c1a18;
-
+    color: var(--dark);
 }
 
 .checkout-button:hover {
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
-    filter: brightness(1.08);
-
+    filter:
+        brightness(1.08);
 }
 
 
-/* =====================================================
+/* =========================================================
    NOTIFICATION
-===================================================== */
+========================================================= */
 
 .cart-notification {
 
@@ -1672,9 +1636,10 @@ img {
 
     max-width: 320px;
 
-    padding: 15px 20px;
+    padding:
+        15px 20px;
 
-    background: var(--black);
+    background: var(--dark);
 
     color: var(--gold-light);
 
@@ -1682,7 +1647,8 @@ img {
         3px solid
         var(--gold);
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        var(--shadow);
 
     transform:
         translateY(30px);
@@ -1692,7 +1658,6 @@ img {
     pointer-events: none;
 
     transition: .3s ease;
-
 }
 
 .cart-notification.show {
@@ -1701,27 +1666,28 @@ img {
         translateY(0);
 
     opacity: 1;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 .site-footer {
 
-    padding: 65px 5% 25px;
+    padding:
+        65px 5% 25px;
 
-    background: #0d0c0a;
+    background:
+        #343638;
 
     color: white;
-
 }
 
 .footer-content {
 
-    width: min(1200px, 100%);
+    width:
+        min(1200px, 100%);
 
     margin: auto;
 
@@ -1737,36 +1703,33 @@ img {
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.08);
-
+        rgba(255,255,255,.10);
 }
 
 .footer-content strong {
 
     color: var(--gold-light);
 
-    font-family: Georgia, serif;
+    font-family: var(--serif);
 
     font-size: 20px;
 
     letter-spacing: 4px;
-
 }
 
 .footer-content p {
 
     margin-top: 10px;
 
-    color: #777;
+    color: #c1c1c1;
 
     font-size: 10px;
-
 }
 
 
-/* =====================================================
-   RESPONSIVE TABLET
-===================================================== */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1791,6 +1754,7 @@ img {
     }
 
     .product-grid {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1810,13 +1774,12 @@ img {
     .modal-info {
         padding: 40px;
     }
-
 }
 
 
-/* =====================================================
-   RESPONSIVE MOBILE
-===================================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1839,8 +1802,11 @@ img {
     }
 
     .header-actions button {
+
         width: 38px;
+
         height: 38px;
+
         font-size: 15px;
     }
 
@@ -1849,13 +1815,18 @@ img {
     }
 
     .hero::before {
+
         width: 300px;
+
         height: 300px;
+
         right: -80px;
     }
 
     .hero h1 {
+
         font-size: 53px;
+
         letter-spacing: -2px;
     }
 
@@ -1864,11 +1835,15 @@ img {
     }
 
     .shop-section {
-        padding: 85px 5%;
+
+        padding:
+            85px 5%;
     }
 
     .section-heading {
-        margin-bottom: 40px;
+
+        margin-bottom:
+            40px;
     }
 
     .section-heading h2 {
@@ -1901,7 +1876,9 @@ img {
     }
 
     .product-price {
+
         align-items: stretch;
+
         flex-direction: column;
     }
 
@@ -1914,11 +1891,15 @@ img {
     }
 
     .about-section {
-        padding: 90px 5%;
+
+        padding:
+            90px 5%;
     }
 
     .contact-section {
-        padding: 90px 5%;
+
+        padding:
+            90px 5%;
     }
 
     .modal {
@@ -1926,7 +1907,8 @@ img {
     }
 
     .modal-info {
-        padding: 30px 22px;
+        padding:
+            30px 22px;
     }
 
     .modal-info h2 {
@@ -1934,7 +1916,9 @@ img {
     }
 
     .modal-image {
+
         min-height: 300px;
+
         height: 300px;
     }
 
@@ -1943,7 +1927,8 @@ img {
     }
 
     .search-modal-inner {
-        padding: 55px 25px;
+        padding:
+            55px 25px;
     }
 
     .search-modal-inner h2 {
@@ -1951,13 +1936,16 @@ img {
     }
 
     .cart-panel {
+
         width: 100%;
+
         right: -100%;
     }
 
     .footer-content {
+
         flex-direction: column;
+
         align-items: flex-start;
     }
-
 }
