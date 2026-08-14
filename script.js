@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "CHARACTER — CLEAN • MASCULINE • ELEGANT"
         },
 
-
         felix: {
             name: "FELIX EXCLUSIVE",
             category: "MEN",
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "CHARACTER — FRESH • SOPHISTICATED • MODERN"
         },
 
-
         van: {
             name: "VAN URBAN VOYAGER",
             category: "WOMEN",
@@ -48,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             notes:
                 "CHARACTER — SOFT • FEMININE • ELEGANT"
         },
-
 
         shadow: {
             name: "SHADOW MAN",
@@ -83,13 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const addCartButtons =
         document.querySelectorAll(".add-cart");
 
-
     const productSearch =
         document.getElementById("productSearch");
 
     const noResult =
         document.getElementById("noResult");
-
 
     const searchButton =
         document.getElementById("searchButton");
@@ -99,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const searchInput =
         document.getElementById("searchInput");
-
 
     const productModal =
         document.getElementById("productModal");
@@ -128,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalAddCart =
         document.getElementById("modalAddCart");
 
-
     const openCart =
         document.getElementById("openCart");
 
@@ -150,20 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartCount =
         document.getElementById("cartCount");
 
-
     const checkoutWhatsApp =
         document.getElementById("checkoutWhatsApp");
-
-    const checkoutTelegram =
-        document.getElementById("checkoutTelegram");
 
     const telegramContact =
         document.getElementById("telegramContact");
 
-
     const cartNotification =
         document.getElementById("cartNotification");
-
 
     const mobileMenuButton =
         document.getElementById("mobileMenuButton");
@@ -180,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "6281234567890";
 
     const TELEGRAM_USERNAME =
-        "DEE_GELVI";
+        "NewEra889";
 
 
     /* =====================================================
@@ -225,15 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cartNotification.textContent =
             message;
 
-        cartNotification.classList.add(
-            "show"
-        );
-
+        cartNotification.classList.add("show");
 
         clearTimeout(
             window.notificationTimer
         );
-
 
         window.notificationTimer =
             setTimeout(() => {
@@ -257,18 +240,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        modal.classList.add(
-            "active"
-        );
+        modal.classList.add("active");
 
         modal.setAttribute(
             "aria-hidden",
             "false"
         );
 
-        body.classList.add(
-            "modal-open"
-        );
+        body.classList.add("modal-open");
 
     }
 
@@ -279,34 +258,22 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        modal.classList.remove(
-            "active"
-        );
+        modal.classList.remove("active");
 
         modal.setAttribute(
             "aria-hidden",
             "true"
         );
 
-
         const productOpen =
             productModal &&
-            productModal.classList.contains(
-                "active"
-            );
-
+            productModal.classList.contains("active");
 
         const searchOpen =
             searchModal &&
-            searchModal.classList.contains(
-                "active"
-            );
+            searchModal.classList.contains("active");
 
-
-        if (
-            !productOpen &&
-            !searchOpen
-        ) {
+        if (!productOpen && !searchOpen) {
 
             body.classList.remove(
                 "modal-open"
@@ -326,7 +293,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const product =
             products[productId];
 
-
         if (!product) {
 
             console.warn(
@@ -338,47 +304,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         currentModalProduct =
             productId;
 
+        if (modalImage) {
 
-        modalImage.src =
-            product.image;
+            modalImage.src =
+                product.image;
 
-        modalImage.alt =
-            product.name;
+            modalImage.alt =
+                product.name;
 
+        }
 
-        modalCategory.textContent =
-            product.category;
+        if (modalCategory) {
 
+            modalCategory.textContent =
+                product.category;
 
-        modalCollection.textContent =
-            product.collection;
+        }
 
+        if (modalCollection) {
 
-        modalName.textContent =
-            product.name;
+            modalCollection.textContent =
+                product.collection;
 
+        }
 
-        modalDescription.textContent =
-            product.description;
+        if (modalName) {
 
+            modalName.textContent =
+                product.name;
 
-        modalNotes.textContent =
-            product.notes;
+        }
 
+        if (modalDescription) {
 
-        modalPrice.textContent =
-            formatRupiah(
-                product.price
-            );
+            modalDescription.textContent =
+                product.description;
 
+        }
 
-        openModal(
-            productModal
-        );
+        if (modalNotes) {
+
+            modalNotes.textContent =
+                product.notes;
+
+        }
+
+        if (modalPrice) {
+
+            modalPrice.textContent =
+                formatRupiah(product.price);
+
+        }
+
+        openModal(productModal);
 
     }
 
@@ -387,40 +368,35 @@ document.addEventListener("DOMContentLoaded", () => {
        QUICK VIEW EVENTS
     ===================================================== */
 
-    quickViewButtons.forEach(
-        button => {
+    quickViewButtons.forEach(button => {
 
-            button.addEventListener(
-                "click",
-                event => {
+        button.addEventListener(
+            "click",
+            event => {
 
-                    event.stopPropagation();
+                event.stopPropagation();
 
+                const productId =
+                    button.dataset.product;
 
-                    const productId =
-                        button.dataset.product;
+                openProductModal(
+                    productId
+                );
 
+            }
+        );
 
-                    openProductModal(
-                        productId
-                    );
-
-                }
-            );
-
-        }
-    );
+    });
 
 
     /* =====================================================
-       CART
+       ADD TO CART
     ===================================================== */
 
     function addToCart(productId) {
 
         const product =
             products[productId];
-
 
         if (!product) {
 
@@ -433,13 +409,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         const existing =
             cart.find(
                 item =>
                     item.id === productId
             );
-
 
         if (existing) {
 
@@ -457,9 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         renderCart();
-
 
         showNotification(
             `${product.name} ditambahkan ke shopping bag.`
@@ -472,52 +444,51 @@ document.addEventListener("DOMContentLoaded", () => {
        MODAL ADD CART
     ===================================================== */
 
-    modalAddCart.addEventListener(
-        "click",
-        () => {
+    if (modalAddCart) {
 
-            if (!currentModalProduct) {
-                return;
+        modalAddCart.addEventListener(
+            "click",
+            () => {
+
+                if (!currentModalProduct) {
+                    return;
+                }
+
+                addToCart(
+                    currentModalProduct
+                );
+
+                closeModal(
+                    productModal
+                );
+
             }
+        );
 
-
-            addToCart(
-                currentModalProduct
-            );
-
-
-            closeModal(
-                productModal
-            );
-
-        }
-    );
+    }
 
 
     /* =====================================================
        PRODUCT ADD CART BUTTONS
     ===================================================== */
 
-    addCartButtons.forEach(
-        button => {
+    addCartButtons.forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-                    const productId =
-                        button.dataset.product;
+                const productId =
+                    button.dataset.product;
 
+                addToCart(
+                    productId
+                );
 
-                    addToCart(
-                        productId
-                    );
+            }
+        );
 
-                }
-            );
-
-        }
-    );
+    });
 
 
     /* =====================================================
@@ -526,8 +497,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderCart() {
 
-        cartItems.innerHTML = "";
+        if (!cartItems) {
+            return;
+        }
 
+        cartItems.innerHTML = "";
 
         let total = 0;
 
@@ -555,120 +529,118 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        cart.forEach(
-            item => {
+        cart.forEach(item => {
 
-                const product =
-                    products[item.id];
+            const product =
+                products[item.id];
 
-
-                if (!product) {
-                    return;
-                }
-
-
-                const subtotal =
-                    product.price *
-                    item.quantity;
-
-
-                total += subtotal;
-
-
-                totalQuantity +=
-                    item.quantity;
-
-
-                const itemElement =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                itemElement.className =
-                    "cart-item";
-
-
-                itemElement.innerHTML = `
-
-                    <div class="cart-item-image">
-
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                        >
-
-                    </div>
-
-
-                    <div class="cart-item-info">
-
-                        <h4>
-                            ${product.name}
-                        </h4>
-
-
-                        <span>
-                            ${formatRupiah(product.price)}
-                        </span>
-
-
-                        <div class="cart-quantity">
-
-                            <button
-                                type="button"
-                                data-action="decrease"
-                                data-id="${item.id}"
-                            >
-                                −
-                            </button>
-
-
-                            <strong>
-                                ${item.quantity}
-                            </strong>
-
-
-                            <button
-                                type="button"
-                                data-action="increase"
-                                data-id="${item.id}"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="remove-cart"
-                        data-action="remove"
-                        data-id="${item.id}"
-                        aria-label="Hapus produk"
-                    >
-                        ×
-                    </button>
-
-                `;
-
-
-                cartItems.appendChild(
-                    itemElement
-                );
-
+            if (!product) {
+                return;
             }
-        );
+
+            const subtotal =
+                product.price *
+                item.quantity;
+
+            total += subtotal;
+
+            totalQuantity +=
+                item.quantity;
 
 
-        cartTotal.textContent =
-            formatRupiah(total);
+            const itemElement =
+                document.createElement("div");
+
+            itemElement.className =
+                "cart-item";
 
 
-        cartCount.textContent =
-            totalQuantity;
+            itemElement.innerHTML = `
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${product.name}
+                    </h4>
+
+                    <span>
+                        ${formatRupiah(product.price)}
+                    </span>
+
+
+                    <div class="cart-quantity">
+
+                        <button
+                            type="button"
+                            data-action="decrease"
+                            data-id="${item.id}"
+                        >
+                            −
+                        </button>
+
+
+                        <strong>
+                            ${item.quantity}
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            data-action="increase"
+                            data-id="${item.id}"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="remove-cart"
+                    data-action="remove"
+                    data-id="${item.id}"
+                    aria-label="Hapus produk"
+                >
+                    ×
+                </button>
+
+            `;
+
+
+            cartItems.appendChild(
+                itemElement
+            );
+
+        });
+
+
+        if (cartTotal) {
+
+            cartTotal.textContent =
+                formatRupiah(total);
+
+        }
+
+
+        if (cartCount) {
+
+            cartCount.textContent =
+                totalQuantity;
+
+        }
 
     }
 
@@ -677,61 +649,65 @@ document.addEventListener("DOMContentLoaded", () => {
        CART ACTION
     ===================================================== */
 
-    cartItems.addEventListener(
-        "click",
-        event => {
+    if (cartItems) {
 
-            const button =
-                event.target.closest(
-                    "button"
-                );
+        cartItems.addEventListener(
+            "click",
+            event => {
 
+                const button =
+                    event.target.closest(
+                        "button"
+                    );
 
-            if (!button) {
-                return;
-            }
+                if (!button) {
+                    return;
+                }
 
+                const productId =
+                    button.dataset.id;
 
-            const productId =
-                button.dataset.id;
+                const action =
+                    button.dataset.action;
 
+                const item =
+                    cart.find(
+                        cartItem =>
+                            cartItem.id ===
+                            productId
+                    );
 
-            const action =
-                button.dataset.action;
-
-
-            const item =
-                cart.find(
-                    cartItem =>
-                        cartItem.id ===
-                        productId
-                );
-
-
-            if (!item) {
-                return;
-            }
+                if (!item) {
+                    return;
+                }
 
 
-            if (
-                action === "increase"
-            ) {
+                if (action === "increase") {
 
-                item.quantity += 1;
+                    item.quantity += 1;
 
-            }
+                }
 
 
-            if (
-                action === "decrease"
-            ) {
+                if (action === "decrease") {
 
-                item.quantity -= 1;
+                    item.quantity -= 1;
+
+                    if (item.quantity <= 0) {
+
+                        cart =
+                            cart.filter(
+                                cartItem =>
+                                    cartItem.id !==
+                                    productId
+                            );
+
+                    }
+
+                }
 
 
-                if (
-                    item.quantity <= 0
-                ) {
+                if (action === "remove") {
 
                     cart =
                         cart.filter(
@@ -742,73 +718,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-            }
 
-
-            if (
-                action === "remove"
-            ) {
-
-                cart =
-                    cart.filter(
-                        cartItem =>
-                            cartItem.id !==
-                            productId
-                    );
+                renderCart();
 
             }
+        );
 
-
-            renderCart();
-
-        }
-    );
+    }
 
 
     /* =====================================================
-       CART OPEN
+       OPEN CART
     ===================================================== */
 
-    openCart.addEventListener(
-        "click",
-        () => {
+    if (openCart) {
 
-            renderCart();
+        openCart.addEventListener(
+            "click",
+            () => {
 
+                renderCart();
 
-            cartPanel.classList.add(
-                "active"
-            );
+                cartPanel.classList.add(
+                    "active"
+                );
 
+                cartOverlay.classList.add(
+                    "active"
+                );
 
-            cartOverlay.classList.add(
-                "active"
-            );
+                body.classList.add(
+                    "cart-open"
+                );
 
+            }
+        );
 
-            body.classList.add(
-                "cart-open"
-            );
-
-        }
-    );
+    }
 
 
     /* =====================================================
-       CART CLOSE
+       CLOSE CART
     ===================================================== */
 
     function closeCartPanel() {
 
-        cartPanel.classList.remove(
-            "active"
-        );
+        if (cartPanel) {
 
+            cartPanel.classList.remove(
+                "active"
+            );
 
-        cartOverlay.classList.remove(
-            "active"
-        );
+        }
 
+        if (cartOverlay) {
+
+            cartOverlay.classList.remove(
+                "active"
+            );
+
+        }
 
         body.classList.remove(
             "cart-open"
@@ -817,16 +786,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    closeCart.addEventListener(
-        "click",
-        closeCartPanel
-    );
+    if (closeCart) {
+
+        closeCart.addEventListener(
+            "click",
+            closeCartPanel
+        );
+
+    }
 
 
-    cartOverlay.addEventListener(
-        "click",
-        closeCartPanel
-    );
+    if (cartOverlay) {
+
+        cartOverlay.addEventListener(
+            "click",
+            closeCartPanel
+        );
+
+    }
 
 
     /* =====================================================
@@ -835,238 +812,259 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function filterProducts() {
 
+        if (!productSearch) {
+            return;
+        }
+
         const searchTerm =
             productSearch.value
                 .trim()
                 .toLowerCase();
 
-
         let visibleCount = 0;
 
 
-        productCards.forEach(
-            card => {
+        productCards.forEach(card => {
 
-                const name =
-                    (
-                        card.dataset.name ||
-                        ""
-                    ).toLowerCase();
-
-
-                const category =
-                    (
-                        card.dataset.category ||
-                        ""
-                    ).toLowerCase();
+            const name =
+                (
+                    card.dataset.name ||
+                    ""
+                ).toLowerCase();
 
 
-                const collection =
-                    (
-                        card.dataset.collection ||
-                        ""
-                    ).toLowerCase();
+            const category =
+                (
+                    card.dataset.category ||
+                    ""
+                ).toLowerCase();
 
 
-                const matchesSearch =
-                    !searchTerm ||
-                    name.includes(
-                        searchTerm
-                    );
+            const collection =
+                (
+                    card.dataset.collection ||
+                    ""
+                ).toLowerCase();
 
 
-                let matchesFilter =
-                    true;
+            const matchesSearch =
+                !searchTerm ||
+                name.includes(searchTerm);
 
 
-                switch (
-                    currentFilter
-                ) {
-
-                    case "men":
-
-                        matchesFilter =
-                            category === "men";
-
-                        break;
+            let matchesFilter = true;
 
 
-                    case "women":
+            switch (currentFilter) {
 
-                        matchesFilter =
-                            category === "women";
+                case "men":
 
-                        break;
+                    matchesFilter =
+                        category === "men";
 
-
-                    case "unisex":
-
-                        matchesFilter =
-                            category === "unisex";
-
-                        break;
+                    break;
 
 
-                    case "dee-gelvi":
+                case "women":
 
-                        matchesFilter =
-                            collection ===
-                            "dee-gelvi";
+                    matchesFilter =
+                        category === "women";
 
-                        break;
-
-
-                    case "curated":
-
-                        matchesFilter =
-                            collection ===
-                            "curated";
-
-                        break;
+                    break;
 
 
-                    default:
+                case "unisex":
 
-                        matchesFilter =
-                            true;
+                    matchesFilter =
+                        category === "unisex";
 
-                }
-
-
-                const visible =
-                    matchesSearch &&
-                    matchesFilter;
+                    break;
 
 
-                card.style.display =
-                    visible
-                        ? ""
-                        : "none";
+                case "dee-gelvi":
+
+                    matchesFilter =
+                        collection === "dee-gelvi";
+
+                    break;
 
 
-                if (visible) {
-                    visibleCount++;
-                }
+                case "curated":
+
+                    matchesFilter =
+                        collection === "curated";
+
+                    break;
+
+
+                default:
+
+                    matchesFilter =
+                        true;
 
             }
-        );
 
 
-        noResult.hidden =
-            visibleCount !== 0;
+            const visible =
+                matchesSearch &&
+                matchesFilter;
+
+
+            card.style.display =
+                visible
+                    ? ""
+                    : "none";
+
+
+            if (visible) {
+                visibleCount++;
+            }
+
+        });
+
+
+        if (noResult) {
+
+            noResult.hidden =
+                visibleCount !== 0;
+
+        }
 
     }
 
 
-    productSearch.addEventListener(
-        "input",
-        filterProducts
-    );
+    if (productSearch) {
+
+        productSearch.addEventListener(
+            "input",
+            filterProducts
+        );
+
+    }
 
 
     /* =====================================================
        CATEGORY BUTTONS
     ===================================================== */
 
-    categoryButtons.forEach(
-        button => {
+    categoryButtons.forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-                    categoryButtons.forEach(
-                        item => {
+                categoryButtons.forEach(
+                    item => {
 
-                            item.classList.remove(
-                                "active"
-                            );
+                        item.classList.remove(
+                            "active"
+                        );
 
-                        }
-                    );
-
-
-                    button.classList.add(
-                        "active"
-                    );
+                    }
+                );
 
 
-                    currentFilter =
-                        button.dataset.filter;
+                button.classList.add(
+                    "active"
+                );
 
 
-                    filterProducts();
+                currentFilter =
+                    button.dataset.filter ||
+                    "all";
 
-                }
-            );
 
-        }
-    );
+                filterProducts();
+
+            }
+        );
+
+    });
 
 
     /* =====================================================
        SEARCH MODAL
     ===================================================== */
 
-    searchButton.addEventListener(
-        "click",
-        () => {
+    if (searchButton) {
 
-            openModal(
-                searchModal
-            );
+        searchButton.addEventListener(
+            "click",
+            () => {
 
-
-            setTimeout(
-                () => {
-
-                    searchInput.focus();
-
-                },
-                100
-            );
-
-        }
-    );
-
-
-    searchInput.addEventListener(
-        "input",
-        () => {
-
-            productSearch.value =
-                searchInput.value;
-
-
-            filterProducts();
-
-        }
-    );
-
-
-    searchInput.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                closeModal(
+                openModal(
                     searchModal
                 );
 
+                setTimeout(
+                    () => {
 
-                document
-                    .getElementById("shop")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
+                        if (searchInput) {
+                            searchInput.focus();
+                        }
+
+                    },
+                    100
+                );
 
             }
+        );
 
-        }
-    );
+    }
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                if (productSearch) {
+
+                    productSearch.value =
+                        searchInput.value;
+
+                }
+
+                filterProducts();
+
+            }
+        );
+
+
+        searchInput.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    closeModal(
+                        searchModal
+                    );
+
+
+                    const shop =
+                        document.getElementById(
+                            "shop"
+                        );
+
+
+                    if (shop) {
+
+                        shop.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
 
 
     /* =====================================================
@@ -1075,32 +1073,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document
         .querySelectorAll("[data-close]")
-        .forEach(
-            button => {
+        .forEach(button => {
 
-                button.addEventListener(
-                    "click",
-                    () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                        const targetId =
-                            button.dataset.close;
+                    const targetId =
+                        button.dataset.close;
 
-
-                        const modal =
-                            document.getElementById(
-                                targetId
-                            );
-
-
-                        closeModal(
-                            modal
+                    const modal =
+                        document.getElementById(
+                            targetId
                         );
 
-                    }
-                );
+                    closeModal(modal);
 
-            }
-        );
+                }
+            );
+
+        });
 
 
     /* =====================================================
@@ -1110,29 +1102,28 @@ document.addEventListener("DOMContentLoaded", () => {
     [
         productModal,
         searchModal
-    ].forEach(
-        modal => {
+    ].forEach(modal => {
 
-            modal.addEventListener(
-                "click",
-                event => {
+        if (!modal) {
+            return;
+        }
 
-                    if (
-                        event.target ===
-                        modal
-                    ) {
+        modal.addEventListener(
+            "click",
+            event => {
 
-                        closeModal(
-                            modal
-                        );
+                if (
+                    event.target === modal
+                ) {
 
-                    }
+                    closeModal(modal);
 
                 }
-            );
 
-        }
-    );
+            }
+        );
+
+    });
 
 
     /* =====================================================
@@ -1144,8 +1135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event => {
 
             if (
-                event.key !==
-                "Escape"
+                event.key !== "Escape"
             ) {
                 return;
             }
@@ -1164,9 +1154,13 @@ document.addEventListener("DOMContentLoaded", () => {
             closeCartPanel();
 
 
-            mobileMenu.classList.remove(
-                "active"
-            );
+            if (mobileMenu) {
+
+                mobileMenu.classList.remove(
+                    "active"
+                );
+
+            }
 
         }
     );
@@ -1176,22 +1170,27 @@ document.addEventListener("DOMContentLoaded", () => {
        MOBILE MENU
     ===================================================== */
 
-    mobileMenuButton.addEventListener(
-        "click",
-        () => {
+    if (mobileMenuButton) {
 
-            mobileMenu.classList.toggle(
-                "active"
-            );
+        mobileMenuButton.addEventListener(
+            "click",
+            () => {
 
-        }
-    );
+                mobileMenu.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+    }
 
 
-    mobileMenu
-        .querySelectorAll("a")
-        .forEach(
-            link => {
+    if (mobileMenu) {
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(link => {
 
                 link.addEventListener(
                     "click",
@@ -1204,44 +1203,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 );
 
-            }
-        );
+            });
+
+    }
 
 
     /* =====================================================
        WHATSAPP CHECKOUT
     ===================================================== */
 
-    checkoutWhatsApp.addEventListener(
-        "click",
-        () => {
+    if (checkoutWhatsApp) {
 
-            if (
-                cart.length === 0
-            ) {
+        checkoutWhatsApp.addEventListener(
+            "click",
+            () => {
 
-                showNotification(
-                    "Shopping bag masih kosong."
-                );
+                if (cart.length === 0) {
 
-                return;
+                    showNotification(
+                        "Shopping bag masih kosong."
+                    );
 
-            }
+                    return;
 
-
-            let message =
-                "Halo DEE GELVI, saya ingin memesan:\n\n";
+                }
 
 
-            let total = 0;
+                let message =
+                    "Halo DEE GELVI, saya ingin memesan:\n\n";
 
 
-            cart.forEach(
-                item => {
+                let total = 0;
+
+
+                cart.forEach(item => {
 
                     const product =
                         products[item.id];
-
 
                     if (!product) {
                         return;
@@ -1259,114 +1257,47 @@ document.addEventListener("DOMContentLoaded", () => {
                     message +=
                         `• ${product.name} x${item.quantity} — ${formatRupiah(subtotal)}\n`;
 
-                }
-            );
+                });
 
 
-            message +=
-                `\nTOTAL: ${formatRupiah(total)}`;
+                message +=
+                    `\nTOTAL: ${formatRupiah(total)}`;
 
 
-            const url =
-                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+                const url =
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 
-            window.open(
-                url,
-                "_blank"
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       TELEGRAM CHECKOUT
-    ===================================================== */
-
-    checkoutTelegram.addEventListener(
-        "click",
-        () => {
-
-            if (
-                cart.length === 0
-            ) {
-
-                showNotification(
-                    "Shopping bag masih kosong."
+                window.open(
+                    url,
+                    "_blank"
                 );
 
-                return;
-
             }
+        );
 
-
-            let message =
-                "Halo DEE GELVI, saya ingin memesan:\n\n";
-
-
-            let total = 0;
-
-
-            cart.forEach(
-                item => {
-
-                    const product =
-                        products[item.id];
-
-
-                    if (!product) {
-                        return;
-                    }
-
-
-                    const subtotal =
-                        product.price *
-                        item.quantity;
-
-
-                    total += subtotal;
-
-
-                    message +=
-                        `• ${product.name} x${item.quantity} — ${formatRupiah(subtotal)}\n`;
-
-                }
-            );
-
-
-            message +=
-                `\nTOTAL: ${formatRupiah(total)}`;
-
-
-            const url =
-                `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
-
-
-            window.open(
-                url,
-                "_blank"
-            );
-
-        }
-    );
+    }
 
 
     /* =====================================================
        TELEGRAM CONTACT
     ===================================================== */
 
-    telegramContact.addEventListener(
-        "click",
-        () => {
+    if (telegramContact) {
 
-            window.open(
-                `https://t.me/${TELEGRAM_USERNAME}`,
-                "_blank"
-            );
+        telegramContact.addEventListener(
+            "click",
+            () => {
 
-        }
-    );
+                window.open(
+                    `https://t.me/${TELEGRAM_USERNAME}`,
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
 
 
     /* =====================================================
