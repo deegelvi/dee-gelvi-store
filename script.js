@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
             image: "images/noam.jpg",
-            price: 199000,
+            price: 12.5,
             description:
                 "Aroma maskulin, clean, elegan, dan berkarakter. Cocok untuk kamu yang menyukai fragrance dengan kesan gentleman modern.",
             notes:
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
             image: "images/felix.jpg",
-            price: 199000,
+            price: 12.5,
             description:
                 "Fresh dan sophisticated dengan karakter modern yang cocok digunakan untuk acara spesial maupun daily signature.",
             notes:
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "WOMEN",
             collection: "DEE GELVI ORIGINAL",
             image: "images/van.jpg",
-            price: 199000,
+            price: 12.5,
             description:
                 "Fragrance lembut, sensual, feminine, dan elegan untuk melengkapi penampilan dengan karakter yang memorable.",
             notes:
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
             image: "images/shadow.jpg",
-            price: 299000,
+            price: 12.5,
             description:
                 "Dark, woody, maskulin, dan berkarakter kuat. Signature fragrance untuk menciptakan kesan yang sulit dilupakan.",
             notes:
@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
        ELEMENTS
     ===================================================== */
 
-    const body = document.body;
+    const body =
+        document.body;
 
     const productCards =
         document.querySelectorAll(".product-card");
@@ -146,6 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutWhatsApp =
         document.getElementById("checkoutWhatsApp");
 
+    const checkoutTelegram =
+        document.getElementById("checkoutTelegram");
+
     const telegramContact =
         document.getElementById("telegramContact");
 
@@ -176,25 +180,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cart = [];
 
-    let currentModalProduct = null;
+    let currentModalProduct =
+        null;
 
-    let currentFilter = "all";
+    let currentFilter =
+        "all";
 
 
     /* =====================================================
-       FORMAT RUPIAH
+       FORMAT PRICE
     ===================================================== */
 
-    function formatRupiah(number) {
+    function formatPrice(number) {
 
-        return new Intl.NumberFormat(
-            "id-ID",
-            {
-                style: "currency",
-                currency: "IDR",
-                minimumFractionDigits: 0
-            }
-        ).format(number);
+        return `$${Number(number).toFixed(1)}`;
 
     }
 
@@ -212,7 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
         cartNotification.textContent =
             message;
 
-        cartNotification.classList.add("show");
+        cartNotification.classList.add(
+            "show"
+        );
 
         clearTimeout(
             window.notificationTimer
@@ -240,14 +241,18 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        modal.classList.add("active");
+        modal.classList.add(
+            "active"
+        );
 
         modal.setAttribute(
             "aria-hidden",
             "false"
         );
 
-        body.classList.add("modal-open");
+        body.classList.add(
+            "modal-open"
+        );
 
     }
 
@@ -258,22 +263,34 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        modal.classList.remove("active");
+        modal.classList.remove(
+            "active"
+        );
 
         modal.setAttribute(
             "aria-hidden",
             "true"
         );
 
+
         const productOpen =
             productModal &&
-            productModal.classList.contains("active");
+            productModal.classList.contains(
+                "active"
+            );
+
 
         const searchOpen =
             searchModal &&
-            searchModal.classList.contains("active");
+            searchModal.classList.contains(
+                "active"
+            );
 
-        if (!productOpen && !searchOpen) {
+
+        if (
+            !productOpen &&
+            !searchOpen
+        ) {
 
             body.classList.remove(
                 "modal-open"
@@ -293,6 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const product =
             products[productId];
 
+
         if (!product) {
 
             console.warn(
@@ -304,8 +322,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         currentModalProduct =
             productId;
+
 
         if (modalImage) {
 
@@ -317,12 +337,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         if (modalCategory) {
 
             modalCategory.textContent =
                 product.category;
 
         }
+
 
         if (modalCollection) {
 
@@ -331,12 +353,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         if (modalName) {
 
             modalName.textContent =
                 product.name;
 
         }
+
 
         if (modalDescription) {
 
@@ -345,6 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         if (modalNotes) {
 
             modalNotes.textContent =
@@ -352,14 +377,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         if (modalPrice) {
 
             modalPrice.textContent =
-                formatRupiah(product.price);
+                formatPrice(
+                    product.price
+                );
 
         }
 
-        openModal(productModal);
+
+        openModal(
+            productModal
+        );
 
     }
 
@@ -368,25 +399,27 @@ document.addEventListener("DOMContentLoaded", () => {
        QUICK VIEW EVENTS
     ===================================================== */
 
-    quickViewButtons.forEach(button => {
+    quickViewButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            event => {
+            button.addEventListener(
+                "click",
+                event => {
 
-                event.stopPropagation();
+                    event.stopPropagation();
 
-                const productId =
-                    button.dataset.product;
+                    const productId =
+                        button.dataset.product;
 
-                openProductModal(
-                    productId
-                );
+                    openProductModal(
+                        productId
+                    );
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
 
 
     /* =====================================================
@@ -397,6 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const product =
             products[productId];
+
 
         if (!product) {
 
@@ -409,11 +443,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         const existing =
             cart.find(
                 item =>
                     item.id === productId
             );
+
 
         if (existing) {
 
@@ -431,7 +467,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         renderCart();
+
 
         showNotification(
             `${product.name} ditambahkan ke shopping bag.`
@@ -454,9 +492,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 addToCart(
                     currentModalProduct
                 );
+
 
                 closeModal(
                     productModal
@@ -472,23 +512,25 @@ document.addEventListener("DOMContentLoaded", () => {
        PRODUCT ADD CART BUTTONS
     ===================================================== */
 
-    addCartButtons.forEach(button => {
+    addCartButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const productId =
-                    button.dataset.product;
+                    const productId =
+                        button.dataset.product;
 
-                addToCart(
-                    productId
-                );
+                    addToCart(
+                        productId
+                    );
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
 
 
     /* =====================================================
@@ -501,11 +543,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        cartItems.innerHTML = "";
 
-        let total = 0;
+        cartItems.innerHTML =
+            "";
 
-        let totalQuantity = 0;
+
+        let total =
+            0;
+
+
+        let totalQuantity =
+            0;
 
 
         if (cart.length === 0) {
@@ -529,108 +577,120 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        cart.forEach(item => {
+        cart.forEach(
+            item => {
 
-            const product =
-                products[item.id];
-
-            if (!product) {
-                return;
-            }
-
-            const subtotal =
-                product.price *
-                item.quantity;
-
-            total += subtotal;
-
-            totalQuantity +=
-                item.quantity;
+                const product =
+                    products[item.id];
 
 
-            const itemElement =
-                document.createElement("div");
-
-            itemElement.className =
-                "cart-item";
+                if (!product) {
+                    return;
+                }
 
 
-            itemElement.innerHTML = `
-
-                <div class="cart-item-image">
-
-                    <img
-                        src="${product.image}"
-                        alt="${product.name}"
-                    >
-
-                </div>
+                const subtotal =
+                    product.price *
+                    item.quantity;
 
 
-                <div class="cart-item-info">
-
-                    <h4>
-                        ${product.name}
-                    </h4>
-
-                    <span>
-                        ${formatRupiah(product.price)}
-                    </span>
+                total +=
+                    subtotal;
 
 
-                    <div class="cart-quantity">
+                totalQuantity +=
+                    item.quantity;
 
-                        <button
-                            type="button"
-                            data-action="decrease"
-                            data-id="${item.id}"
+
+                const itemElement =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                itemElement.className =
+                    "cart-item";
+
+
+                itemElement.innerHTML = `
+
+                    <div class="cart-item-image">
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
                         >
-                            −
-                        </button>
-
-
-                        <strong>
-                            ${item.quantity}
-                        </strong>
-
-
-                        <button
-                            type="button"
-                            data-action="increase"
-                            data-id="${item.id}"
-                        >
-                            +
-                        </button>
 
                     </div>
 
-                </div>
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${product.name}
+                        </h4>
+
+                        <span>
+                            ${formatPrice(product.price)}
+                        </span>
 
 
-                <button
-                    type="button"
-                    class="remove-cart"
-                    data-action="remove"
-                    data-id="${item.id}"
-                    aria-label="Hapus produk"
-                >
-                    ×
-                </button>
+                        <div class="cart-quantity">
 
-            `;
+                            <button
+                                type="button"
+                                data-action="decrease"
+                                data-id="${item.id}"
+                            >
+                                −
+                            </button>
 
 
-            cartItems.appendChild(
-                itemElement
-            );
+                            <strong>
+                                ${item.quantity}
+                            </strong>
 
-        });
+
+                            <button
+                                type="button"
+                                data-action="increase"
+                                data-id="${item.id}"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="remove-cart"
+                        data-action="remove"
+                        data-id="${item.id}"
+                        aria-label="Hapus produk"
+                    >
+                        ×
+                    </button>
+
+                `;
+
+
+                cartItems.appendChild(
+                    itemElement
+                );
+
+            }
+        );
 
 
         if (cartTotal) {
 
             cartTotal.textContent =
-                formatRupiah(total);
+                formatPrice(
+                    total
+                );
 
         }
 
@@ -660,15 +720,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         "button"
                     );
 
+
                 if (!button) {
                     return;
                 }
 
+
                 const productId =
                     button.dataset.id;
 
+
                 const action =
                     button.dataset.action;
+
 
                 const item =
                     cart.find(
@@ -677,23 +741,36 @@ document.addEventListener("DOMContentLoaded", () => {
                             productId
                     );
 
+
                 if (!item) {
                     return;
                 }
 
 
-                if (action === "increase") {
+                if (
+                    action ===
+                    "increase"
+                ) {
 
-                    item.quantity += 1;
+                    item.quantity +=
+                        1;
 
                 }
 
 
-                if (action === "decrease") {
+                if (
+                    action ===
+                    "decrease"
+                ) {
 
-                    item.quantity -= 1;
+                    item.quantity -=
+                        1;
 
-                    if (item.quantity <= 0) {
+
+                    if (
+                        item.quantity <=
+                        0
+                    ) {
 
                         cart =
                             cart.filter(
@@ -707,7 +784,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                if (action === "remove") {
+                if (
+                    action ===
+                    "remove"
+                ) {
 
                     cart =
                         cart.filter(
@@ -739,13 +819,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 renderCart();
 
-                cartPanel.classList.add(
-                    "active"
-                );
 
-                cartOverlay.classList.add(
-                    "active"
-                );
+                if (cartPanel) {
+
+                    cartPanel.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                if (cartOverlay) {
+
+                    cartOverlay.classList.add(
+                        "active"
+                    );
+
+                }
+
 
                 body.classList.add(
                     "cart-open"
@@ -771,6 +862,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         if (cartOverlay) {
 
             cartOverlay.classList.remove(
@@ -778,6 +870,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         }
+
 
         body.classList.remove(
             "cart-open"
@@ -816,111 +909,126 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
         const searchTerm =
             productSearch.value
                 .trim()
                 .toLowerCase();
 
-        let visibleCount = 0;
+
+        let visibleCount =
+            0;
 
 
-        productCards.forEach(card => {
+        productCards.forEach(
+            card => {
 
-            const name =
-                (
-                    card.dataset.name ||
-                    ""
-                ).toLowerCase();
-
-
-            const category =
-                (
-                    card.dataset.category ||
-                    ""
-                ).toLowerCase();
+                const name =
+                    (
+                        card.dataset.name ||
+                        ""
+                    ).toLowerCase();
 
 
-            const collection =
-                (
-                    card.dataset.collection ||
-                    ""
-                ).toLowerCase();
+                const category =
+                    (
+                        card.dataset.category ||
+                        ""
+                    ).toLowerCase();
 
 
-            const matchesSearch =
-                !searchTerm ||
-                name.includes(searchTerm);
+                const collection =
+                    (
+                        card.dataset.collection ||
+                        ""
+                    ).toLowerCase();
 
 
-            let matchesFilter = true;
+                const matchesSearch =
+                    !searchTerm ||
+                    name.includes(
+                        searchTerm
+                    );
 
 
-            switch (currentFilter) {
-
-                case "men":
-
-                    matchesFilter =
-                        category === "men";
-
-                    break;
+                let matchesFilter =
+                    true;
 
 
-                case "women":
+                switch (
+                    currentFilter
+                ) {
 
-                    matchesFilter =
-                        category === "women";
+                    case "men":
 
-                    break;
+                        matchesFilter =
+                            category ===
+                            "men";
 
-
-                case "unisex":
-
-                    matchesFilter =
-                        category === "unisex";
-
-                    break;
+                        break;
 
 
-                case "dee-gelvi":
+                    case "women":
 
-                    matchesFilter =
-                        collection === "dee-gelvi";
+                        matchesFilter =
+                            category ===
+                            "women";
 
-                    break;
-
-
-                case "curated":
-
-                    matchesFilter =
-                        collection === "curated";
-
-                    break;
+                        break;
 
 
-                default:
+                    case "unisex":
 
-                    matchesFilter =
-                        true;
+                        matchesFilter =
+                            category ===
+                            "unisex";
+
+                        break;
+
+
+                    case "dee-gelvi":
+
+                        matchesFilter =
+                            collection ===
+                            "dee-gelvi";
+
+                        break;
+
+
+                    case "curated":
+
+                        matchesFilter =
+                            collection ===
+                            "curated";
+
+                        break;
+
+
+                    default:
+
+                        matchesFilter =
+                            true;
+
+                }
+
+
+                const visible =
+                    matchesSearch &&
+                    matchesFilter;
+
+
+                card.style.display =
+                    visible
+                        ? ""
+                        : "none";
+
+
+                if (visible) {
+                    visibleCount++;
+                }
 
             }
-
-
-            const visible =
-                matchesSearch &&
-                matchesFilter;
-
-
-            card.style.display =
-                visible
-                    ? ""
-                    : "none";
-
-
-            if (visible) {
-                visibleCount++;
-            }
-
-        });
+        );
 
 
         if (noResult) {
@@ -947,39 +1055,41 @@ document.addEventListener("DOMContentLoaded", () => {
        CATEGORY BUTTONS
     ===================================================== */
 
-    categoryButtons.forEach(button => {
+    categoryButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                categoryButtons.forEach(
-                    item => {
+                    categoryButtons.forEach(
+                        item => {
 
-                        item.classList.remove(
-                            "active"
-                        );
+                            item.classList.remove(
+                                "active"
+                            );
 
-                    }
-                );
-
-
-                button.classList.add(
-                    "active"
-                );
+                        }
+                    );
 
 
-                currentFilter =
-                    button.dataset.filter ||
-                    "all";
+                    button.classList.add(
+                        "active"
+                    );
 
 
-                filterProducts();
+                    currentFilter =
+                        button.dataset.filter ||
+                        "all";
 
-            }
-        );
 
-    });
+                    filterProducts();
+
+                }
+            );
+
+        }
+    );
 
 
     /* =====================================================
@@ -996,11 +1106,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     searchModal
                 );
 
+
                 setTimeout(
                     () => {
 
                         if (searchInput) {
+
                             searchInput.focus();
+
                         }
 
                     },
@@ -1026,6 +1139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
+
                 filterProducts();
 
             }
@@ -1037,27 +1151,30 @@ document.addEventListener("DOMContentLoaded", () => {
             event => {
 
                 if (
-                    event.key === "Enter"
+                    event.key !==
+                    "Enter"
                 ) {
+                    return;
+                }
 
-                    closeModal(
-                        searchModal
+
+                closeModal(
+                    searchModal
+                );
+
+
+                const shop =
+                    document.getElementById(
+                        "shop"
                     );
 
 
-                    const shop =
-                        document.getElementById(
-                            "shop"
-                        );
+                if (shop) {
 
-
-                    if (shop) {
-
-                        shop.scrollIntoView({
-                            behavior: "smooth"
-                        });
-
-                    }
+                    shop.scrollIntoView({
+                        behavior:
+                            "smooth"
+                    });
 
                 }
 
@@ -1072,27 +1189,35 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     document
-        .querySelectorAll("[data-close]")
-        .forEach(button => {
+        .querySelectorAll(
+            "[data-close]"
+        )
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                    const targetId =
-                        button.dataset.close;
+                        const targetId =
+                            button.dataset.close;
 
-                    const modal =
-                        document.getElementById(
-                            targetId
+
+                        const modal =
+                            document.getElementById(
+                                targetId
+                            );
+
+
+                        closeModal(
+                            modal
                         );
 
-                    closeModal(modal);
+                    }
+                );
 
-                }
-            );
-
-        });
+            }
+        );
 
 
     /* =====================================================
@@ -1102,28 +1227,34 @@ document.addEventListener("DOMContentLoaded", () => {
     [
         productModal,
         searchModal
-    ].forEach(modal => {
+    ].forEach(
+        modal => {
 
-        if (!modal) {
-            return;
-        }
+            if (!modal) {
+                return;
+            }
 
-        modal.addEventListener(
-            "click",
-            event => {
 
-                if (
-                    event.target === modal
-                ) {
+            modal.addEventListener(
+                "click",
+                event => {
 
-                    closeModal(modal);
+                    if (
+                        event.target ===
+                        modal
+                    ) {
+
+                        closeModal(
+                            modal
+                        );
+
+                    }
 
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
     /* =====================================================
@@ -1135,7 +1266,8 @@ document.addEventListener("DOMContentLoaded", () => {
         event => {
 
             if (
-                event.key !== "Escape"
+                event.key !==
+                "Escape"
             ) {
                 return;
             }
@@ -1176,9 +1308,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                mobileMenu.classList.toggle(
-                    "active"
-                );
+                if (mobileMenu) {
+
+                    mobileMenu.classList.toggle(
+                        "active"
+                    );
+
+                }
 
             }
         );
@@ -1190,20 +1326,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mobileMenu
             .querySelectorAll("a")
-            .forEach(link => {
+            .forEach(
+                link => {
 
-                link.addEventListener(
-                    "click",
-                    () => {
+                    link.addEventListener(
+                        "click",
+                        () => {
 
-                        mobileMenu.classList.remove(
-                            "active"
-                        );
+                            mobileMenu.classList.remove(
+                                "active"
+                            );
 
-                    }
-                );
+                        }
+                    );
 
-            });
+                }
+            );
 
     }
 
@@ -1218,7 +1356,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                if (cart.length === 0) {
+                if (
+                    cart.length ===
+                    0
+                ) {
 
                     showNotification(
                         "Shopping bag masih kosong."
@@ -1233,35 +1374,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Halo DEE GELVI, saya ingin memesan:\n\n";
 
 
-                let total = 0;
+                let total =
+                    0;
 
 
-                cart.forEach(item => {
+                cart.forEach(
+                    item => {
 
-                    const product =
-                        products[item.id];
+                        const product =
+                            products[item.id];
 
-                    if (!product) {
-                        return;
+
+                        if (!product) {
+                            return;
+                        }
+
+
+                        const subtotal =
+                            product.price *
+                            item.quantity;
+
+
+                        total +=
+                            subtotal;
+
+
+                        message +=
+                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
+
                     }
-
-
-                    const subtotal =
-                        product.price *
-                        item.quantity;
-
-
-                    total += subtotal;
-
-
-                    message +=
-                        `• ${product.name} x${item.quantity} — ${formatRupiah(subtotal)}\n`;
-
-                });
+                );
 
 
                 message +=
-                    `\nTOTAL: ${formatRupiah(total)}`;
+                    `\nTOTAL: ${formatPrice(total)}`;
 
 
                 const url =
@@ -1291,6 +1437,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 window.open(
                     `https://t.me/${TELEGRAM_USERNAME}`,
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       TELEGRAM CHECKOUT
+    ===================================================== */
+
+    if (checkoutTelegram) {
+
+        checkoutTelegram.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    cart.length ===
+                    0
+                ) {
+
+                    showNotification(
+                        "Shopping bag masih kosong."
+                    );
+
+                    return;
+
+                }
+
+
+                let message =
+                    "Halo DEE GELVI 👋\n\n" +
+                    "Saya ingin memesan:\n\n";
+
+
+                let total =
+                    0;
+
+
+                cart.forEach(
+                    item => {
+
+                        const product =
+                            products[item.id];
+
+
+                        if (!product) {
+                            return;
+                        }
+
+
+                        const subtotal =
+                            product.price *
+                            item.quantity;
+
+
+                        total +=
+                            subtotal;
+
+
+                        message +=
+                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
+
+                    }
+                );
+
+
+                message +=
+                    `\nTOTAL: ${formatPrice(total)}`;
+
+
+                message +=
+                    "\n\nMohon info ketersediaan dan cara pembayarannya. Terima kasih 🙏";
+
+
+                const telegramURL =
+                    `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
+
+
+                window.open(
+                    telegramURL,
                     "_blank"
                 );
 
