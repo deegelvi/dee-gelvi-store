@@ -1,1541 +1,1450 @@
-/* =========================================================
-   DEE GELVI STORE
-   FINAL CLEAN JAVASCRIPT
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* =====================================================
-       PRODUCT DATABASE
-    ===================================================== */
-
-    const products = {
-
-        noam: {
-            name: "NOAM THE GENTLE",
-            category: "MEN",
-            collection: "DEE GELVI ORIGINAL",
-            image: "images/noam.jpg",
-            price: 12.5,
-            description:
-                "Aroma maskulin, clean, elegan, dan berkarakter. Cocok untuk kamu yang menyukai fragrance dengan kesan gentleman modern.",
-            notes:
-                "CHARACTER — CLEAN • MASCULINE • ELEGANT"
-        },
-
-        felix: {
-            name: "FELIX EXCLUSIVE",
-            category: "MEN",
-            collection: "DEE GELVI ORIGINAL",
-            image: "images/felix.jpg",
-            price: 12.5,
-            description:
-                "Fresh dan sophisticated dengan karakter modern yang cocok digunakan untuk acara spesial maupun daily signature.",
-            notes:
-                "CHARACTER — FRESH • SOPHISTICATED • MODERN"
-        },
-
-        van: {
-            name: "VAN URBAN VOYAGER",
-            category: "WOMEN",
-            collection: "DEE GELVI ORIGINAL",
-            image: "images/van.jpg",
-            price: 12.5,
-            description:
-                "Fragrance lembut, sensual, feminine, dan elegan untuk melengkapi penampilan dengan karakter yang memorable.",
-            notes:
-                "CHARACTER — SOFT • FEMININE • ELEGANT"
-        },
+<!DOCTYPE html>
+<html lang="id">
 
-        shadow: {
-            name: "SHADOW MAN",
-            category: "MEN",
-            collection: "DEE GELVI ORIGINAL",
-            image: "images/shadow.jpg",
-            price: 12.5,
-            description:
-                "Dark, woody, maskulin, dan berkarakter kuat. Signature fragrance untuk menciptakan kesan yang sulit dilupakan.",
-            notes:
-                "CHARACTER — DARK • WOODY • MASCULINE"
-        }
+<head>
 
-    };
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
+    <meta
+        name="description"
+        content="DEE GELVI STORE — Luxury fragrance untuk signature identity kamu."
+    >
 
-    const body =
-        document.body;
+    <meta
+        name="theme-color"
+        content="#3f4144"
+    >
 
-    const productCards =
-        document.querySelectorAll(".product-card");
+    <title>DEE GELVI STORE — Luxury Fragrance</title>
 
-    const categoryButtons =
-        document.querySelectorAll(".category");
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    const quickViewButtons =
-        document.querySelectorAll(".quick-view");
+</head>
 
-    const addCartButtons =
-        document.querySelectorAll(".add-cart");
 
-    const productSearch =
-        document.getElementById("productSearch");
+<body>
 
-    const noResult =
-        document.getElementById("noResult");
 
-    const searchButton =
-        document.getElementById("searchButton");
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
 
-    const searchModal =
-        document.getElementById("searchModal");
+<div class="top-bar">
+    DISCOVER YOUR SIGNATURE SCENT — DEE GELVI STORE
+</div>
 
-    const searchInput =
-        document.getElementById("searchInput");
 
-    const productModal =
-        document.getElementById("productModal");
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    const modalImage =
-        document.getElementById("modalImage");
+<header class="site-header">
 
-    const modalCategory =
-        document.getElementById("modalCategory");
+    <div class="header-container">
 
-    const modalCollection =
-        document.getElementById("modalCollection");
+        <a
+            href="#home"
+            class="logo"
+            aria-label="DEE GELVI Store"
+        >
+            <strong>DEE GELVI</strong>
+            <span>LUXURY FRAGRANCE</span>
+        </a>
 
-    const modalName =
-        document.getElementById("modalName");
 
-    const modalDescription =
-        document.getElementById("modalDescription");
+        <nav
+            class="desktop-nav"
+            aria-label="Navigasi utama"
+        >
 
-    const modalNotes =
-        document.getElementById("modalNotes");
+            <a href="#home">HOME</a>
+            <a href="#shop">SHOP</a>
+            <a href="#about">ABOUT</a>
+            <a href="#contact">CONTACT</a>
 
-    const modalPrice =
-        document.getElementById("modalPrice");
+        </nav>
 
-    const modalAddCart =
-        document.getElementById("modalAddCart");
 
-    const openCart =
-        document.getElementById("openCart");
+        <div class="header-actions">
 
-    const closeCart =
-        document.getElementById("closeCart");
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Cari produk"
+            >
+                🔍
+            </button>
 
-    const cartPanel =
-        document.getElementById("cartPanel");
 
-    const cartOverlay =
-        document.getElementById("cartOverlay");
+            <button
+                type="button"
+                id="openCart"
+                aria-label="Buka shopping bag"
+            >
 
-    const cartItems =
-        document.getElementById("cartItems");
+                🛍️
 
-    const cartTotal =
-        document.getElementById("cartTotal");
+                <span id="cartCount">0</span>
 
-    const cartCount =
-        document.getElementById("cartCount");
+            </button>
 
-    const checkoutWhatsApp =
-        document.getElementById("checkoutWhatsApp");
 
-    const checkoutTelegram =
-        document.getElementById("checkoutTelegram");
+            <button
+                type="button"
+                id="mobileMenuButton"
+                aria-label="Buka menu"
+            >
+                ☰
+            </button>
 
-    const telegramContact =
-        document.getElementById("telegramContact");
+        </div>
 
-    const cartNotification =
-        document.getElementById("cartNotification");
+    </div>
 
-    const mobileMenuButton =
-        document.getElementById("mobileMenuButton");
 
-    const mobileMenu =
-        document.getElementById("mobileMenu");
+    <!-- MOBILE MENU -->
 
+    <div
+        id="mobileMenu"
+        class="mobile-menu"
+    >
 
-    /* =====================================================
-       SETTINGS
-    ===================================================== */
+        <a href="#home">HOME</a>
+        <a href="#shop">SHOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
 
-    const WHATSAPP_NUMBER =
-        "6281234567890";
+    </div>
 
-    const TELEGRAM_USERNAME =
-        "NewEra889";
+</header>
 
 
-    /* =====================================================
-       STATE
-    ===================================================== */
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
-    let cart = [];
+<main>
 
-    let currentModalProduct =
-        null;
 
-    let currentFilter =
-        "all";
+<!-- =========================================================
+     HERO
+========================================================= -->
 
+<section
+    id="home"
+    class="hero"
+>
 
-    /* =====================================================
-       FORMAT PRICE
-    ===================================================== */
+    <div class="hero-content">
 
-    function formatPrice(number) {
+        <span class="hero-label">
+            THE ART OF SIGNATURE SCENT
+        </span>
 
-        return `$${Number(number).toFixed(1)}`;
 
-    }
+        <h1>
+            YOUR SCENT.
+            <br>
+            YOUR <em>IDENTITY.</em>
+        </h1>
 
 
-    /* =====================================================
-       NOTIFICATION
-    ===================================================== */
+        <p>
+            Luxury fragrance dengan karakter elegan
+            untuk melengkapi signature identity kamu.
+        </p>
 
-    function showNotification(message) {
 
-        if (!cartNotification) {
-            return;
-        }
+        <div class="hero-buttons">
 
-        cartNotification.textContent =
-            message;
+            <a
+                href="#shop"
+                class="hero-button"
+            >
+                EXPLORE COLLECTION
+            </a>
 
-        cartNotification.classList.add(
-            "show"
-        );
 
-        clearTimeout(
-            window.notificationTimer
-        );
+            <a
+                href="#dee-gelvi-collection"
+                class="hero-button hero-button-outline"
+            >
+                DEE GELVI ORIGINAL
+            </a>
 
-        window.notificationTimer =
-            setTimeout(() => {
+        </div>
 
-                cartNotification.classList.remove(
-                    "show"
-                );
+    </div>
 
-            }, 2500);
 
-    }
+    <!-- HERO IMAGE
+         JANGAN DIUBAH
+    -->
 
+    <div class="hero-product">
 
-    /* =====================================================
-       MODAL
-    ===================================================== */
+        <div class="hero-frame">
 
-    function openModal(modal) {
+            <img
+                src="images/VanillaDream.jpg"
+                alt="DEE GELVI STORE"
+            >
 
-        if (!modal) {
-            return;
-        }
 
-        modal.classList.add(
-            "active"
-        );
+            <div class="hero-product-label">
 
-        modal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+                <span>
+                    DEE GELVI
+                </span>
 
-        body.classList.add(
-            "modal-open"
-        );
+                <small>
+                    DEE GELVI SIGNATURE
+                </small>
 
-    }
+            </div>
 
+        </div>
 
-    function closeModal(modal) {
+    </div>
 
-        if (!modal) {
-            return;
-        }
+</section>
 
-        modal.classList.remove(
-            "active"
-        );
 
-        modal.setAttribute(
-            "aria-hidden",
-            "true"
-        );
+<!-- =========================================================
+     TRUST
+========================================================= -->
 
+<section class="trust">
 
-        const productOpen =
-            productModal &&
-            productModal.classList.contains(
-                "active"
-            );
+    <div class="trust-item">
 
+        <span>✦</span>
 
-        const searchOpen =
-            searchModal &&
-            searchModal.classList.contains(
-                "active"
-            );
+        <div>
 
+            <strong>
+                SIGNATURE QUALITY
+            </strong>
 
-        if (
-            !productOpen &&
-            !searchOpen
-        ) {
+            <p>
+                Fragrance pilihan dengan karakter
+                yang kuat.
+            </p>
 
-            body.classList.remove(
-                "modal-open"
-            );
+        </div>
 
-        }
+    </div>
 
-    }
 
+    <div class="trust-item">
 
-    /* =====================================================
-       QUICK VIEW
-    ===================================================== */
+        <span>◇</span>
 
-    function openProductModal(productId) {
+        <div>
 
-        const product =
-            products[productId];
+            <strong>
+                CURATED SELECTION
+            </strong>
 
+            <p>
+                Produk pilihan untuk melengkapi
+                koleksi fragrance kamu.
+            </p>
 
-        if (!product) {
+        </div>
 
-            console.warn(
-                "Product tidak ditemukan:",
-                productId
-            );
+    </div>
 
-            return;
 
-        }
+    <div class="trust-item">
 
+        <span>♢</span>
 
-        currentModalProduct =
-            productId;
+        <div>
 
+            <strong>
+                EASY ORDER
+            </strong>
 
-        if (modalImage) {
+            <p>
+                Pesan dengan mudah melalui
+                WhatsApp atau Telegram.
+            </p>
 
-            modalImage.src =
-                product.image;
+        </div>
 
-            modalImage.alt =
-                product.name;
+    </div>
 
-        }
+</section>
 
 
-        if (modalCategory) {
+<!-- =========================================================
+     SHOP
+========================================================= -->
 
-            modalCategory.textContent =
-                product.category;
+<section
+    id="shop"
+    class="shop-section"
+>
 
-        }
+    <div class="section-heading">
 
+        <span>
+            OUR COLLECTION
+        </span>
 
-        if (modalCollection) {
+        <h2>
+            Find Your Signature
+        </h2>
 
-            modalCollection.textContent =
-                product.collection;
+        <p>
+            Explore fragrance dari DEE GELVI
+            dan pilihan curated collection kami.
+        </p>
 
-        }
+    </div>
 
 
-        if (modalName) {
+    <!-- SHOP TOOLS -->
 
-            modalName.textContent =
-                product.name;
+    <div class="shop-tools">
 
-        }
+        <div class="search-box">
 
+            <input
+                type="search"
+                id="productSearch"
+                placeholder="Cari parfum..."
+                autocomplete="off"
+                aria-label="Cari parfum"
+            >
 
-        if (modalDescription) {
+        </div>
 
-            modalDescription.textContent =
-                product.description;
 
-        }
+        <div class="categories">
 
+            <button
+                type="button"
+                class="category active"
+                data-filter="all"
+            >
+                ALL
+            </button>
 
-        if (modalNotes) {
 
-            modalNotes.textContent =
-                product.notes;
+            <button
+                type="button"
+                class="category"
+                data-filter="dee-gelvi"
+            >
+                DEE GELVI
+            </button>
 
-        }
 
+            <button
+                type="button"
+                class="category"
+                data-filter="curated"
+            >
+                CURATED
+            </button>
 
-        if (modalPrice) {
 
-            modalPrice.textContent =
-                formatPrice(
-                    product.price
-                );
+            <button
+                type="button"
+                class="category"
+                data-filter="men"
+            >
+                MEN
+            </button>
 
-        }
 
+            <button
+                type="button"
+                class="category"
+                data-filter="women"
+            >
+                WOMEN
+            </button>
 
-        openModal(
-            productModal
-        );
 
-    }
+            <button
+                type="button"
+                class="category"
+                data-filter="unisex"
+            >
+                UNISEX
+            </button>
 
+        </div>
 
-    /* =====================================================
-       QUICK VIEW EVENTS
-    ===================================================== */
+    </div>
 
-    quickViewButtons.forEach(
-        button => {
 
-            button.addEventListener(
-                "click",
-                event => {
+    <!-- NO RESULT -->
 
-                    event.stopPropagation();
+    <div
+        id="noResult"
+        class="no-result"
+        hidden
+    >
 
-                    const productId =
-                        button.dataset.product;
+        <p>
+            Produk tidak ditemukan.
+        </p>
 
-                    openProductModal(
-                        productId
-                    );
+    </div>
 
-                }
-            );
 
-        }
-    );
+    <!-- =====================================================
+         DEE GELVI ORIGINAL
+    ====================================================== -->
 
+    <section
+        id="dee-gelvi-collection"
+        class="collection-section"
+    >
 
-    /* =====================================================
-       ADD TO CART
-    ===================================================== */
+        <div class="collection-title">
 
-    function addToCart(productId) {
+            <span>
+                DEE GELVI ORIGINAL
+            </span>
 
-        const product =
-            products[productId];
+            <h3>
+                The Signature Collection
+            </h3>
 
+            <p>
+                Koleksi original DEE GELVI
+                dengan karakter khas dan elegan.
+            </p>
 
-        if (!product) {
+        </div>
 
-            console.warn(
-                "Product tidak ditemukan:",
-                productId
-            );
 
-            return;
+        <div class="product-grid">
 
-        }
 
+            <!-- =================================================
+                 PRODUCT 01 — NOAM
+            ================================================== -->
 
-        const existing =
-            cart.find(
-                item =>
-                    item.id === productId
-            );
+            <article
+                class="product-card"
+                data-name="NOAM THE GENTLE"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
 
+                <div class="product-image">
 
-        if (existing) {
+                    <img
+                        src="images/noam.jpg"
+                        alt="NOAM THE GENTLE"
+                        loading="lazy"
+                    >
 
-            existing.quantity += 1;
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
 
-        } else {
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="noam"
+                    >
+                        QUICK VIEW
+                    </button>
 
-            cart.push({
+                </div>
 
-                id: productId,
 
-                quantity: 1
+                <div class="product-info">
 
-            });
+                    <span class="product-category">
+                        MEN
+                    </span>
 
-        }
+                    <h3>
+                        NOAM THE GENTLE
+                    </h3>
 
-
-        renderCart();
-
-
-        showNotification(
-            `${product.name} ditambahkan ke shopping bag.`
-        );
-
-    }
-
-
-    /* =====================================================
-       MODAL ADD CART
-    ===================================================== */
-
-    if (modalAddCart) {
-
-        modalAddCart.addEventListener(
-            "click",
-            () => {
-
-                if (!currentModalProduct) {
-                    return;
-                }
-
-
-                addToCart(
-                    currentModalProduct
-                );
-
-
-                closeModal(
-                    productModal
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       PRODUCT ADD CART BUTTONS
-    ===================================================== */
-
-    addCartButtons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    const productId =
-                        button.dataset.product;
-
-                    addToCart(
-                        productId
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       RENDER CART
-    ===================================================== */
-
-    function renderCart() {
-
-        if (!cartItems) {
-            return;
-        }
-
-
-        cartItems.innerHTML =
-            "";
-
-
-        let total =
-            0;
-
-
-        let totalQuantity =
-            0;
-
-
-        if (cart.length === 0) {
-
-            cartItems.innerHTML = `
-
-                <div class="empty-cart">
-
-                    <p>
-                        YOUR BAG IS EMPTY
+                    <p class="product-desc">
+                        Aroma maskulin, dark,
+                        elegant, dan berkarakter.
                     </p>
 
-                    <span>
-                        Pilih fragrance favorit kamu.
+                    <div class="product-price">
+
+                        <strong>
+                            $12,5
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="noam"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 PRODUCT 02 — FELIX
+            ================================================== -->
+
+            <article
+                class="product-card"
+                data-name="FELIX EXCLUSIVE"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/felix.jpg"
+                        alt="FELIX EXCLUSIVE"
+                        loading="lazy"
+                    >
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="felix"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MEN
+                    </span>
+
+                    <h3>
+                        FELIX EXCLUSIVE
+                    </h3>
+
+                    <p class="product-desc">
+                        Fresh, sophisticated,
+                        dan cocok untuk acara spesial.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            $12,5
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="felix"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 PRODUCT 03 — VAN
+            ================================================== -->
+
+            <article
+                class="product-card"
+                data-name="VAN URBAN VOYAGER"
+                data-category="women"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/van.jpg"
+                        alt="VAN URBAN VOYAGER"
+                        loading="lazy"
+                    >
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="van"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        WOMEN
+                    </span>
+
+                    <h3>
+                        VAN URBAN VOYAGER
+                    </h3>
+
+                    <p class="product-desc">
+                        Lembut, sensual,
+                        feminine, dan elegan.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            $12,5
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="van"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 PRODUCT 04 — SHADOW
+            ================================================== -->
+
+            <article
+                class="product-card"
+                data-name="SHADOW MAN"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/shadow.jpg"
+                        alt="SHADOW MAN"
+                        loading="lazy"
+                    >
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="shadow"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MEN
+                    </span>
+
+                    <h3>
+                        SHADOW MAN
+                    </h3>
+
+                    <p class="product-desc">
+                        Dark, woody, maskulin,
+                        dan berkarakter kuat.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            $12,5
+                        </strong>
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="shadow"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 PRODUCT 05 — COMING SOON
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="NEW DEE GELVI"
+                data-category="unisex"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        COMING SOON
                     </span>
 
                 </div>
 
-            `;
 
-        }
+                <div class="product-info">
 
+                    <span class="product-category">
+                        DEE GELVI
+                    </span>
 
-        cart.forEach(
-            item => {
+                    <h3>
+                        NEW DEE GELVI
+                    </h3>
 
-                const product =
-                    products[item.id];
+                    <p class="product-desc">
+                        Fragrance terbaru DEE GELVI
+                        sedang dipersiapkan.
+                    </p>
 
+                    <div class="product-price">
 
-                if (!product) {
-                    return;
-                }
-
-
-                const subtotal =
-                    product.price *
-                    item.quantity;
-
-
-                total +=
-                    subtotal;
-
-
-                totalQuantity +=
-                    item.quantity;
-
-
-                const itemElement =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                itemElement.className =
-                    "cart-item";
-
-
-                itemElement.innerHTML = `
-
-                    <div class="cart-item-image">
-
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                        >
+                        <strong>
+                            COMING SOON
+                        </strong>
 
                     </div>
 
+                </div>
 
-                    <div class="cart-item-info">
+            </article>
 
-                        <h4>
-                            ${product.name}
-                        </h4>
 
+            <!-- =================================================
+                 PRODUCT 06 — COMING SOON
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="NEW SIGNATURE"
+                data-category="unisex"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
                         <span>
-                            ${formatPrice(product.price)}
+                            COMING SOON
                         </span>
+                    </div>
+
+                    <span class="badge">
+                        COMING SOON
+                    </span>
+
+                </div>
 
 
-                        <div class="cart-quantity">
+                <div class="product-info">
 
-                            <button
-                                type="button"
-                                data-action="decrease"
-                                data-id="${item.id}"
-                            >
-                                −
-                            </button>
+                    <span class="product-category">
+                        DEE GELVI
+                    </span>
 
+                    <h3>
+                        NEW SIGNATURE
+                    </h3>
 
-                            <strong>
-                                ${item.quantity}
-                            </strong>
+                    <p class="product-desc">
+                        Signature fragrance terbaru
+                        segera hadir.
+                    </p>
 
+                    <div class="product-price">
 
-                            <button
-                                type="button"
-                                data-action="increase"
-                                data-id="${item.id}"
-                            >
-                                +
-                            </button>
-
-                        </div>
+                        <strong>
+                            COMING SOON
+                        </strong>
 
                     </div>
 
+                </div>
 
-                    <button
-                        type="button"
-                        class="remove-cart"
-                        data-action="remove"
-                        data-id="${item.id}"
-                        aria-label="Hapus produk"
-                    >
-                        ×
-                    </button>
+            </article>
 
-                `;
+        </div>
 
+    </section>
 
-                cartItems.appendChild(
-                    itemElement
-                );
 
-            }
-        );
+    <!-- =====================================================
+         CURATED COLLECTION
+    ====================================================== -->
 
+    <section
+        id="curated-collection"
+        class="collection-section curated-section"
+    >
 
-        if (cartTotal) {
+        <div class="collection-title">
 
-            cartTotal.textContent =
-                formatPrice(
-                    total
-                );
+            <span>
+                SELECTED FRAGRANCES
+            </span>
 
-        }
+            <h3>
+                Curated Collection
+            </h3>
 
+            <p>
+                Pilihan fragrance dari brand luar
+                yang kami pilih untuk melengkapi
+                koleksi DEE GELVI.
+            </p>
 
-        if (cartCount) {
+        </div>
 
-            cartCount.textContent =
-                totalQuantity;
 
-        }
+        <div class="product-grid curated-grid">
 
-    }
 
+            <!-- =================================================
+                 CURATED 01
+            ================================================== -->
 
-    /* =====================================================
-       CART ACTION
-    ===================================================== */
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 01"
+                data-category="unisex"
+                data-collection="curated"
+            >
 
-    if (cartItems) {
+                <div class="product-image">
 
-        cartItems.addEventListener(
-            "click",
-            event => {
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
 
-                const button =
-                    event.target.closest(
-                        "button"
-                    );
+                    <span class="badge">
+                        CURATED
+                    </span>
 
+                </div>
 
-                if (!button) {
-                    return;
-                }
 
+                <div class="product-info">
 
-                const productId =
-                    button.dataset.id;
+                    <span class="product-category">
+                        CURATED
+                    </span>
 
+                    <h3>
+                        CURATED FRAGRANCE 01
+                    </h3>
 
-                const action =
-                    button.dataset.action;
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
 
+                    <div class="product-price">
 
-                const item =
-                    cart.find(
-                        cartItem =>
-                            cartItem.id ===
-                            productId
-                    );
+                        <strong>
+                            COMING SOON
+                        </strong>
 
+                    </div>
 
-                if (!item) {
-                    return;
-                }
+                </div>
 
+            </article>
 
-                if (
-                    action ===
-                    "increase"
-                ) {
 
-                    item.quantity +=
-                        1;
+            <!-- =================================================
+                 CURATED 02
+            ================================================== -->
 
-                }
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 02"
+                data-category="unisex"
+                data-collection="curated"
+            >
 
+                <div class="product-image">
 
-                if (
-                    action ===
-                    "decrease"
-                ) {
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
 
-                    item.quantity -=
-                        1;
+                    <span class="badge">
+                        CURATED
+                    </span>
 
+                </div>
 
-                    if (
-                        item.quantity <=
-                        0
-                    ) {
 
-                        cart =
-                            cart.filter(
-                                cartItem =>
-                                    cartItem.id !==
-                                    productId
-                            );
+                <div class="product-info">
 
-                    }
+                    <span class="product-category">
+                        CURATED
+                    </span>
 
-                }
+                    <h3>
+                        CURATED FRAGRANCE 02
+                    </h3>
 
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
 
-                if (
-                    action ===
-                    "remove"
-                ) {
+                    <div class="product-price">
 
-                    cart =
-                        cart.filter(
-                            cartItem =>
-                                cartItem.id !==
-                                productId
-                        );
+                        <strong>
+                            COMING SOON
+                        </strong>
 
-                }
+                    </div>
 
+                </div>
 
-                renderCart();
+            </article>
 
-            }
-        );
 
-    }
+            <!-- =================================================
+                 CURATED 03
+            ================================================== -->
 
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 03"
+                data-category="unisex"
+                data-collection="curated"
+            >
 
-    /* =====================================================
-       OPEN CART
-    ===================================================== */
+                <div class="product-image">
 
-    if (openCart) {
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
 
-        openCart.addEventListener(
-            "click",
-            () => {
+                    <span class="badge">
+                        CURATED
+                    </span>
 
-                renderCart();
+                </div>
 
 
-                if (cartPanel) {
+                <div class="product-info">
 
-                    cartPanel.classList.add(
-                        "active"
-                    );
+                    <span class="product-category">
+                        CURATED
+                    </span>
 
-                }
+                    <h3>
+                        CURATED FRAGRANCE 03
+                    </h3>
 
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
 
-                if (cartOverlay) {
+                    <div class="product-price">
 
-                    cartOverlay.classList.add(
-                        "active"
-                    );
+                        <strong>
+                            COMING SOON
+                        </strong>
 
-                }
+                    </div>
 
+                </div>
 
-                body.classList.add(
-                    "cart-open"
-                );
+            </article>
 
-            }
-        );
+        </div>
 
-    }
+    </section>
 
+</section>
 
-    /* =====================================================
-       CLOSE CART
-    ===================================================== */
 
-    function closeCartPanel() {
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-        if (cartPanel) {
+<section
+    id="about"
+    class="about-section"
+>
 
-            cartPanel.classList.remove(
-                "active"
-            );
+    <div class="about-content">
 
-        }
+        <span>
+            ABOUT DEE GELVI
+        </span>
 
 
-        if (cartOverlay) {
+        <h2>
+            More Than Just
+            <br>
+            A Fragrance.
+        </h2>
 
-            cartOverlay.classList.remove(
-                "active"
-            );
 
-        }
+        <p>
+            Fragrance bukan hanya tentang aroma.
+            Ia adalah karakter, mood, dan sesuatu
+            yang membuat seseorang diingat.
+        </p>
 
 
-        body.classList.remove(
-            "cart-open"
-        );
+        <p>
+            DEE GELVI hadir untuk menghadirkan
+            fragrance yang elegan, modern,
+            dan berkarakter.
+        </p>
 
-    }
 
+        <div class="about-values">
 
-    if (closeCart) {
+            <div>
+                <strong>01</strong>
+                <span>SIGNATURE</span>
+            </div>
 
-        closeCart.addEventListener(
-            "click",
-            closeCartPanel
-        );
+            <div>
+                <strong>02</strong>
+                <span>CHARACTER</span>
+            </div>
 
-    }
+            <div>
+                <strong>03</strong>
+                <span>MEMORY</span>
+            </div>
 
+        </div>
 
-    if (cartOverlay) {
+    </div>
 
-        cartOverlay.addEventListener(
-            "click",
-            closeCartPanel
-        );
+</section>
 
-    }
 
+<!-- =========================================================
+     CTA
+========================================================= -->
 
-    /* =====================================================
-       SEARCH & FILTER
-    ===================================================== */
+<section class="cta">
 
-    function filterProducts() {
+    <span>
+        FIND YOUR SIGNATURE
+    </span>
 
-        if (!productSearch) {
-            return;
-        }
 
+    <h2>
+        Wear Your Identity.
+    </h2>
 
-        const searchTerm =
-            productSearch.value
-                .trim()
-                .toLowerCase();
 
+    <a
+        href="#shop"
+        class="hero-button"
+    >
+        EXPLORE COLLECTION
+    </a>
 
-        let visibleCount =
-            0;
+</section>
 
 
-        productCards.forEach(
-            card => {
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-                const name =
-                    (
-                        card.dataset.name ||
-                        ""
-                    ).toLowerCase();
+<section
+    id="contact"
+    class="contact-section"
+>
 
+    <div class="section-heading">
 
-                const category =
-                    (
-                        card.dataset.category ||
-                        ""
-                    ).toLowerCase();
+        <span>
+            GET IN TOUCH
+        </span>
 
 
-                const collection =
-                    (
-                        card.dataset.collection ||
-                        ""
-                    ).toLowerCase();
+        <h2>
+            Need Help?
+        </h2>
 
 
-                const matchesSearch =
-                    !searchTerm ||
-                    name.includes(
-                        searchTerm
-                    );
+        <p>
+            Hubungi DEE GELVI untuk informasi
+            produk, stok, dan pemesanan.
+        </p>
 
 
-                let matchesFilter =
-                    true;
+        <button
+            type="button"
+            id="telegramContact"
+            class="contact-button"
+        >
+            CONTACT VIA TELEGRAM
+        </button>
 
+    </div>
 
-                switch (
-                    currentFilter
-                ) {
+</section>
 
-                    case "men":
+</main>
 
-                        matchesFilter =
-                            category ===
-                            "men";
 
-                        break;
+<!-- =========================================================
+     PRODUCT MODAL
+========================================================= -->
 
+<div
+    id="productModal"
+    class="modal"
+    aria-hidden="true"
+>
 
-                    case "women":
+    <div class="modal-content">
 
-                        matchesFilter =
-                            category ===
-                            "women";
+        <button
+            type="button"
+            class="modal-close"
+            data-close="productModal"
+            aria-label="Tutup"
+        >
+            ×
+        </button>
 
-                        break;
 
+        <div class="modal-product">
 
-                    case "unisex":
+            <div class="modal-image">
 
-                        matchesFilter =
-                            category ===
-                            "unisex";
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
 
-                        break;
+            </div>
 
 
-                    case "dee-gelvi":
+            <div class="modal-info">
 
-                        matchesFilter =
-                            collection ===
-                            "dee-gelvi";
+                <span
+                    id="modalCategory"
+                    class="product-category"
+                ></span>
 
-                        break;
 
+                <span
+                    id="modalCollection"
+                    class="modal-collection"
+                ></span>
 
-                    case "curated":
 
-                        matchesFilter =
-                            collection ===
-                            "curated";
+                <h2 id="modalName"></h2>
 
-                        break;
 
+                <p
+                    id="modalDescription"
+                    class="modal-description"
+                ></p>
 
-                    default:
 
-                        matchesFilter =
-                            true;
+                <div
+                    id="modalNotes"
+                    class="modal-notes"
+                ></div>
 
-                }
 
+                <strong
+                    id="modalPrice"
+                    class="modal-price"
+                ></strong>
 
-                const visible =
-                    matchesSearch &&
-                    matchesFilter;
 
+                <button
+                    type="button"
+                    id="modalAddCart"
+                    class="modal-add-cart"
+                >
+                    ADD TO SHOPPING BAG
+                </button>
 
-                card.style.display =
-                    visible
-                        ? ""
-                        : "none";
+            </div>
 
+        </div>
 
-                if (visible) {
-                    visibleCount++;
-                }
+    </div>
 
-            }
-        );
+</div>
 
 
-        if (noResult) {
+<!-- =========================================================
+     SEARCH MODAL
+========================================================= -->
 
-            noResult.hidden =
-                visibleCount !== 0;
+<div
+    id="searchModal"
+    class="modal"
+    aria-hidden="true"
+>
 
-        }
+    <div class="search-modal-content modal-content">
 
-    }
+        <button
+            type="button"
+            class="modal-close"
+            data-close="searchModal"
+            aria-label="Tutup"
+        >
+            ×
+        </button>
 
 
-    if (productSearch) {
+        <div class="search-modal-inner">
 
-        productSearch.addEventListener(
-            "input",
-            filterProducts
-        );
+            <span>
+                SEARCH
+            </span>
 
-    }
 
+            <h2>
+                Find Your Fragrance
+            </h2>
 
-    /* =====================================================
-       CATEGORY BUTTONS
-    ===================================================== */
 
-    categoryButtons.forEach(
-        button => {
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Cari nama parfum..."
+                autocomplete="off"
+            >
 
-            button.addEventListener(
-                "click",
-                () => {
+        </div>
 
-                    categoryButtons.forEach(
-                        item => {
+    </div>
 
-                            item.classList.remove(
-                                "active"
-                            );
+</div>
 
-                        }
-                    );
 
+<!-- =========================================================
+     CART OVERLAY
+========================================================= -->
 
-                    button.classList.add(
-                        "active"
-                    );
+<div
+    id="cartOverlay"
+    class="cart-overlay"
+></div>
 
 
-                    currentFilter =
-                        button.dataset.filter ||
-                        "all";
+<!-- =========================================================
+     SHOPPING CART
+========================================================= -->
 
+<aside
+    id="cartPanel"
+    class="cart-panel"
+>
 
-                    filterProducts();
+    <div class="cart-header">
 
-                }
-            );
+        <div>
 
-        }
-    );
+            <span>
+                YOUR SELECTION
+            </span>
 
 
-    /* =====================================================
-       SEARCH MODAL
-    ===================================================== */
+            <h2>
+                Shopping Bag
+            </h2>
 
-    if (searchButton) {
+        </div>
 
-        searchButton.addEventListener(
-            "click",
-            () => {
 
-                openModal(
-                    searchModal
-                );
+        <button
+            type="button"
+            id="closeCart"
+            aria-label="Tutup shopping bag"
+        >
+            ×
+        </button>
 
+    </div>
 
-                setTimeout(
-                    () => {
 
-                        if (searchInput) {
+    <div
+        id="cartItems"
+        class="cart-items"
+    ></div>
 
-                            searchInput.focus();
 
-                        }
+    <div class="cart-footer">
 
-                    },
-                    100
-                );
+        <div class="cart-total-row">
 
-            }
-        );
+            <span>
+                TOTAL
+            </span>
 
-    }
 
+            <strong id="cartTotal">
+                Rp0
+            </strong>
 
-    if (searchInput) {
+        </div>
 
-        searchInput.addEventListener(
-            "input",
-            () => {
 
-                if (productSearch) {
+        <button
+            type="button"
+            id="checkoutWhatsApp"
+            class="checkout-button whatsapp"
+        >
+            CHECKOUT VIA WHATSAPP
+        </button>
 
-                    productSearch.value =
-                        searchInput.value;
 
-                }
+      <button
+            type="button"
+            id="checkoutTelegram"
+            class="checkout-button telegram"
+>
+        CHECKOUT VIA TELEGRAM
+</button>
 
 
-                filterProducts();
+<!-- =========================================================
+     CART NOTIFICATION
+========================================================= -->
 
-            }
-        );
+<div
+    id="cartNotification"
+    class="cart-notification"
+    aria-live="polite"
+></div>
 
 
-        searchInput.addEventListener(
-            "keydown",
-            event => {
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-                if (
-                    event.key !==
-                    "Enter"
-                ) {
-                    return;
-                }
+<footer class="site-footer">
 
+    <div class="footer-content">
 
-                closeModal(
-                    searchModal
-                );
+        <div>
 
+            <strong>
+                DEE GELVI
+            </strong>
 
-                const shop =
-                    document.getElementById(
-                        "shop"
-                    );
 
+            <p>
+                Luxury fragrance for your
+                signature identity.
+            </p>
 
-                if (shop) {
+        </div>
 
-                    shop.scrollIntoView({
-                        behavior:
-                            "smooth"
-                    });
 
-                }
+        <div class="footer-links">
 
-            }
-        );
+            <a href="#shop">
+                SHOP
+            </a>
 
-    }
 
+            <a href="#about">
+                ABOUT
+            </a>
 
-    /* =====================================================
-       CLOSE MODALS
-    ===================================================== */
 
-    document
-        .querySelectorAll(
-            "[data-close]"
-        )
-        .forEach(
-            button => {
+            <a href="#contact">
+                CONTACT
+            </a>
 
-                button.addEventListener(
-                    "click",
-                    () => {
+        </div>
 
-                        const targetId =
-                            button.dataset.close;
+    </div>
 
 
-                        const modal =
-                            document.getElementById(
-                                targetId
-                            );
+    <div class="footer-bottom">
 
+        © 2026 DEE GELVI STORE — ALL RIGHTS RESERVED.
 
-                        closeModal(
-                            modal
-                        );
+    </div>
 
-                    }
-                );
+</footer>
 
-            }
-        );
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
-    /* =====================================================
-       CLICK OUTSIDE MODAL
-    ===================================================== */
+<script src="script.js"></script>
 
-    [
-        productModal,
-        searchModal
-    ].forEach(
-        modal => {
-
-            if (!modal) {
-                return;
-            }
-
-
-            modal.addEventListener(
-                "click",
-                event => {
-
-                    if (
-                        event.target ===
-                        modal
-                    ) {
-
-                        closeModal(
-                            modal
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       ESCAPE
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key !==
-                "Escape"
-            ) {
-                return;
-            }
-
-
-            closeModal(
-                productModal
-            );
-
-
-            closeModal(
-                searchModal
-            );
-
-
-            closeCartPanel();
-
-
-            if (mobileMenu) {
-
-                mobileMenu.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
-
-    if (mobileMenuButton) {
-
-        mobileMenuButton.addEventListener(
-            "click",
-            () => {
-
-                if (mobileMenu) {
-
-                    mobileMenu.classList.toggle(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    if (mobileMenu) {
-
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(
-                link => {
-
-                    link.addEventListener(
-                        "click",
-                        () => {
-
-                            mobileMenu.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-    }
-
-
-    /* =====================================================
-       WHATSAPP CHECKOUT
-    ===================================================== */
-
-    if (checkoutWhatsApp) {
-
-        checkoutWhatsApp.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    cart.length ===
-                    0
-                ) {
-
-                    showNotification(
-                        "Shopping bag masih kosong."
-                    );
-
-                    return;
-
-                }
-
-
-                let message =
-                    "Halo DEE GELVI, saya ingin memesan:\n\n";
-
-
-                let total =
-                    0;
-
-
-                cart.forEach(
-                    item => {
-
-                        const product =
-                            products[item.id];
-
-
-                        if (!product) {
-                            return;
-                        }
-
-
-                        const subtotal =
-                            product.price *
-                            item.quantity;
-
-
-                        total +=
-                            subtotal;
-
-
-                        message +=
-                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
-
-                    }
-                );
-
-
-                message +=
-                    `\nTOTAL: ${formatPrice(total)}`;
-
-
-                const url =
-                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-
-                window.open(
-                    url,
-                    "_blank"
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       TELEGRAM CONTACT
-    ===================================================== */
-
-    if (telegramContact) {
-
-        telegramContact.addEventListener(
-            "click",
-            () => {
-
-                window.open(
-                    `https://t.me/${TELEGRAM_USERNAME}`,
-                    "_blank"
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       TELEGRAM CHECKOUT
-    ===================================================== */
-
-    if (checkoutTelegram) {
-
-        checkoutTelegram.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    cart.length ===
-                    0
-                ) {
-
-                    showNotification(
-                        "Shopping bag masih kosong."
-                    );
-
-                    return;
-
-                }
-
-
-                let message =
-                    "Halo DEE GELVI 👋\n\n" +
-                    "Saya ingin memesan:\n\n";
-
-
-                let total =
-                    0;
-
-
-                cart.forEach(
-                    item => {
-
-                        const product =
-                            products[item.id];
-
-
-                        if (!product) {
-                            return;
-                        }
-
-
-                        const subtotal =
-                            product.price *
-                            item.quantity;
-
-
-                        total +=
-                            subtotal;
-
-
-                        message +=
-                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
-
-                    }
-                );
-
-
-                message +=
-                    `\nTOTAL: ${formatPrice(total)}`;
-
-
-                message +=
-                    "\n\nMohon info ketersediaan dan cara pembayarannya. Terima kasih 🙏";
-
-
-                const telegramURL =
-                    `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
-
-
-                window.open(
-                    telegramURL,
-                    "_blank"
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       INITIAL
-    ===================================================== */
-
-    renderCart();
-
-    filterProducts();
-
-});
+</body>
+</html>
