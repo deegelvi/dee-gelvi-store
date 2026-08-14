@@ -1,7 +1,6 @@
 /* =========================================================
    DEE GELVI STORE
-   FULL JAVASCRIPT
-   VERSION CLEAN
+   FINAL JAVASCRIPT
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,8 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "NOAM THE GENTLE",
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
-            description: "Aroma maskulin, dark, elegant, dan berkarakter.",
-            notes: "Woody • Musk • Dark • Elegant",
+            description:
+                "Aroma maskulin, dark, elegant, dan berkarakter.",
+            notes:
+                "Woody • Musk • Dark • Elegant",
             price: 199000,
             image: "images/noam.jpg"
         },
@@ -26,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "FELIX EXCLUSIVE",
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
-            description: "Fresh, sophisticated, dan cocok untuk acara spesial.",
-            notes: "Fresh • Sophisticated • Elegant",
+            description:
+                "Fresh, sophisticated, dan cocok untuk acara spesial.",
+            notes:
+                "Fresh • Sophisticated • Elegant",
             price: 199000,
             image: "images/felix.jpg"
         },
@@ -36,8 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "VAN URBAN VOYAGER",
             category: "WOMEN",
             collection: "DEE GELVI ORIGINAL",
-            description: "Lembut, sensual, feminine, dan elegan.",
-            notes: "Floral • Soft • Sensual • Feminine",
+            description:
+                "Lembut, sensual, feminine, dan elegan.",
+            notes:
+                "Floral • Soft • Sensual • Feminine",
             price: 199000,
             image: "images/van.jpg"
         },
@@ -46,8 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "DEE GELVI AMBER",
             category: "UNISEX",
             collection: "DEE GELVI ORIGINAL",
-            description: "Warm amber dengan karakter mewah dan timeless.",
-            notes: "Amber • Warm • Woody • Timeless",
+            description:
+                "Warm amber dengan karakter mewah dan timeless.",
+            notes:
+                "Amber • Warm • Woody • Timeless",
             price: 289000,
             image: "images/perfume4.jpg"
         },
@@ -56,8 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "SHADOW MAN",
             category: "MEN",
             collection: "DEE GELVI ORIGINAL",
-            description: "Dark, woody, maskulin, dan berkarakter kuat.",
-            notes: "Dark • Woody • Masculine • Strong",
+            description:
+                "Dark, woody, maskulin, dan berkarakter kuat.",
+            notes:
+                "Dark • Woody • Masculine • Strong",
             price: 299000,
             image: "images/shadow.jpg"
         },
@@ -66,8 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "DEE GELVI BLOOM",
             category: "WOMEN",
             collection: "DEE GELVI ORIGINAL",
-            description: "Floral, fresh, manis, dan memorable.",
-            notes: "Floral • Fresh • Sweet • Memorable",
+            description:
+                "Floral, fresh, manis, dan memorable.",
+            notes:
+                "Floral • Fresh • Sweet • Memorable",
             price: 269000,
             image: "images/perfume6.jpg"
         },
@@ -76,8 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "CURATED FRAGRANCE ONE",
             category: "MEN",
             collection: "CURATED COLLECTION",
-            description: "Selected fragrance dari koleksi pilihan DEE GELVI.",
-            notes: "Selected • Elegant • Character",
+            description:
+                "Selected fragrance dari koleksi pilihan DEE GELVI.",
+            notes:
+                "Selected • Elegant • Character",
             price: 299000,
             image: "images/curated1.jpg"
         },
@@ -86,8 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "CURATED FRAGRANCE TWO",
             category: "WOMEN",
             collection: "CURATED COLLECTION",
-            description: "Selected fragrance dengan karakter elegan.",
-            notes: "Elegant • Soft • Sophisticated",
+            description:
+                "Selected fragrance dengan karakter elegan.",
+            notes:
+                "Elegant • Soft • Sophisticated",
             price: 299000,
             image: "images/curated2.jpg"
         }
@@ -96,11 +111,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       HELPER
+       HELPERS
     ===================================================== */
 
-    const $ = selector => document.querySelector(selector);
-    const $$ = selector => document.querySelectorAll(selector);
+    const $ = selector =>
+        document.querySelector(selector);
+
+    const $$ = selector =>
+        document.querySelectorAll(selector);
+
 
     function formatPrice(price) {
 
@@ -125,12 +144,18 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.getItem("deeGelviCart");
 
         if (savedCart) {
-            cart = JSON.parse(savedCart);
+
+            const parsed =
+                JSON.parse(savedCart);
+
+            if (Array.isArray(parsed)) {
+                cart = parsed;
+            }
+
         }
 
     } catch (error) {
 
-        console.warn("Cart tidak dapat dimuat.");
         cart = [];
 
     }
@@ -148,55 +173,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCartCount() {
 
-        const cartCount = $("#cartCount");
+        const cartCount =
+            $("#cartCount");
 
         if (!cartCount) return;
 
-        const totalQuantity = cart.reduce(
-            (total, item) => total + item.quantity,
-            0
-        );
+        const total =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.quantity,
+                0
+            );
 
-        cartCount.textContent = totalQuantity;
+        cartCount.textContent = total;
 
     }
 
 
     function addToCart(productId) {
 
-        const product = products[productId];
+        const product =
+            products[productId];
 
-        if (!product) {
+        if (!product) return;
 
-            console.warn(
-                "Produk tidak ditemukan:",
-                productId
+        const existing =
+            cart.find(
+                item =>
+                    item.id === productId
             );
 
-            return;
-        }
+        if (existing) {
 
-        const existingProduct =
-            cart.find(item => item.id === productId);
-
-        if (existingProduct) {
-
-            existingProduct.quantity += 1;
+            existing.quantity++;
 
         } else {
 
             cart.push({
+
                 id: productId,
+
                 name: product.name,
+
                 price: product.price,
+
                 image: product.image,
+
                 quantity: 1
+
             });
 
         }
 
         saveCart();
+
         updateCartCount();
+
         renderCart();
 
         showNotification(
@@ -208,12 +240,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function removeFromCart(productId) {
 
-        cart = cart.filter(
-            item => item.id !== productId
-        );
+        cart =
+            cart.filter(
+                item =>
+                    item.id !== productId
+            );
 
         saveCart();
+
         updateCartCount();
+
         renderCart();
 
     }
@@ -222,7 +258,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function changeQuantity(productId, amount) {
 
         const item =
-            cart.find(product => product.id === productId);
+            cart.find(
+                product =>
+                    product.id === productId
+            );
 
         if (!item) return;
 
@@ -231,12 +270,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (item.quantity <= 0) {
 
             removeFromCart(productId);
+
             return;
 
         }
 
         saveCart();
+
         updateCartCount();
+
         renderCart();
 
     }
@@ -244,19 +286,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderCart() {
 
-        const cartItems = $("#cartItems");
-        const cartTotal = $("#cartTotal");
+        const cartItems =
+            $("#cartItems");
 
-        if (!cartItems || !cartTotal) return;
+        const cartTotal =
+            $("#cartTotal");
+
+        if (!cartItems || !cartTotal) {
+            return;
+        }
+
 
         if (cart.length === 0) {
 
             cartItems.innerHTML = `
                 <div class="empty-cart">
-                    <p>YOUR BAG IS EMPTY</p>
+
+                    <p>
+                        YOUR BAG IS EMPTY
+                    </p>
+
                     <span>
                         Pilih fragrance favorit kamu.
                     </span>
+
                 </div>
             `;
 
@@ -265,157 +318,201 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
         let total = 0;
 
-        cartItems.innerHTML = cart.map(item => {
 
-            const subtotal =
-                item.price * item.quantity;
+        cartItems.innerHTML =
+            cart.map(item => {
 
-            total += subtotal;
+                const subtotal =
+                    item.price *
+                    item.quantity;
 
-            return `
-                <div class="cart-item">
+                total += subtotal;
 
-                    <div class="cart-item-image">
-                        <img
-                            src="${item.image}"
-                            alt="${item.name}"
-                        >
-                    </div>
 
-                    <div class="cart-item-info">
+                return `
+                    <div class="cart-item">
 
-                        <h4>${item.name}</h4>
+                        <div class="cart-item-image">
 
-                        <span>
-                            ${formatPrice(item.price)}
-                        </span>
-
-                        <div class="cart-quantity">
-
-                            <button
-                                type="button"
-                                class="quantity-minus"
-                                data-id="${item.id}"
+                            <img
+                                src="${item.image}"
+                                alt="${item.name}"
                             >
-                                −
-                            </button>
-
-                            <strong>
-                                ${item.quantity}
-                            </strong>
-
-                            <button
-                                type="button"
-                                class="quantity-plus"
-                                data-id="${item.id}"
-                            >
-                                +
-                            </button>
 
                         </div>
 
+
+                        <div class="cart-item-info">
+
+                            <h4>
+                                ${item.name}
+                            </h4>
+
+                            <span>
+                                ${formatPrice(item.price)}
+                            </span>
+
+
+                            <div class="cart-quantity">
+
+                                <button
+                                    type="button"
+                                    class="quantity-minus"
+                                    data-id="${item.id}"
+                                >
+                                    −
+                                </button>
+
+                                <strong>
+                                    ${item.quantity}
+                                </strong>
+
+                                <button
+                                    type="button"
+                                    class="quantity-plus"
+                                    data-id="${item.id}"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-cart"
+                            data-id="${item.id}"
+                        >
+                            ×
+                        </button>
+
                     </div>
+                `;
 
-                    <button
-                        type="button"
-                        class="remove-cart"
-                        data-id="${item.id}"
-                    >
-                        ×
-                    </button>
+            }).join("");
 
-                </div>
-            `;
-
-        }).join("");
 
         cartTotal.textContent =
             formatPrice(total);
 
 
-        $$(".quantity-minus").forEach(button => {
+        $$(".quantity-minus")
+            .forEach(button => {
 
-            button.addEventListener("click", () => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                changeQuantity(
-                    button.dataset.id,
-                    -1
+                        changeQuantity(
+                            button.dataset.id,
+                            -1
+                        );
+
+                    }
                 );
 
             });
 
-        });
 
+        $$(".quantity-plus")
+            .forEach(button => {
 
-        $$(".quantity-plus").forEach(button => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-            button.addEventListener("click", () => {
+                        changeQuantity(
+                            button.dataset.id,
+                            1
+                        );
 
-                changeQuantity(
-                    button.dataset.id,
-                    1
+                    }
                 );
 
             });
 
-        });
 
+        $$(".remove-cart")
+            .forEach(button => {
 
-        $$(".remove-cart").forEach(button => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-            button.addEventListener("click", () => {
+                        removeFromCart(
+                            button.dataset.id
+                        );
 
-                removeFromCart(
-                    button.dataset.id
+                    }
                 );
 
             });
-
-        });
 
     }
 
 
     /* =====================================================
-       ADD TO CART
+       ADD CART BUTTONS
     ===================================================== */
 
-    $$(".add-cart").forEach(button => {
+    $$(".add-cart")
+        .forEach(button => {
 
-        button.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-            addToCart(
-                button.dataset.product
+                    addToCart(
+                        button.dataset.product
+                    );
+
+                }
             );
 
         });
-
-    });
 
 
     /* =====================================================
        CART PANEL
     ===================================================== */
 
-    const cartPanel = $("#cartPanel");
-    const cartOverlay = $("#cartOverlay");
-    const openCart = $("#openCart");
-    const closeCart = $("#closeCart");
+    const cartPanel =
+        $("#cartPanel");
+
+    const cartOverlay =
+        $("#cartOverlay");
+
+    const openCart =
+        $("#openCart");
+
+    const closeCart =
+        $("#closeCart");
 
 
     function openCartPanel() {
 
         if (!cartPanel) return;
 
-        cartPanel.classList.add("active");
+        cartPanel.classList.add(
+            "active"
+        );
 
         if (cartOverlay) {
-            cartOverlay.classList.add("active");
+
+            cartOverlay.classList.add(
+                "active"
+            );
+
         }
 
-        document.body.classList.add("cart-open");
+        document.body.classList.add(
+            "cart-open"
+        );
 
     }
 
@@ -424,38 +521,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!cartPanel) return;
 
-        cartPanel.classList.remove("active");
+        cartPanel.classList.remove(
+            "active"
+        );
 
         if (cartOverlay) {
-            cartOverlay.classList.remove("active");
+
+            cartOverlay.classList.remove(
+                "active"
+            );
+
         }
 
-        document.body.classList.remove("cart-open");
+        document.body.classList.remove(
+            "cart-open"
+        );
 
     }
 
 
     if (openCart) {
+
         openCart.addEventListener(
             "click",
             openCartPanel
         );
+
     }
 
 
     if (closeCart) {
+
         closeCart.addEventListener(
             "click",
             closeCartPanel
         );
+
     }
 
 
     if (cartOverlay) {
+
         cartOverlay.addEventListener(
             "click",
             closeCartPanel
         );
+
     }
 
 
@@ -470,7 +581,10 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#mobileMenu");
 
 
-    if (mobileMenuButton && mobileMenu) {
+    if (
+        mobileMenuButton &&
+        mobileMenu
+    ) {
 
         mobileMenuButton.addEventListener(
             "click",
@@ -484,20 +598,21 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        $$("#mobileMenu a").forEach(link => {
+        $$("#mobileMenu a")
+            .forEach(link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener(
+                    "click",
+                    () => {
 
-                    mobileMenu.classList.remove(
-                        "active"
-                    );
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
 
-                }
-            );
+                    }
+                );
 
-        });
+            });
 
     }
 
@@ -506,81 +621,93 @@ document.addEventListener("DOMContentLoaded", () => {
        PRODUCT MODAL
     ===================================================== */
 
-    const productModal = $("#productModal");
-    const modalImage = $("#modalImage");
-    const modalName = $("#modalName");
-    const modalCategory = $("#modalCategory");
-    const modalCollection = $("#modalCollection");
-    const modalDescription = $("#modalDescription");
-    const modalNotes = $("#modalNotes");
-    const modalPrice = $("#modalPrice");
-    const modalAddCart = $("#modalAddCart");
+    const productModal =
+        $("#productModal");
+
+    const modalImage =
+        $("#modalImage");
+
+    const modalName =
+        $("#modalName");
+
+    const modalCategory =
+        $("#modalCategory");
+
+    const modalCollection =
+        $("#modalCollection");
+
+    const modalDescription =
+        $("#modalDescription");
+
+    const modalNotes =
+        $("#modalNotes");
+
+    const modalPrice =
+        $("#modalPrice");
+
+    const modalAddCart =
+        $("#modalAddCart");
+
 
     let currentModalProduct = null;
 
 
     function openProductModal(productId) {
 
-        const product = products[productId];
+        const product =
+            products[productId];
 
-        if (!product) {
+        if (!product) return;
 
-            console.warn(
-                "Produk tidak ditemukan:",
-                productId
+        currentModalProduct =
+            productId;
+
+
+        modalImage.src =
+            product.image;
+
+        modalImage.alt =
+            product.name;
+
+
+        modalName.textContent =
+            product.name;
+
+
+        modalCategory.textContent =
+            product.category;
+
+
+        modalCollection.textContent =
+            product.collection;
+
+
+        modalDescription.textContent =
+            product.description;
+
+
+        modalNotes.textContent =
+            product.notes;
+
+
+        modalPrice.textContent =
+            formatPrice(
+                product.price
             );
 
-            return;
-        }
 
-        currentModalProduct = productId;
+        productModal.classList.add(
+            "active"
+        );
 
-        if (modalImage) {
-            modalImage.src = product.image;
-            modalImage.alt = product.name;
-        }
+        productModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
 
-        if (modalName) {
-            modalName.textContent = product.name;
-        }
-
-        if (modalCategory) {
-            modalCategory.textContent = product.category;
-        }
-
-        if (modalCollection) {
-            modalCollection.textContent = product.collection;
-        }
-
-        if (modalDescription) {
-            modalDescription.textContent =
-                product.description;
-        }
-
-        if (modalNotes) {
-            modalNotes.innerHTML =
-                `<span>${product.notes}</span>`;
-        }
-
-        if (modalPrice) {
-            modalPrice.textContent =
-                formatPrice(product.price);
-        }
-
-        if (productModal) {
-
-            productModal.classList.add("active");
-
-            productModal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-        }
+        document.body.classList.add(
+            "modal-open"
+        );
 
     }
 
@@ -589,7 +716,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!productModal) return;
 
-        productModal.classList.remove("active");
+        productModal.classList.remove(
+            "active"
+        );
 
         productModal.setAttribute(
             "aria-hidden",
@@ -605,17 +734,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    $$(".quick-view").forEach(button => {
+    $$(".quick-view")
+        .forEach(button => {
 
-        button.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-            openProductModal(
-                button.dataset.product
+                    openProductModal(
+                        button.dataset.product
+                    );
+
+                }
             );
 
         });
-
-    });
 
 
     if (modalAddCart) {
@@ -624,13 +757,16 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                if (!currentModalProduct) return;
+                if (!currentModalProduct) {
+                    return;
+                }
 
                 addToCart(
                     currentModalProduct
                 );
 
                 closeProductModal();
+
                 openCartPanel();
 
             }
@@ -645,8 +781,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             event => {
 
-                if (event.target === productModal) {
+                if (
+                    event.target ===
+                    productModal
+                ) {
+
                     closeProductModal();
+
                 }
 
             }
@@ -656,44 +797,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CLOSE BUTTONS
+       SEARCH MODAL
     ===================================================== */
 
-    $$("[data-close]").forEach(button => {
+    const searchModal =
+        $("#searchModal");
 
-        button.addEventListener("click", () => {
+    const searchButton =
+        $("#searchButton");
 
-            const targetId =
-                button.dataset.close;
+    const searchInput =
+        $("#searchInput");
 
-            if (targetId === "productModal") {
-                closeProductModal();
-            }
-
-            if (targetId === "searchModal") {
-                closeSearchModal();
-            }
-
-        });
-
-    });
-
-
-    /* =====================================================
-       SEARCH
-    ===================================================== */
-
-    const searchModal = $("#searchModal");
-    const searchButton = $("#searchButton");
-    const searchInput = $("#searchInput");
-    const productSearch = $("#productSearch");
+    const productSearch =
+        $("#productSearch");
 
 
     function openSearchModal() {
 
         if (!searchModal) return;
 
-        searchModal.classList.add("active");
+        searchModal.classList.add(
+            "active"
+        );
 
         searchModal.setAttribute(
             "aria-hidden",
@@ -703,6 +829,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add(
             "modal-open"
         );
+
 
         setTimeout(() => {
 
@@ -719,7 +846,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!searchModal) return;
 
-        searchModal.classList.remove("active");
+        searchModal.classList.remove(
+            "active"
+        );
 
         searchModal.setAttribute(
             "aria-hidden",
@@ -749,8 +878,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             event => {
 
-                if (event.target === searchModal) {
+                if (
+                    event.target ===
+                    searchModal
+                ) {
+
                     closeSearchModal();
+
                 }
 
             }
@@ -760,7 +894,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PRODUCT FILTER
+       FILTER
     ===================================================== */
 
     const categoryButtons =
@@ -771,6 +905,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const noResult =
         $("#noResult");
+
 
     let activeFilter = "all";
 
@@ -784,65 +919,84 @@ document.addEventListener("DOMContentLoaded", () => {
                     .toLowerCase()
                 : "";
 
-        let visibleProducts = 0;
+
+        let visible = 0;
 
 
         productCards.forEach(card => {
 
             const name =
-                (card.dataset.name || "")
-                    .toLowerCase();
+                (
+                    card.dataset.name ||
+                    ""
+                ).toLowerCase();
+
 
             const category =
-                (card.dataset.category || "")
-                    .toLowerCase();
+                (
+                    card.dataset.category ||
+                    ""
+                ).toLowerCase();
+
 
             const collection =
-                (card.dataset.collection || "")
-                    .toLowerCase();
+                (
+                    card.dataset.collection ||
+                    ""
+                ).toLowerCase();
 
 
-            let collectionMatch = true;
-
-            let categoryMatch = true;
-
-
-            if (activeFilter === "dee-gelvi") {
-
-                collectionMatch =
-                    collection === "dee-gelvi";
-
-            }
-
-
-            if (activeFilter === "curated") {
-
-                collectionMatch =
-                    collection === "curated";
-
-            }
+            let filterMatch = true;
 
 
             if (
+                activeFilter ===
+                "dee-gelvi"
+            ) {
+
+                filterMatch =
+                    collection ===
+                    "dee-gelvi";
+
+            }
+
+
+            else if (
+                activeFilter ===
+                "curated"
+            ) {
+
+                filterMatch =
+                    collection ===
+                    "curated";
+
+            }
+
+
+            else if (
                 ["men", "women", "unisex"]
                     .includes(activeFilter)
             ) {
 
-                categoryMatch =
-                    category === activeFilter;
+                filterMatch =
+                    category ===
+                    activeFilter;
 
             }
 
 
             const searchMatch =
+                !searchValue ||
+
                 name.includes(searchValue) ||
+
                 category.includes(searchValue) ||
+
                 collection.includes(searchValue);
 
 
             const show =
-                collectionMatch &&
-                categoryMatch &&
+                filterMatch &&
                 searchMatch;
 
 
@@ -851,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (show) {
-                visibleProducts++;
+                visible++;
             }
 
         });
@@ -860,35 +1014,46 @@ document.addEventListener("DOMContentLoaded", () => {
         if (noResult) {
 
             noResult.hidden =
-                visibleProducts !== 0;
+                visible !== 0;
 
         }
 
     }
 
 
-    categoryButtons.forEach(button => {
+    categoryButtons
+        .forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                categoryButtons.forEach(item => {
-                    item.classList.remove("active");
-                });
+                    categoryButtons
+                        .forEach(item => {
 
-                button.classList.add("active");
+                            item.classList.remove(
+                                "active"
+                            );
 
-                activeFilter =
-                    button.dataset.filter ||
-                    "all";
+                        });
 
-                filterProducts();
 
-            }
-        );
+                    button.classList.add(
+                        "active"
+                    );
 
-    });
+
+                    activeFilter =
+                        button.dataset.filter ||
+                        "all";
+
+
+                    filterProducts();
+
+                }
+            );
+
+        });
 
 
     if (productSearch) {
@@ -908,8 +1073,10 @@ document.addEventListener("DOMContentLoaded", () => {
             () => {
 
                 if (productSearch) {
+
                     productSearch.value =
                         searchInput.value;
+
                 }
 
                 filterProducts();
@@ -922,11 +1089,15 @@ document.addEventListener("DOMContentLoaded", () => {
             "keydown",
             event => {
 
-                if (event.key === "Enter") {
+                if (
+                    event.key ===
+                    "Enter"
+                ) {
 
                     closeSearchModal();
 
-                    const shop = $("#shop");
+                    const shop =
+                        $("#shop");
 
                     if (shop) {
 
@@ -945,7 +1116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CHECKOUT MESSAGE
+       CHECKOUT
     ===================================================== */
 
     function getCartMessage() {
@@ -954,29 +1125,37 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
 
+
         let total = 0;
+
 
         let message =
             "Halo DEE GELVI, saya ingin memesan:\n\n";
 
 
-        cart.forEach((item, index) => {
+        cart.forEach(
+            (item, index) => {
 
-            const subtotal =
-                item.price * item.quantity;
+                const subtotal =
+                    item.price *
+                    item.quantity;
 
-            total += subtotal;
 
-            message +=
-                `${index + 1}. ${item.name}\n` +
-                `Qty: ${item.quantity}\n` +
-                `Harga: ${formatPrice(item.price)}\n\n`;
+                total += subtotal;
 
-        });
+
+                message +=
+                    `${index + 1}. ${item.name}\n` +
+                    `Qty: ${item.quantity}\n` +
+                    `Harga: ${formatPrice(item.price)}\n\n`;
+
+            }
+        );
 
 
         message +=
             `TOTAL: ${formatPrice(total)}\n\n`;
+
 
         message +=
             "Mohon info ketersediaan dan proses pemesanannya. Terima kasih.";
@@ -1003,6 +1182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const message =
                     getCartMessage();
+
 
                 if (!message) {
 
@@ -1035,8 +1215,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       TELEGRAM CHECKOUT
+       TELEGRAM
     ===================================================== */
+
+    const telegramUsername =
+        "NewEra889";
+
 
     const checkoutTelegram =
         $("#checkoutTelegram");
@@ -1060,7 +1244,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 window.open(
-                    "https://t.me/NewEra889",
+                    `https://t.me/${telegramUsername}`,
                     "_blank"
                 );
 
@@ -1069,10 +1253,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       CONTACT VIA TELEGRAM
-    ===================================================== */
 
     const telegramContact =
         $("#telegramContact");
@@ -1085,7 +1265,7 @@ document.addEventListener("DOMContentLoaded", () => {
             () => {
 
                 window.open(
-                    "https://t.me/NewEra889",
+                    `https://t.me/${telegramUsername}`,
                     "_blank"
                 );
 
@@ -1112,36 +1292,89 @@ document.addEventListener("DOMContentLoaded", () => {
         notification.textContent =
             message;
 
-        notification.classList.add("show");
+
+        notification.classList.add(
+            "show"
+        );
+
 
         clearTimeout(
             notificationTimer
         );
 
+
         notificationTimer =
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                notification.classList.remove(
-                    "show"
-                );
+                    notification.classList.remove(
+                        "show"
+                    );
 
-            }, 2500);
+                },
+                2500
+            );
 
     }
 
 
     /* =====================================================
-       ESC KEY
+       CLOSE BUTTONS
+    ===================================================== */
+
+    $$("[data-close]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const target =
+                        button.dataset.close;
+
+
+                    if (
+                        target ===
+                        "productModal"
+                    ) {
+
+                        closeProductModal();
+
+                    }
+
+
+                    if (
+                        target ===
+                        "searchModal"
+                    ) {
+
+                        closeSearchModal();
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       ESC
     ===================================================== */
 
     document.addEventListener(
         "keydown",
         event => {
 
-            if (event.key === "Escape") {
+            if (
+                event.key ===
+                "Escape"
+            ) {
 
                 closeProductModal();
+
                 closeSearchModal();
+
                 closeCartPanel();
 
             }
@@ -1154,80 +1387,88 @@ document.addEventListener("DOMContentLoaded", () => {
        SMOOTH SCROLL
     ===================================================== */
 
-    $$('a[href^="#"]').forEach(link => {
+    $$('a[href^="#"]')
+        .forEach(link => {
 
-        link.addEventListener(
-            "click",
-            event => {
+            link.addEventListener(
+                "click",
+                event => {
 
-                const targetId =
-                    link.getAttribute("href");
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
 
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) return;
+
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
                 }
+            );
 
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-                if (!target) return;
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-        );
-
-    });
+        });
 
 
     /* =====================================================
        IMAGE ERROR
     ===================================================== */
 
-    $$("img").forEach(image => {
+    $$("img")
+        .forEach(image => {
 
-        image.addEventListener(
-            "error",
-            () => {
+            image.addEventListener(
+                "error",
+                () => {
 
-                console.warn(
-                    "Gambar tidak ditemukan:",
-                    image.src
-                );
+                    console.warn(
+                        "Gambar tidak ditemukan:",
+                        image.src
+                    );
 
-                image.classList.add(
-                    "image-error"
-                );
+                    image.style.opacity =
+                        "0.25";
 
-            }
-        );
+                }
+            );
 
-    });
+        });
 
 
     /* =====================================================
-       INITIALIZATION
+       INITIALIZE
     ===================================================== */
 
     updateCartCount();
 
-    
+    renderCart();
 
     filterProducts();
 
 
     console.log(
-        "DEE GELVI STORE — JavaScript Loaded Successfully."
+        "DEE GELVI STORE — FINAL VERSION LOADED"
     );
 
 });
