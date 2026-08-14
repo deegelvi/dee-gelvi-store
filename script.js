@@ -1,1079 +1,490 @@
-/* =====================================================
+/* =========================================================
    DEE GELVI STORE
-   CUSTOMER SHOPPING SYSTEM
-   WHATSAPP + TELEGRAM CHECKOUT
-===================================================== */
+   FULL JAVASCRIPT
+   VERSION CLEAN
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       PRODUCT DATABASE
+    ===================================================== */
+
+    const products = {
+
+        noir: {
+            name: "NOAM THE GENTLE",
+            category: "MEN",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Aroma maskulin, dark, elegant, dan berkarakter.",
+            notes: "Woody • Musk • Dark • Elegant",
+            price: 199000,
+            image: "images/noam.jpg"
+        },
+
+        royale: {
+            name: "FELIX EXCLUSIVE",
+            category: "MEN",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Fresh, sophisticated, dan cocok untuk acara spesial.",
+            notes: "Fresh • Sophisticated • Elegant",
+            price: 199000,
+            image: "images/felix.jpg"
+        },
+
+        velvet: {
+            name: "VAN URBAN VOYAGER",
+            category: "WOMEN",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Lembut, sensual, feminine, dan elegan.",
+            notes: "Floral • Soft • Sensual • Feminine",
+            price: 199000,
+            image: "images/van.jpg"
+        },
+
+        amber: {
+            name: "DEE GELVI AMBER",
+            category: "UNISEX",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Warm amber dengan karakter mewah dan timeless.",
+            notes: "Amber • Warm • Woody • Timeless",
+            price: 289000,
+            image: "images/perfume4.jpg"
+        },
+
+        shadow: {
+            name: "SHADOW MAN",
+            category: "MEN",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Dark, woody, maskulin, dan berkarakter kuat.",
+            notes: "Dark • Woody • Masculine • Strong",
+            price: 299000,
+            image: "images/shadow.jpg"
+        },
+
+        bloom: {
+            name: "DEE GELVI BLOOM",
+            category: "WOMEN",
+            collection: "DEE GELVI ORIGINAL",
+            description: "Floral, fresh, manis, dan memorable.",
+            notes: "Floral • Fresh • Sweet • Memorable",
+            price: 269000,
+            image: "images/perfume6.jpg"
+        },
+
+        curated1: {
+            name: "CURATED FRAGRANCE ONE",
+            category: "MEN",
+            collection: "CURATED COLLECTION",
+            description: "Selected fragrance dari koleksi pilihan DEE GELVI.",
+            notes: "Selected • Elegant • Character",
+            price: 299000,
+            image: "images/curated1.jpg"
+        },
+
+        curated2: {
+            name: "CURATED FRAGRANCE TWO",
+            category: "WOMEN",
+            collection: "CURATED COLLECTION",
+            description: "Selected fragrance dengan karakter elegan.",
+            notes: "Elegant • Soft • Sophisticated",
+            price: 299000,
+            image: "images/curated2.jpg"
+        }
+
+    };
 
 
-/* =====================================================
-   CONTACT SETTINGS
-===================================================== */
+    /* =====================================================
+       HELPER
+    ===================================================== */
 
-const WHATSAPP_NUMBER = "6282261159669";
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => document.querySelectorAll(selector);
 
-const TELEGRAM_USERNAME = "NewEra889";
+    function formatPrice(price) {
 
-
-/* =====================================================
-   PRODUCT DATA
-===================================================== */
-
-const products = {
-
-    noir: {
-        name: "NOAM THE GENTLE",
-        price: 199000,
-        category: "MEN",
-        description:
-            "Aroma maskulin, dark, elegant, dan berkarakter.",
-        image: "images/noam.jpg"
-    },
-
-    royale: {
-        name: "FELIX EXCLUSIVE",
-        price: 199000,
-        category: "MEN",
-        description:
-            "Fresh, sophisticated, dan cocok untuk acara spesial.",
-        image: "images/felix.jpg"
-    },
-
-    velvet: {
-        name: "VAN URBAN VOYAGER",
-        price: 199000,
-        category: "WOMEN",
-        description:
-            "Lembut, sensual, feminine, dan elegan.",
-        image: "images/van.jpg"
-    },
-
-    amber: {
-        name: "DEE GELVI AMBER",
-        price: 289000,
-        category: "UNISEX",
-        description:
-            "Warm amber dengan karakter mewah dan timeless.",
-        image: "images/perfume4.jpg"
-    },
-
-    shadow: {
-        name: "SHADOW MAN",
-        price: 299000,
-        category: "MEN",
-        description:
-            "Dark, woody, maskulin, dan berkarakter kuat.",
-        image: "images/shadow.jpg"
-    },
-
-    bloom: {
-        name: "DEE GELVI BLOOM",
-        price: 269000,
-        category: "WOMEN",
-        description:
-            "Floral, fresh, manis, dan memorable.",
-        image: "images/perfume6.jpg"
-    }
-
-};
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-let cart =
-    JSON.parse(
-        localStorage.getItem("deeGelviCart")
-    ) || [];
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const cartPanel =
-    document.getElementById("cartPanel");
-
-const cartItems =
-    document.getElementById("cartItems");
-
-const cartTotal =
-    document.getElementById("cartTotal");
-
-const cartCount =
-    document.getElementById("cartCount");
-
-const openCart =
-    document.getElementById("openCart");
-
-const closeCart =
-    document.getElementById("closeCart");
-
-const checkoutWhatsApp =
-    document.getElementById("checkoutWhatsApp");
-
-const checkoutTelegram =
-    document.getElementById("checkoutTelegram");
-
-const searchInput =
-    document.getElementById("productSearch");
-
-const productCards =
-    document.querySelectorAll(".product-card");
-
-const categoryButtons =
-    document.querySelectorAll(".category");
-
-const searchButton =
-    document.getElementById("searchButton");
-
-const searchModal =
-    document.getElementById("searchModal");
-
-const searchModalInput =
-    document.getElementById("searchInput");
-
-const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
-
-/* =====================================================
-   FORMAT RUPIAH
-===================================================== */
-
-function formatRupiah(number) {
-
-    return new Intl.NumberFormat(
-        "id-ID",
-        {
+        return new Intl.NumberFormat("id-ID", {
             style: "currency",
             currency: "IDR",
-            maximumFractionDigits: 0
-        }
-    ).format(number);
+            minimumFractionDigits: 0
+        }).format(price);
 
-}
-
-
-/* =====================================================
-   SAVE CART
-===================================================== */
-
-function saveCart() {
-
-    localStorage.setItem(
-        "deeGelviCart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
-/* =====================================================
-   ADD TO CART
-===================================================== */
-
-function addToCart(productId) {
-
-    const product =
-        products[productId];
-
-    if (!product) {
-
-        console.warn(
-            "Produk tidak ditemukan:",
-            productId
-        );
-
-        return;
     }
 
 
-    const existing =
-        cart.find(
-            item => item.id === productId
+    /* =====================================================
+       CART
+    ===================================================== */
+
+    let cart = [];
+
+    try {
+
+        const savedCart =
+            localStorage.getItem("deeGelviCart");
+
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+        }
+
+    } catch (error) {
+
+        console.warn("Cart tidak dapat dimuat.");
+        cart = [];
+
+    }
+
+
+    function saveCart() {
+
+        localStorage.setItem(
+            "deeGelviCart",
+            JSON.stringify(cart)
         );
 
+    }
 
-    if (existing) {
 
-        existing.qty += 1;
+    function updateCartCount() {
 
-    } else {
+        const cartCount = $("#cartCount");
 
-        cart.push({
+        if (!cartCount) return;
 
-            id: productId,
+        const totalQuantity = cart.reduce(
+            (total, item) => total + item.quantity,
+            0
+        );
 
-            name: product.name,
+        cartCount.textContent = totalQuantity;
 
-            price: product.price,
+    }
 
-            category: product.category,
 
-            image: product.image,
+    function addToCart(productId) {
 
-            qty: 1
+        const product = products[productId];
+
+        if (!product) {
+
+            console.warn(
+                "Produk tidak ditemukan:",
+                productId
+            );
+
+            return;
+        }
+
+        const existingProduct =
+            cart.find(item => item.id === productId);
+
+        if (existingProduct) {
+
+            existingProduct.quantity += 1;
+
+        } else {
+
+            cart.push({
+                id: productId,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity: 1
+            });
+
+        }
+
+        saveCart();
+        updateCartCount();
+        renderCart();
+
+        showNotification(
+            `${product.name} ditambahkan ke shopping bag.`
+        );
+
+    }
+
+
+    function removeFromCart(productId) {
+
+        cart = cart.filter(
+            item => item.id !== productId
+        );
+
+        saveCart();
+        updateCartCount();
+        renderCart();
+
+    }
+
+
+    function changeQuantity(productId, amount) {
+
+        const item =
+            cart.find(product => product.id === productId);
+
+        if (!item) return;
+
+        item.quantity += amount;
+
+        if (item.quantity <= 0) {
+
+            removeFromCart(productId);
+            return;
+
+        }
+
+        saveCart();
+        updateCartCount();
+        renderCart();
+
+    }
+
+
+    function renderCart() {
+
+        const cartItems = $("#cartItems");
+        const cartTotal = $("#cartTotal");
+
+        if (!cartItems || !cartTotal) return;
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <p>YOUR BAG IS EMPTY</p>
+                    <span>
+                        Pilih fragrance favorit kamu.
+                    </span>
+                </div>
+            `;
+
+            cartTotal.textContent = "Rp0";
+
+            return;
+        }
+
+        let total = 0;
+
+        cartItems.innerHTML = cart.map(item => {
+
+            const subtotal =
+                item.price * item.quantity;
+
+            total += subtotal;
+
+            return `
+                <div class="cart-item">
+
+                    <div class="cart-item-image">
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h4>${item.name}</h4>
+
+                        <span>
+                            ${formatPrice(item.price)}
+                        </span>
+
+                        <div class="cart-quantity">
+
+                            <button
+                                type="button"
+                                class="quantity-minus"
+                                data-id="${item.id}"
+                            >
+                                −
+                            </button>
+
+                            <strong>
+                                ${item.quantity}
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="quantity-plus"
+                                data-id="${item.id}"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="remove-cart"
+                        data-id="${item.id}"
+                    >
+                        ×
+                    </button>
+
+                </div>
+            `;
+
+        }).join("");
+
+        cartTotal.textContent =
+            formatPrice(total);
+
+
+        $$(".quantity-minus").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                changeQuantity(
+                    button.dataset.id,
+                    -1
+                );
+
+            });
+
+        });
+
+
+        $$(".quantity-plus").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                changeQuantity(
+                    button.dataset.id,
+                    1
+                );
+
+            });
+
+        });
+
+
+        $$(".remove-cart").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                removeFromCart(
+                    button.dataset.id
+                );
+
+            });
 
         });
 
     }
 
 
-    saveCart();
+    /* =====================================================
+       ADD TO CART
+    ===================================================== */
 
-    renderCart();
+    $$(".add-cart").forEach(button => {
 
-    showNotification(
-        product.name +
-        " ditambahkan ke Shopping Bag"
-    );
+        button.addEventListener("click", () => {
 
-}
+            addToCart(
+                button.dataset.product
+            );
 
-
-/* =====================================================
-   REMOVE PRODUCT
-===================================================== */
-
-function removeFromCart(productId) {
-
-    cart =
-        cart.filter(
-            item => item.id !== productId
-        );
-
-    saveCart();
-
-    renderCart();
-
-}
-
-
-/* =====================================================
-   CHANGE QUANTITY
-===================================================== */
-
-function changeQuantity(
-    productId,
-    change
-) {
-
-    const item =
-        cart.find(
-            item => item.id === productId
-        );
-
-    if (!item) return;
-
-
-    item.qty += change;
-
-
-    if (item.qty <= 0) {
-
-        removeFromCart(productId);
-
-        return;
-
-    }
-
-
-    saveCart();
-
-    renderCart();
-
-}
-
-
-/* =====================================================
-   RENDER CART
-===================================================== */
-
-function renderCart() {
-
-    if (!cartItems) return;
-
-
-    cartItems.innerHTML = "";
-
-
-    if (cart.length === 0) {
-
-        cartItems.innerHTML = `
-
-            <div class="empty-cart">
-
-                <p>
-                    Shopping Bag masih kosong.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    let total = 0;
-
-    let totalItems = 0;
-
-
-    cart.forEach(item => {
-
-        const subtotal =
-            item.price * item.qty;
-
-
-        total += subtotal;
-
-        totalItems += item.qty;
-
-
-        const element =
-            document.createElement("div");
-
-
-        element.className =
-            "cart-item";
-
-
-        element.innerHTML = `
-
-            <div class="cart-item-info">
-
-                <strong>
-                    ${item.name}
-                </strong>
-
-                <small>
-                    ${formatRupiah(item.price)}
-                </small>
-
-            </div>
-
-
-            <div class="cart-controls">
-
-                <button
-                    type="button"
-                    onclick="changeQuantity('${item.id}', -1)"
-                    aria-label="Kurangi jumlah"
-                >
-                    −
-                </button>
-
-
-                <span>
-                    ${item.qty}
-                </span>
-
-
-                <button
-                    type="button"
-                    onclick="changeQuantity('${item.id}', 1)"
-                    aria-label="Tambah jumlah"
-                >
-                    +
-                </button>
-
-            </div>
-
-
-            <strong>
-                ${formatRupiah(subtotal)}
-            </strong>
-
-
-            <button
-                type="button"
-                class="remove-cart"
-                onclick="removeFromCart('${item.id}')"
-                aria-label="Hapus produk"
-            >
-                ×
-            </button>
-
-        `;
-
-
-        cartItems.appendChild(element);
+        });
 
     });
 
 
-    if (cartTotal) {
+    /* =====================================================
+       CART PANEL
+    ===================================================== */
 
-        cartTotal.textContent =
-            formatRupiah(total);
+    const cartPanel = $("#cartPanel");
+    const cartOverlay = $("#cartOverlay");
+    const openCart = $("#openCart");
+    const closeCart = $("#closeCart");
+
+
+    function openCartPanel() {
+
+        if (!cartPanel) return;
+
+        cartPanel.classList.add("active");
+
+        if (cartOverlay) {
+            cartOverlay.classList.add("active");
+        }
+
+        document.body.classList.add("cart-open");
 
     }
 
 
-    if (cartCount) {
+    function closeCartPanel() {
 
-        cartCount.textContent =
-            totalItems;
+        if (!cartPanel) return;
+
+        cartPanel.classList.remove("active");
+
+        if (cartOverlay) {
+            cartOverlay.classList.remove("active");
+        }
+
+        document.body.classList.remove("cart-open");
 
     }
 
-}
+
+    if (openCart) {
+        openCart.addEventListener(
+            "click",
+            openCartPanel
+        );
+    }
 
 
-/* =====================================================
-   OPEN CART
-===================================================== */
-
-if (openCart) {
-
-    openCart.addEventListener(
-        "click",
-        () => {
-
-            if (!cartPanel) return;
+    if (closeCart) {
+        closeCart.addEventListener(
+            "click",
+            closeCartPanel
+        );
+    }
 
 
-            cartPanel.classList.add(
-                "active"
-            );
+    if (cartOverlay) {
+        cartOverlay.addEventListener(
+            "click",
+            closeCartPanel
+        );
+    }
 
 
-            cartPanel.setAttribute(
-                "aria-hidden",
-                "false"
-            );
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
-        }
-    );
+    const mobileMenuButton =
+        $("#mobileMenuButton");
 
-}
-
-
-/* =====================================================
-   CLOSE CART
-===================================================== */
-
-if (closeCart) {
-
-    closeCart.addEventListener(
-        "click",
-        () => {
-
-            if (!cartPanel) return;
+    const mobileMenu =
+        $("#mobileMenu");
 
 
-            cartPanel.classList.remove(
-                "active"
-            );
+    if (mobileMenuButton && mobileMenu) {
 
-
-            cartPanel.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   ADD CART BUTTON
-===================================================== */
-
-document
-    .querySelectorAll(".add-cart")
-    .forEach(button => {
-
-        button.addEventListener(
+        mobileMenuButton.addEventListener(
             "click",
             () => {
 
-                const id =
-                    button.dataset.product;
-
-                addToCart(id);
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   SEARCH SHOP
-===================================================== */
-
-function filterProducts() {
-
-    const keyword =
-        searchInput
-            ? searchInput.value
-                .toLowerCase()
-                .trim()
-            : "";
-
-
-    const activeCategory =
-        document.querySelector(
-            ".category.active"
-        );
-
-
-    const selectedCategory =
-        activeCategory
-            ? activeCategory.dataset.category
-            : "all";
-
-
-    let found = false;
-
-
-    productCards.forEach(card => {
-
-        const name =
-            (
-                card.dataset.name || ""
-            ).toLowerCase();
-
-
-        const category =
-            (
-                card.dataset.category || ""
-            ).toLowerCase();
-
-
-        const descriptionElement =
-            card.querySelector(
-                ".product-desc"
-            );
-
-
-        const description =
-            descriptionElement
-                ? descriptionElement.textContent
-                    .toLowerCase()
-                : "";
-
-
-        const matchSearch =
-
-            name.includes(keyword) ||
-
-            description.includes(keyword);
-
-
-        const matchCategory =
-
-            selectedCategory === "all" ||
-
-            category === selectedCategory;
-
-
-        const visible =
-            matchSearch &&
-            matchCategory;
-
-
-        card.style.display =
-            visible ? "" : "none";
-
-
-        if (visible) {
-
-            found = true;
-
-        }
-
-    });
-
-
-    const noResult =
-        document.getElementById(
-            "noResult"
-        );
-
-
-    if (noResult) {
-
-        noResult.hidden =
-            found;
-
-    }
-
-}
-
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        filterProducts
-    );
-
-}
-
-
-/* =====================================================
-   CATEGORY FILTER
-===================================================== */
-
-categoryButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            categoryButtons.forEach(
-                btn => {
-
-                    btn.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            button.classList.add(
-                "active"
-            );
-
-
-            filterProducts();
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   SEARCH MODAL
-===================================================== */
-
-if (
-    searchButton &&
-    searchModal
-) {
-
-    searchButton.addEventListener(
-        "click",
-        () => {
-
-            searchModal.classList.add(
-                "active"
-            );
-
-
-            searchModal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    if (searchModalInput) {
-
-                        searchModalInput.focus();
-
-                    }
-
-                },
-                100
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   SEARCH MODAL INPUT
-===================================================== */
-
-if (searchModalInput) {
-
-    searchModalInput.addEventListener(
-        "input",
-        () => {
-
-            if (searchInput) {
-
-                searchInput.value =
-                    searchModalInput.value;
-
-                filterProducts();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CLOSE MODALS
-===================================================== */
-
-document
-    .querySelectorAll("[data-close]")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const modalId =
-                    button.dataset.close;
-
-
-                const modal =
-                    document.getElementById(
-                        modalId
-                    );
-
-
-                if (!modal) return;
-
-
-                modal.classList.remove(
-                    "active"
-                );
-
-
-                modal.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-===================================================== */
-
-document
-    .querySelectorAll(".modal")
-    .forEach(modal => {
-
-        modal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target === modal
-                ) {
-
-                    modal.classList.remove(
-                        "active"
-                    );
-
-
-                    modal.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   QUICK VIEW
-===================================================== */
-
-document
-    .querySelectorAll(".quick-view")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const productId =
-                    button.dataset.product;
-
-
-                const product =
-                    products[productId];
-
-
-                if (!product) {
-
-                    console.warn(
-                        "Produk Quick View tidak ditemukan:",
-                        productId
-                    );
-
-                    return;
-
-                }
-
-
-                const modal =
-                    document.getElementById(
-                        "productModal"
-                    );
-
-
-                const modalImage =
-                    document.getElementById(
-                        "modalImage"
-                    );
-
-
-                const modalName =
-                    document.getElementById(
-                        "modalName"
-                    );
-
-
-                const modalCategory =
-                    document.getElementById(
-                        "modalCategory"
-                    );
-
-
-                const modalPrice =
-                    document.getElementById(
-                        "modalPrice"
-                    );
-
-
-                const modalDescription =
-                    document.getElementById(
-                        "modalDescription"
-                    );
-
-
-                const modalNotes =
-                    document.getElementById(
-                        "modalNotes"
-                    );
-
-
-                /* IMAGE */
-
-                if (modalImage) {
-
-                    modalImage.src =
-                        product.image;
-
-                    modalImage.alt =
-                        product.name;
-
-                }
-
-
-                /* NAME */
-
-                if (modalName) {
-
-                    modalName.textContent =
-                        product.name;
-
-                }
-
-
-                /* CATEGORY */
-
-                if (modalCategory) {
-
-                    modalCategory.textContent =
-                        product.category;
-
-                }
-
-
-                /* PRICE */
-
-                if (modalPrice) {
-
-                    modalPrice.textContent =
-                        formatRupiah(
-                            product.price
-                        );
-
-                }
-
-
-                /* DESCRIPTION */
-
-                if (modalDescription) {
-
-                    modalDescription.textContent =
-                        product.description;
-
-                }
-
-
-                /* NOTES */
-
-                if (modalNotes) {
-
-                    modalNotes.innerHTML = `
-
-                        <span>
-                            Signature
-                        </span>
-
-                        <span>
-                            Elegant
-                        </span>
-
-                        <span>
-                            Long Lasting
-                        </span>
-
-                    `;
-
-                }
-
-
-                /* MODAL ADD CART */
-
-                const modalAddCart =
-                    document.getElementById(
-                        "modalAddCart"
-                    );
-
-
-                if (modalAddCart) {
-
-                    modalAddCart.onclick =
-                        () => {
-
-                            addToCart(
-                                productId
-                            );
-
-
-                            if (modal) {
-
-                                modal.classList.remove(
-                                    "active"
-                                );
-
-
-                                modal.setAttribute(
-                                    "aria-hidden",
-                                    "true"
-                                );
-
-                            }
-
-                        };
-
-                }
-
-
-                /* OPEN MODAL */
-
-                if (modal) {
-
-                    modal.classList.add(
-                        "active"
-                    );
-
-
-                    modal.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   SIZE SELECTOR
-===================================================== */
-
-document
-    .querySelectorAll(".size")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const parent =
-                    button.closest(
-                        ".sizes"
-                    );
-
-
-                if (!parent) return;
-
-
-                parent
-                    .querySelectorAll(
-                        ".size"
-                    )
-                    .forEach(
-                        size =>
-                            size.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                button.classList.add(
+                mobileMenu.classList.toggle(
                     "active"
                 );
 
             }
         );
 
-    });
 
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-if (
-    mobileMenuButton &&
-    mobileMenu
-) {
-
-    mobileMenuButton.addEventListener(
-        "click",
-        () => {
-
-            mobileMenu.classList.toggle(
-                "active"
-            );
-
-        }
-    );
-
-
-    mobileMenu
-        .querySelectorAll("a")
-        .forEach(link => {
+        $$("#mobileMenu a").forEach(link => {
 
             link.addEventListener(
                 "click",
@@ -1088,294 +499,735 @@ if (
 
         });
 
-}
+    }
 
 
-/* =====================================================
-   CREATE ORDER MESSAGE
-===================================================== */
+    /* =====================================================
+       PRODUCT MODAL
+    ===================================================== */
 
-function createOrderMessage() {
+    const productModal = $("#productModal");
+    const modalImage = $("#modalImage");
+    const modalName = $("#modalName");
+    const modalCategory = $("#modalCategory");
+    const modalCollection = $("#modalCollection");
+    const modalDescription = $("#modalDescription");
+    const modalNotes = $("#modalNotes");
+    const modalPrice = $("#modalPrice");
+    const modalAddCart = $("#modalAddCart");
 
-    let message =
-        "Halo DEE GELVI STORE 👋\n\n";
-
-
-    message +=
-        "Saya ingin melakukan pemesanan:\n\n";
-
-
-    let total = 0;
-
-
-    cart.forEach(
-        (item, index) => {
-
-            const subtotal =
-                item.price *
-                item.qty;
+    let currentModalProduct = null;
 
 
-            total += subtotal;
+    function openProductModal(productId) {
 
+        const product = products[productId];
 
-            message +=
-                `${index + 1}. ${item.name}\n`;
+        if (!product) {
 
+            console.warn(
+                "Produk tidak ditemukan:",
+                productId
+            );
 
-            message +=
-                `Qty: ${item.qty}\n`;
-
-
-            message +=
-                `Harga: ${formatRupiah(item.price)}\n`;
-
-
-            message +=
-                `Subtotal: ${formatRupiah(subtotal)}\n\n`;
-
+            return;
         }
-    );
 
+        currentModalProduct = productId;
 
-    message +=
-        `TOTAL: ${formatRupiah(total)}\n\n`;
-
-
-    message +=
-        "Mohon info stok dan pembayaran.\n";
-
-
-    message +=
-        "Terima kasih 🙏";
-
-
-    return message;
-
-}
-
-
-/* =====================================================
-   CHECKOUT WHATSAPP
-===================================================== */
-
-if (checkoutWhatsApp) {
-
-    checkoutWhatsApp.addEventListener(
-        "click",
-        () => {
-
-            if (cart.length === 0) {
-
-                alert(
-                    "Shopping Bag masih kosong."
-                );
-
-                return;
-
-            }
-
-
-            const message =
-                createOrderMessage();
-
-
-            const url =
-                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-
-            window.open(
-                url,
-                "_blank"
-            );
-
+        if (modalImage) {
+            modalImage.src = product.image;
+            modalImage.alt = product.name;
         }
-    );
 
-}
-
-
-/* =====================================================
-   CHECKOUT TELEGRAM
-===================================================== */
-
-if (checkoutTelegram) {
-
-    checkoutTelegram.addEventListener(
-        "click",
-        async () => {
-
-            if (cart.length === 0) {
-
-                alert(
-                    "Shopping Bag masih kosong."
-                );
-
-                return;
-
-            }
-
-
-            const message =
-                createOrderMessage();
-
-
-            const telegramUrl =
-                `https://t.me/${TELEGRAM_USERNAME}`;
-
-
-            window.open(
-                telegramUrl,
-                "_blank"
-            );
-
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    message
-                );
-
-
-                showNotification(
-                    "Detail pesanan disalin. Paste di Telegram."
-                );
-
-            } catch (error) {
-
-                showNotification(
-                    "Telegram dibuka. Silakan kirim detail pesanan."
-                );
-
-            }
-
+        if (modalName) {
+            modalName.textContent = product.name;
         }
-    );
 
-}
-
-
-/* =====================================================
-   CONTACT VIA TELEGRAM
-===================================================== */
-
-const telegramContact =
-    document.getElementById(
-        "telegramContact"
-    );
-
-
-if (telegramContact) {
-
-    telegramContact.addEventListener(
-        "click",
-        () => {
-
-            const telegramUrl =
-                `https://t.me/${TELEGRAM_USERNAME}`;
-
-
-            window.open(
-                telegramUrl,
-                "_blank"
-            );
-
+        if (modalCategory) {
+            modalCategory.textContent = product.category;
         }
-    );
 
-}
+        if (modalCollection) {
+            modalCollection.textContent = product.collection;
+        }
 
+        if (modalDescription) {
+            modalDescription.textContent =
+                product.description;
+        }
 
-/* =====================================================
-   NOTIFICATION
-===================================================== */
+        if (modalNotes) {
+            modalNotes.innerHTML =
+                `<span>${product.notes}</span>`;
+        }
 
-function showNotification(text) {
+        if (modalPrice) {
+            modalPrice.textContent =
+                formatPrice(product.price);
+        }
 
-    const notification =
-        document.getElementById(
-            "cartNotification"
-        );
+        if (productModal) {
 
+            productModal.classList.add("active");
 
-    if (!notification) return;
-
-
-    notification.textContent =
-        text;
-
-
-    notification.classList.add(
-        "show"
-    );
-
-
-    setTimeout(
-        () => {
-
-            notification.classList.remove(
-                "show"
-            );
-
-        },
-        2500
-    );
-
-}
-
-
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key !== "Escape"
-        ) return;
-
-
-        document
-            .querySelectorAll(
-                ".modal.active"
-            )
-            .forEach(modal => {
-
-                modal.classList.remove(
-                    "active"
-                );
-
-
-                modal.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-            });
-
-
-        if (cartPanel) {
-
-            cartPanel.classList.remove(
-                "active"
-            );
-
-
-            cartPanel.setAttribute(
+            productModal.setAttribute(
                 "aria-hidden",
-                "true"
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
             );
 
         }
 
     }
-);
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+    function closeProductModal() {
 
-renderCart();
+        if (!productModal) return;
+
+        productModal.classList.remove("active");
+
+        productModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+        currentModalProduct = null;
+
+    }
+
+
+    $$(".quick-view").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            openProductModal(
+                button.dataset.product
+            );
+
+        });
+
+    });
+
+
+    if (modalAddCart) {
+
+        modalAddCart.addEventListener(
+            "click",
+            () => {
+
+                if (!currentModalProduct) return;
+
+                addToCart(
+                    currentModalProduct
+                );
+
+                closeProductModal();
+                openCartPanel();
+
+            }
+        );
+
+    }
+
+
+    if (productModal) {
+
+        productModal.addEventListener(
+            "click",
+            event => {
+
+                if (event.target === productModal) {
+                    closeProductModal();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CLOSE BUTTONS
+    ===================================================== */
+
+    $$("[data-close]").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const targetId =
+                button.dataset.close;
+
+            if (targetId === "productModal") {
+                closeProductModal();
+            }
+
+            if (targetId === "searchModal") {
+                closeSearchModal();
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    const searchModal = $("#searchModal");
+    const searchButton = $("#searchButton");
+    const searchInput = $("#searchInput");
+    const productSearch = $("#productSearch");
+
+
+    function openSearchModal() {
+
+        if (!searchModal) return;
+
+        searchModal.classList.add("active");
+
+        searchModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+        setTimeout(() => {
+
+            if (searchInput) {
+                searchInput.focus();
+            }
+
+        }, 100);
+
+    }
+
+
+    function closeSearchModal() {
+
+        if (!searchModal) return;
+
+        searchModal.classList.remove("active");
+
+        searchModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    }
+
+
+    if (searchButton) {
+
+        searchButton.addEventListener(
+            "click",
+            openSearchModal
+        );
+
+    }
+
+
+    if (searchModal) {
+
+        searchModal.addEventListener(
+            "click",
+            event => {
+
+                if (event.target === searchModal) {
+                    closeSearchModal();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PRODUCT FILTER
+    ===================================================== */
+
+    const categoryButtons =
+        $$(".category");
+
+    const productCards =
+        $$(".product-card");
+
+    const noResult =
+        $("#noResult");
+
+    let activeFilter = "all";
+
+
+    function filterProducts() {
+
+        const searchValue =
+            productSearch
+                ? productSearch.value
+                    .trim()
+                    .toLowerCase()
+                : "";
+
+        let visibleProducts = 0;
+
+
+        productCards.forEach(card => {
+
+            const name =
+                (card.dataset.name || "")
+                    .toLowerCase();
+
+            const category =
+                (card.dataset.category || "")
+                    .toLowerCase();
+
+            const collection =
+                (card.dataset.collection || "")
+                    .toLowerCase();
+
+
+            let collectionMatch = true;
+
+            let categoryMatch = true;
+
+
+            if (activeFilter === "dee-gelvi") {
+
+                collectionMatch =
+                    collection === "dee-gelvi";
+
+            }
+
+
+            if (activeFilter === "curated") {
+
+                collectionMatch =
+                    collection === "curated";
+
+            }
+
+
+            if (
+                ["men", "women", "unisex"]
+                    .includes(activeFilter)
+            ) {
+
+                categoryMatch =
+                    category === activeFilter;
+
+            }
+
+
+            const searchMatch =
+                name.includes(searchValue) ||
+                category.includes(searchValue) ||
+                collection.includes(searchValue);
+
+
+            const show =
+                collectionMatch &&
+                categoryMatch &&
+                searchMatch;
+
+
+            card.style.display =
+                show ? "" : "none";
+
+
+            if (show) {
+                visibleProducts++;
+            }
+
+        });
+
+
+        if (noResult) {
+
+            noResult.hidden =
+                visibleProducts !== 0;
+
+        }
+
+    }
+
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                categoryButtons.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                activeFilter =
+                    button.dataset.filter ||
+                    "all";
+
+                filterProducts();
+
+            }
+        );
+
+    });
+
+
+    if (productSearch) {
+
+        productSearch.addEventListener(
+            "input",
+            filterProducts
+        );
+
+    }
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            () => {
+
+                if (productSearch) {
+                    productSearch.value =
+                        searchInput.value;
+                }
+
+                filterProducts();
+
+            }
+        );
+
+
+        searchInput.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+
+                    closeSearchModal();
+
+                    const shop = $("#shop");
+
+                    if (shop) {
+
+                        shop.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CHECKOUT MESSAGE
+    ===================================================== */
+
+    function getCartMessage() {
+
+        if (cart.length === 0) {
+            return null;
+        }
+
+        let total = 0;
+
+        let message =
+            "Halo DEE GELVI, saya ingin memesan:\n\n";
+
+
+        cart.forEach((item, index) => {
+
+            const subtotal =
+                item.price * item.quantity;
+
+            total += subtotal;
+
+            message +=
+                `${index + 1}. ${item.name}\n` +
+                `Qty: ${item.quantity}\n` +
+                `Harga: ${formatPrice(item.price)}\n\n`;
+
+        });
+
+
+        message +=
+            `TOTAL: ${formatPrice(total)}\n\n`;
+
+        message +=
+            "Mohon info ketersediaan dan proses pemesanannya. Terima kasih.";
+
+
+        return message;
+
+    }
+
+
+    /* =====================================================
+       WHATSAPP
+    ===================================================== */
+
+    const checkoutWhatsApp =
+        $("#checkoutWhatsApp");
+
+
+    if (checkoutWhatsApp) {
+
+        checkoutWhatsApp.addEventListener(
+            "click",
+            () => {
+
+                const message =
+                    getCartMessage();
+
+                if (!message) {
+
+                    showNotification(
+                        "Shopping bag masih kosong."
+                    );
+
+                    return;
+
+                }
+
+
+                const phone =
+                    "6281234567890";
+
+
+                const url =
+                    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+
+                window.open(
+                    url,
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       TELEGRAM CHECKOUT
+    ===================================================== */
+
+    const checkoutTelegram =
+        $("#checkoutTelegram");
+
+
+    if (checkoutTelegram) {
+
+        checkoutTelegram.addEventListener(
+            "click",
+            () => {
+
+                if (cart.length === 0) {
+
+                    showNotification(
+                        "Shopping bag masih kosong."
+                    );
+
+                    return;
+
+                }
+
+
+                window.open(
+                    "https://t.me/NewEra889",
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CONTACT VIA TELEGRAM
+    ===================================================== */
+
+    const telegramContact =
+        $("#telegramContact");
+
+
+    if (telegramContact) {
+
+        telegramContact.addEventListener(
+            "click",
+            () => {
+
+                window.open(
+                    "https://t.me/NewEra889",
+                    "_blank"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       NOTIFICATION
+    ===================================================== */
+
+    const notification =
+        $("#cartNotification");
+
+    let notificationTimer;
+
+
+    function showNotification(message) {
+
+        if (!notification) return;
+
+        notification.textContent =
+            message;
+
+        notification.classList.add("show");
+
+        clearTimeout(
+            notificationTimer
+        );
+
+        notificationTimer =
+            setTimeout(() => {
+
+                notification.classList.remove(
+                    "show"
+                );
+
+            }, 2500);
+
+    }
+
+
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+
+                closeProductModal();
+                closeSearchModal();
+                closeCartPanel();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
+
+    $$('a[href^="#"]').forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const targetId =
+                    link.getAttribute("href");
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       IMAGE ERROR
+    ===================================================== */
+
+    $$("img").forEach(image => {
+
+        image.addEventListener(
+            "error",
+            () => {
+
+                console.warn(
+                    "Gambar tidak ditemukan:",
+                    image.src
+                );
+
+                image.classList.add(
+                    "image-error"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       INITIALIZATION
+    ===================================================== */
+
+    updateCartCount();
+
+    
+
+    filterProducts();
+
+
+    console.log(
+        "DEE GELVI STORE — JavaScript Loaded Successfully."
+    );
+
+});
