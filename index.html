@@ -15,2590 +15,19 @@
         content="DEE GELVI STORE — Luxury fragrance untuk signature identity kamu."
     >
 
+    <meta
+        name="theme-color"
+        content="#1c1a18"
+    >
+
     <title>
         DEE GELVI STORE — Luxury Fragrance
     </title>
 
     <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet"
+        href="style.css"
     >
-
-    <style>
-
-        /* =====================================================
-           DEE GELVI STORE
-           LUXURY GREY + CHAMPAGNE
-        ===================================================== */
-
-        :root {
-
-            --bg-dark: #3b3d40;
-            --bg-dark-2: #45474a;
-            --bg-dark-3: #505256;
-
-            --cream: #f5efe5;
-            --cream-light: #fffdf9;
-
-            --gold: #c8a56a;
-            --gold-light: #e3cda3;
-            --gold-dark: #9b783f;
-
-            --text: #292723;
-            --text-light: #f7f3eb;
-            --muted: #81786d;
-
-            --border:
-                rgba(200,165,106,.25);
-
-            --shadow:
-                0 25px 70px
-                rgba(0,0,0,.18);
-
-            --serif:
-                "Cormorant Garamond",
-                Georgia,
-                serif;
-
-            --sans:
-                "Inter",
-                Arial,
-                sans-serif;
-
-        }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-
-            background:
-                var(--cream);
-
-            color:
-                var(--text);
-
-            font-family:
-                var(--sans);
-
-            overflow-x:
-                hidden;
-
-        }
-
-
-        body.no-scroll {
-            overflow: hidden;
-        }
-
-
-        button,
-        input {
-            font: inherit;
-        }
-
-
-        button {
-            cursor: pointer;
-        }
-
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        .site-header {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            background:
-                rgba(59,61,64,.96);
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-            backdrop-filter:
-                blur(18px);
-
-        }
-
-
-        .header-container {
-
-            width:
-                min(1250px, 92%);
-
-            height:
-                82px;
-
-            margin:
-                auto;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-        }
-
-
-        /* =====================================================
-           LOGO
-        ===================================================== */
-
-        .logo {
-
-            color:
-                var(--text-light);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                25px;
-
-            letter-spacing:
-                5px;
-
-            line-height:
-                1;
-
-        }
-
-
-        .logo span {
-
-            display:
-                block;
-
-            margin-top:
-                7px;
-
-            color:
-                var(--gold);
-
-            font-family:
-                var(--sans);
-
-            font-size:
-                7px;
-
-            font-weight:
-                600;
-
-            letter-spacing:
-                4px;
-
-            text-align:
-                center;
-
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .desktop-nav {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                38px;
-
-        }
-
-
-        .desktop-nav a {
-
-            position:
-                relative;
-
-            padding:
-                8px 0;
-
-            color:
-                #ded9d0;
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                2px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .desktop-nav a:hover {
-
-            color:
-                var(--gold-light);
-
-        }
-
-
-        .desktop-nav a::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            left:
-                0;
-
-            bottom:
-                0;
-
-            width:
-                0;
-
-            height:
-                1px;
-
-            background:
-                var(--gold);
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .desktop-nav a:hover::after {
-
-            width:
-                100%;
-
-        }
-
-
-        /* =====================================================
-           HEADER ACTIONS
-        ===================================================== */
-
-        .header-actions {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                5px;
-
-        }
-
-
-        .header-actions button {
-
-            position:
-                relative;
-
-            width:
-                42px;
-
-            height:
-                42px;
-
-            border:
-                0;
-
-            background:
-                transparent;
-
-            color:
-                white;
-
-            font-size:
-                17px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .header-actions button:hover {
-
-            color:
-                var(--gold-light);
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        .cart-count {
-
-            position:
-                absolute;
-
-            top:
-                0;
-
-            right:
-                0;
-
-            min-width:
-                18px;
-
-            height:
-                18px;
-
-            padding:
-                0 4px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--gold);
-
-            color:
-                #2c2822;
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-        }
-
-
-        #mobileMenuButton {
-            display: none;
-        }
-
-
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
-
-        .mobile-menu {
-
-            display:
-                none;
-
-            padding:
-                25px;
-
-            background:
-                var(--bg-dark-2);
-
-            border-top:
-                1px solid
-                var(--border);
-
-        }
-
-
-        .mobile-menu.active {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                20px;
-
-        }
-
-
-        .mobile-menu a {
-
-            color:
-                #eee9df;
-
-            font-size:
-                10px;
-
-            letter-spacing:
-                3px;
-
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-
-            min-height:
-                720px;
-
-            position:
-                relative;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            overflow:
-                hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at 80% 35%,
-                    rgba(200,165,106,.20),
-                    transparent 25%
-                ),
-
-                radial-gradient(
-                    circle at 15% 90%,
-                    rgba(255,255,255,.05),
-                    transparent 30%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #343639 0%,
-                    #45474a 55%,
-                    #55575a 100%
-                );
-
-        }
-
-
-        .hero::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                520px;
-
-            height:
-                520px;
-
-            right:
-                5%;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            border:
-                1px solid
-                rgba(227,205,163,.18);
-
-            border-radius:
-                50%;
-
-            box-shadow:
-                0 0 120px
-                rgba(200,165,106,.08);
-
-        }
-
-
-        .hero::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                700px;
-
-            height:
-                700px;
-
-            right:
-                -250px;
-
-            top:
-                -250px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,.025);
-
-        }
-
-
-        .hero-content {
-
-            width:
-                min(1250px, 92%);
-
-            margin:
-                auto;
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-        }
-
-
-        .hero-label {
-
-            display:
-                inline-block;
-
-            margin-bottom:
-                25px;
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                9px;
-
-            font-weight:
-                500;
-
-            letter-spacing:
-                5px;
-
-        }
-
-
-        .hero h1 {
-
-            max-width:
-                850px;
-
-            color:
-                #fffdf8;
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                clamp(60px, 8vw, 110px);
-
-            font-weight:
-                400;
-
-            line-height:
-                .85;
-
-            letter-spacing:
-                -4px;
-
-        }
-
-
-        .hero h1 em {
-
-            color:
-                var(--gold-light);
-
-            font-style:
-                italic;
-
-        }
-
-
-        .hero-description {
-
-            max-width:
-                510px;
-
-            margin:
-                32px 0;
-
-            color:
-                #d0cbc2;
-
-            font-size:
-                13px;
-
-            line-height:
-                1.9;
-
-        }
-
-
-        .hero-button {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                16px 30px;
-
-            border:
-                1px solid
-                var(--gold);
-
-            background:
-                var(--gold);
-
-            color:
-                #29251f;
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                2px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .hero-button:hover {
-
-            background:
-                var(--gold-light);
-
-            border-color:
-                var(--gold-light);
-
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 15px 35px
-                rgba(200,165,106,.20);
-
-        }
-
-
-        /* =====================================================
-           HERO DECORATION
-        ===================================================== */
-
-        .hero-number {
-
-            position:
-                absolute;
-
-            right:
-                12%;
-
-            bottom:
-                70px;
-
-            color:
-                rgba(255,255,255,.10);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                180px;
-
-            line-height:
-                1;
-
-            z-index:
-                1;
-
-        }
-
-
-        /* =====================================================
-           SHOP
-        ===================================================== */
-
-        .shop-section {
-
-            padding:
-                120px 5%;
-
-            background:
-                var(--cream);
-
-        }
-
-
-        .section-heading {
-
-            max-width:
-                750px;
-
-            margin:
-                0 auto 55px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .section-heading > span {
-
-            display:
-                block;
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                4px;
-
-        }
-
-
-        .section-heading h2 {
-
-            margin:
-                14px 0;
-
-            color:
-                var(--text);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                clamp(45px, 5vw, 70px);
-
-            font-weight:
-                400;
-
-            line-height:
-                .95;
-
-        }
-
-
-        .section-heading p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-        }
-
-
-        /* =====================================================
-           SHOP TOOLS
-        ===================================================== */
-
-        .shop-tools {
-
-            width:
-                min(1200px, 100%);
-
-            margin:
-                0 auto 45px;
-
-        }
-
-
-        .search-box {
-
-            width:
-                min(600px, 100%);
-
-            margin:
-                0 auto 25px;
-
-            display:
-                flex;
-
-            background:
-                var(--cream-light);
-
-            border:
-                1px solid
-                rgba(157,121,68,.22);
-
-        }
-
-
-        .search-box input {
-
-            flex:
-                1;
-
-            min-width:
-                0;
-
-            padding:
-                16px 18px;
-
-            border:
-                0;
-
-            outline:
-                0;
-
-            background:
-                transparent;
-
-            color:
-                var(--text);
-
-            font-size:
-                12px;
-
-        }
-
-
-        .search-box button {
-
-            padding:
-                0 22px;
-
-            border:
-                0;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                2px;
-
-        }
-
-
-        .categories {
-
-            display:
-                flex;
-
-            justify-content:
-                center;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                8px;
-
-        }
-
-
-        .category {
-
-            padding:
-                11px 20px;
-
-            border:
-                1px solid
-                rgba(157,121,68,.22);
-
-            background:
-                transparent;
-
-            color:
-                var(--muted);
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                2px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .category:hover,
-        .category.active {
-
-            background:
-                var(--bg-dark);
-
-            border-color:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-        }
-
-
-        /* =====================================================
-           PRODUCT GRID
-        ===================================================== */
-
-        .product-grid {
-
-            width:
-                min(1200px, 100%);
-
-            margin:
-                auto;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                25px;
-
-        }
-
-
-        /* =====================================================
-           PRODUCT CARD
-        ===================================================== */
-
-        .product-card {
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            background:
-                var(--cream-light);
-
-            border:
-                1px solid
-                rgba(157,121,68,.18);
-
-            box-shadow:
-                0 8px 25px
-                rgba(40,30,20,.05);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease;
-
-        }
-
-
-        .product-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            box-shadow:
-                0 25px 60px
-                rgba(40,30,20,.13);
-
-        }
-
-
-        .product-image {
-
-            height:
-                410px;
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    #fffdf8,
-                    #e9decb
-                );
-
-        }
-
-
-        .product-image img {
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            padding:
-                25px;
-
-            object-fit:
-                contain;
-
-            transition:
-                transform .6s ease;
-
-        }
-
-
-        .product-card:hover
-        .product-image img {
-
-            transform:
-                scale(1.07);
-
-        }
-
-
-        .badge {
-
-            position:
-                absolute;
-
-            top:
-                16px;
-
-            left:
-                16px;
-
-            padding:
-                8px 12px;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                7px;
-
-            letter-spacing:
-                2px;
-
-        }
-
-
-        .quick-view {
-
-            position:
-                absolute;
-
-            left:
-                18px;
-
-            right:
-                18px;
-
-            bottom:
-                -60px;
-
-            padding:
-                15px;
-
-            border:
-                1px solid
-                var(--border);
-
-            background:
-                rgba(255,253,249,.96);
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                2px;
-
-            transition:
-                .4s ease;
-
-        }
-
-
-        .product-card:hover
-        .quick-view {
-
-            bottom:
-                18px;
-
-        }
-
-
-        .quick-view:hover {
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-        }
-
-
-        .product-info {
-
-            padding:
-                24px;
-
-        }
-
-
-        .product-category {
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                3px;
-
-        }
-
-
-        .product-info h3 {
-
-            margin:
-                8px 0;
-
-            color:
-                var(--text);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                28px;
-
-            font-weight:
-                500;
-
-        }
-
-
-        .product-desc {
-
-            min-height:
-                42px;
-
-            margin-bottom:
-                20px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .product-price {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                15px;
-
-        }
-
-
-        .product-price strong {
-
-            color:
-                var(--text);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                19px;
-
-        }
-
-
-        .add-cart {
-
-            padding:
-                11px 16px;
-
-            border:
-                0;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                1px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .add-cart:hover {
-
-            background:
-                var(--gold);
-
-            color:
-                #28231e;
-
-        }
-
-
-        /* =====================================================
-           ABOUT
-        ===================================================== */
-
-        .about-section {
-
-            position:
-                relative;
-
-            padding:
-                130px 5%;
-
-            overflow:
-                hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at 80% 40%,
-                    rgba(200,165,106,.15),
-                    transparent 30%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #3b3d40,
-                    #55575a
-                );
-
-            color:
-                white;
-
-        }
-
-
-        .about-section .section-heading {
-            margin-bottom:
-                0;
-        }
-
-
-        .about-section .section-heading > span {
-            color:
-                var(--gold-light);
-        }
-
-
-        .about-section .section-heading h2 {
-            color:
-                white;
-        }
-
-
-        .about-section .section-heading p {
-
-            max-width:
-                600px;
-
-            margin:
-                auto;
-
-            color:
-                #d0cbc2;
-
-            line-height:
-                1.9;
-
-        }
-
-
-        /* =====================================================
-           CONTACT
-        ===================================================== */
-
-        .contact-section {
-
-            padding:
-                120px 5%;
-
-            background:
-                var(--cream-light);
-
-            text-align:
-                center;
-
-        }
-
-
-        .contact-button {
-
-            margin-top:
-                25px;
-
-            padding:
-                16px 25px;
-
-            border:
-                0;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                2px;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .contact-button:hover {
-
-            background:
-                var(--gold);
-
-            color:
-                #28231e;
-
-            transform:
-                translateY(-3px);
-
-        }
-
-
-        /* =====================================================
-           MODAL
-        ===================================================== */
-
-        .modal {
-
-            position:
-                fixed;
-
-            inset:
-                0;
-
-            z-index:
-                5000;
-
-            display:
-                none;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                20px;
-
-            background:
-                rgba(20,20,20,.72);
-
-            backdrop-filter:
-                blur(10px);
-
-        }
-
-
-        .modal.active {
-
-            display:
-                flex;
-
-        }
-
-
-        .modal-content {
-
-            position:
-                relative;
-
-            width:
-                min(950px, 100%);
-
-            max-height:
-                90vh;
-
-            overflow:
-                auto;
-
-            background:
-                var(--cream-light);
-
-            box-shadow:
-                var(--shadow);
-
-        }
-
-
-        .modal-close {
-
-            position:
-                absolute;
-
-            top:
-                15px;
-
-            right:
-                15px;
-
-            z-index:
-                10;
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            border:
-                0;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,.90);
-
-            color:
-                var(--text);
-
-            font-size:
-                25px;
-
-        }
-
-
-        .modal-close:hover {
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-        }
-
-
-        .modal-product {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-        }
-
-
-        .modal-image {
-
-            min-height:
-                550px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-
-                radial-gradient(
-                    circle,
-                    #fffdf8,
-                    #e8dcc8
-                );
-
-        }
-
-
-        .modal-image img {
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            max-height:
-                550px;
-
-            padding:
-                40px;
-
-            object-fit:
-                contain;
-
-        }
-
-
-        .modal-info {
-
-            padding:
-                60px 50px;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            justify-content:
-                center;
-
-        }
-
-
-        .modal-info .product-category {
-            margin-bottom:
-                8px;
-        }
-
-
-        .modal-info h2 {
-
-            margin:
-                10px 0 20px;
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                50px;
-
-            font-weight:
-                500;
-
-            line-height:
-                1;
-
-        }
-
-
-        .modal-description {
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.9;
-
-        }
-
-
-        .modal-notes {
-
-            margin:
-                20px 0;
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                10px;
-
-            letter-spacing:
-                1px;
-
-        }
-
-
-        .modal-price {
-
-            display:
-                block;
-
-            margin-bottom:
-                25px;
-
-            color:
-                var(--gold-dark);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                25px;
-
-        }
-
-
-        .modal-add-cart {
-
-            width:
-                100%;
-
-            padding:
-                17px;
-
-            border:
-                0;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                2px;
-
-        }
-
-
-        .modal-add-cart:hover {
-
-            background:
-                var(--gold);
-
-            color:
-                #28231e;
-
-        }
-
-
-        /* =====================================================
-           SEARCH MODAL
-        ===================================================== */
-
-        .search-modal-content {
-
-            max-width:
-                650px;
-
-        }
-
-
-        .search-modal-inner {
-
-            padding:
-                70px 50px;
-
-        }
-
-
-        .search-modal-inner > span {
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                4px;
-
-        }
-
-
-        .search-modal-inner h2 {
-
-            margin:
-                15px 0 30px;
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                45px;
-
-            font-weight:
-                500;
-
-        }
-
-
-        .search-modal-inner input {
-
-            width:
-                100%;
-
-            padding:
-                16px 0;
-
-            border:
-                0;
-
-            border-bottom:
-                1px solid
-                var(--gold-dark);
-
-            outline:
-                0;
-
-            background:
-                transparent;
-
-            color:
-                var(--text);
-
-            font-size:
-                16px;
-
-        }
-
-
-        /* =====================================================
-           CART
-        ===================================================== */
-
-        .cart-panel {
-
-            position:
-                fixed;
-
-            top:
-                0;
-
-            right:
-                -440px;
-
-            z-index:
-                6000;
-
-            width:
-                420px;
-
-            max-width:
-                100%;
-
-            height:
-                100vh;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            background:
-                var(--cream-light);
-
-            box-shadow:
-                -20px 0 60px
-                rgba(0,0,0,.20);
-
-            transition:
-                right .4s ease;
-
-        }
-
-
-        .cart-panel.active {
-
-            right:
-                0;
-
-        }
-
-
-        .cart-header {
-
-            padding:
-                25px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            border-bottom:
-                1px solid
-                rgba(157,121,68,.20);
-
-        }
-
-
-        .cart-header span {
-
-            color:
-                var(--gold-dark);
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                3px;
-
-        }
-
-
-        .cart-header h2 {
-
-            margin-top:
-                5px;
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                28px;
-
-            font-weight:
-                500;
-
-        }
-
-
-        #closeCart {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            border:
-                0;
-
-            background:
-                transparent;
-
-            color:
-                var(--text);
-
-            font-size:
-                28px;
-
-        }
-
-
-        .cart-items {
-
-            flex:
-                1;
-
-            overflow-y:
-                auto;
-
-            padding:
-                10px 25px;
-
-        }
-
-
-        .empty-cart {
-
-            padding:
-                70px 10px;
-
-            text-align:
-                center;
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-        }
-
-
-        .cart-item {
-
-            padding:
-                18px 0;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                70px 1fr auto;
-
-            gap:
-                15px;
-
-            align-items:
-                center;
-
-            border-bottom:
-                1px solid
-                #e9dfd1;
-
-        }
-
-
-        .cart-item img {
-
-            width:
-                70px;
-
-            height:
-                70px;
-
-            object-fit:
-                contain;
-
-            background:
-                #f1e7d8;
-
-        }
-
-
-        .cart-item h4 {
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                20px;
-
-            font-weight:
-                500;
-
-        }
-
-
-        .cart-item small {
-
-            color:
-                var(--muted);
-
-            font-size:
-                10px;
-
-        }
-
-
-        .cart-remove {
-
-            border:
-                0;
-
-            background:
-                transparent;
-
-            color:
-                #a07848;
-
-            font-size:
-                11px;
-
-        }
-
-
-        .cart-footer {
-
-            padding:
-                22px;
-
-            border-top:
-                1px solid
-                rgba(157,121,68,.20);
-
-        }
-
-
-        .cart-total-row {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .cart-total-row span {
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                2px;
-
-        }
-
-
-        .cart-total-row strong {
-
-            color:
-                var(--gold-dark);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                22px;
-
-        }
-
-
-        .checkout-button {
-
-            width:
-                100%;
-
-            margin-top:
-                8px;
-
-            padding:
-                15px;
-
-            border:
-                0;
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                2px;
-
-        }
-
-
-        .checkout-button.whatsapp {
-
-            background:
-                #292723;
-
-            color:
-                var(--gold-light);
-
-        }
-
-
-        .checkout-button.telegram {
-
-            background:
-                var(--gold);
-
-            color:
-                #292723;
-
-        }
-
-
-        .checkout-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            filter:
-                brightness(1.08);
-
-        }
-
-
-        /* =====================================================
-           NOTIFICATION
-        ===================================================== */
-
-        .cart-notification {
-
-            position:
-                fixed;
-
-            right:
-                25px;
-
-            bottom:
-                25px;
-
-            z-index:
-                9000;
-
-            max-width:
-                320px;
-
-            padding:
-                15px 20px;
-
-            background:
-                var(--bg-dark);
-
-            color:
-                var(--gold-light);
-
-            border-left:
-                3px solid
-                var(--gold);
-
-            box-shadow:
-                var(--shadow);
-
-            transform:
-                translateY(30px);
-
-            opacity:
-                0;
-
-            pointer-events:
-                none;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .cart-notification.show {
-
-            transform:
-                translateY(0);
-
-            opacity:
-                1;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .site-footer {
-
-            padding:
-                65px 5% 25px;
-
-            background:
-                #343638;
-
-            color:
-                white;
-
-        }
-
-
-        .footer-content {
-
-            width:
-                min(1200px, 100%);
-
-            margin:
-                auto;
-
-            display:
-                flex;
-
-            align-items:
-                flex-end;
-
-            justify-content:
-                space-between;
-
-            gap:
-                30px;
-
-            padding-bottom:
-                30px;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.08);
-
-        }
-
-
-        .footer-content strong {
-
-            color:
-                var(--gold-light);
-
-            font-family:
-                var(--serif);
-
-            font-size:
-                23px;
-
-            letter-spacing:
-                4px;
-
-        }
-
-
-        .footer-content p {
-
-            margin-top:
-                10px;
-
-            color:
-                #b6b1a9;
-
-            font-size:
-                10px;
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .desktop-nav {
-                display: none;
-            }
-
-            #mobileMenuButton {
-                display: block;
-            }
-
-            .hero {
-                min-height: 650px;
-            }
-
-            .hero-number {
-                right: 5%;
-                font-size: 130px;
-            }
-
-            .product-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .product-image {
-                height: 380px;
-            }
-
-            .modal-product {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .modal-image {
-                min-height:
-                    350px;
-            }
-
-            .modal-info {
-                padding:
-                    40px;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .header-container {
-                height:
-                    72px;
-            }
-
-            .logo {
-                font-size:
-                    19px;
-                letter-spacing:
-                    4px;
-            }
-
-            .logo span {
-                font-size:
-                    6px;
-                letter-spacing:
-                    3px;
-            }
-
-            .header-actions button {
-                width:
-                    38px;
-                height:
-                    38px;
-                font-size:
-                    15px;
-            }
-
-            .hero {
-                min-height:
-                    620px;
-            }
-
-            .hero::before {
-                width:
-                    300px;
-                height:
-                    300px;
-                right:
-                    -80px;
-            }
-
-            .hero h1 {
-                font-size:
-                    54px;
-                letter-spacing:
-                    -2px;
-            }
-
-            .hero-number {
-                font-size:
-                    100px;
-                bottom:
-                    40px;
-            }
-
-            .shop-section {
-                padding:
-                    85px 5%;
-            }
-
-            .section-heading {
-                margin-bottom:
-                    40px;
-            }
-
-            .section-heading h2 {
-                font-size:
-                    42px;
-            }
-
-            .search-box {
-                flex-direction:
-                    column;
-            }
-
-            .search-box button {
-                height:
-                    45px;
-            }
-
-            .product-grid {
-                grid-template-columns:
-                    1fr;
-                gap:
-                    22px;
-            }
-
-            .product-image {
-                height:
-                    370px;
-            }
-
-            .product-price {
-                align-items:
-                    stretch;
-                flex-direction:
-                    column;
-            }
-
-            .add-cart {
-                width:
-                    100%;
-            }
-
-            .quick-view {
-                bottom:
-                    18px;
-            }
-
-            .about-section {
-                padding:
-                    90px 5%;
-            }
-
-            .contact-section {
-                padding:
-                    90px 5%;
-            }
-
-            .modal {
-                padding:
-                    10px;
-            }
-
-            .modal-info {
-                padding:
-                    30px 22px;
-            }
-
-            .modal-info h2 {
-                font-size:
-                    38px;
-            }
-
-            .modal-image {
-                min-height:
-                    300px;
-                height:
-                    300px;
-            }
-
-            .search-modal-inner {
-                padding:
-                    55px 25px;
-            }
-
-            .search-modal-inner h2 {
-                font-size:
-                    35px;
-            }
-
-            .cart-panel {
-                width:
-                    100%;
-                right:
-                    -100%;
-            }
-
-            .footer-content {
-                flex-direction:
-                    column;
-                align-items:
-                    flex-start;
-            }
-
-        }
-
-    </style>
 
 </head>
 
@@ -2606,93 +35,43 @@
 <body>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+<!-- ==================================================
+     TOP BAR
+================================================== -->
 
-    <header class="site-header">
+<div class="top-bar">
 
-        <div class="header-container">
+    DISCOVER YOUR SIGNATURE SCENT — DEE GELVI STORE
 
-            <a
-                href="#home"
-                class="logo"
-            >
-                DEE GELVI
-
-                <span>
-                    LUXURY FRAGRANCE
-                </span>
-
-            </a>
+</div>
 
 
-            <nav class="desktop-nav">
 
-                <a href="#home">
-                    HOME
-                </a>
+<!-- ==================================================
+     HEADER
+================================================== -->
 
-                <a href="#shop">
-                    SHOP
-                </a>
+<header class="site-header">
 
-                <a href="#about">
-                    ABOUT
-                </a>
+    <div class="header-container">
 
-                <a href="#contact">
-                    CONTACT
-                </a>
-
-            </nav>
-
-
-            <div class="header-actions">
-
-                <button
-                    type="button"
-                    id="searchButton"
-                    aria-label="Cari"
-                >
-                    ⌕
-                </button>
-
-
-                <button
-                    type="button"
-                    id="cartButton"
-                    aria-label="Keranjang"
-                >
-                    🛍
-
-                    <span
-                        class="cart-count"
-                        id="cartCount"
-                    >
-                        0
-                    </span>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    id="mobileMenuButton"
-                    aria-label="Menu"
-                >
-                    ☰
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="mobile-menu"
-            id="mobileMenu"
+        <a
+            href="#home"
+            class="logo"
         >
+
+            <strong>
+                DEE GELVI
+            </strong>
+
+            <span>
+                LUXURY FRAGRANCE
+            </span>
+
+        </a>
+
+
+        <nav class="desktop-nav">
 
             <a href="#home">
                 HOME
@@ -2710,272 +89,163 @@
                 CONTACT
             </a>
 
-        </div>
+        </nav>
 
-    </header>
 
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <main>
-
-        <section
-            class="hero"
-            id="home"
-        >
-
-            <div class="hero-content">
-
-                <span class="hero-label">
-                    THE ART OF SIGNATURE SCENT
-                </span>
-
-
-                <h1>
-                    Your scent.
-                    <br>
-                    Your
-                    <em>
-                        identity.
-                    </em>
-                </h1>
-
-
-                <p class="hero-description">
-
-                    Temukan fragrance yang dirancang untuk
-                    meninggalkan kesan. Elegan, sophisticated,
-                    dan dibuat untuk menjadi signature kamu.
-
-                </p>
-
-
-                <a
-                    href="#shop"
-                    class="hero-button"
-                >
-                    EXPLORE COLLECTION
-                </a>
-
-            </div>
-
-
-            <div class="hero-number">
-                01
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             SHOP
-        ================================================== -->
-
-        <section
-            class="shop-section"
-            id="shop"
-        >
-
-            <div class="section-heading">
-
-                <span>
-                    THE COLLECTION
-                </span>
-
-                <h2>
-                    Find Your Signature
-                </h2>
-
-                <p>
-                    Koleksi fragrance pilihan DEE GELVI
-                    untuk setiap karakter dan suasana.
-                </p>
-
-            </div>
-
-
-            <div class="shop-tools">
-
-                <div class="search-box">
-
-                    <input
-                        type="text"
-                        id="productSearch"
-                        placeholder="Cari fragrance..."
-                    >
-
-                    <button
-                        type="button"
-                        id="searchProductButton"
-                    >
-                        SEARCH
-                    </button>
-
-                </div>
-
-
-                <div class="categories">
-
-                    <button
-                        class="category active"
-                        data-category="all"
-                    >
-                        ALL
-                    </button>
-
-                    <button
-                        class="category"
-                        data-category="men"
-                    >
-                        MEN
-                    </button>
-
-                    <button
-                        class="category"
-                        data-category="women"
-                    >
-                        WOMEN
-                    </button>
-
-                    <button
-                        class="category"
-                        data-category="unisex"
-                    >
-                        UNISEX
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="product-grid"
-                id="productGrid"
-            ></div>
-
-
-        </section>
-
-
-
-        <!-- =================================================
-             ABOUT
-        ================================================== -->
-
-        <section
-            class="about-section"
-            id="about"
-        >
-
-            <div class="section-heading">
-
-                <span>
-                    DEE GELVI
-                </span>
-
-                <h2>
-                    More Than A Fragrance
-                </h2>
-
-                <p>
-
-                    Kami percaya fragrance bukan hanya tentang
-                    aroma. Fragrance adalah bagian dari identitas,
-                    mood, confidence, dan bagaimana seseorang
-                    ingin dikenang.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             CONTACT
-        ================================================== -->
-
-        <section
-            class="contact-section"
-            id="contact"
-        >
-
-            <div class="section-heading">
-
-                <span>
-                    GET IN TOUCH
-                </span>
-
-                <h2>
-                    Let's Talk Fragrance
-                </h2>
-
-                <p>
-                    Punya pertanyaan tentang fragrance?
-                    Hubungi DEE GELVI dan kami akan membantu.
-                </p>
-
-
-                <button
-                    type="button"
-                    class="contact-button"
-                    id="contactButton"
-                >
-                    CONTACT US
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         SEARCH MODAL
-    ====================================================== -->
-
-    <div
-        class="modal"
-        id="searchModal"
-    >
-
-        <div
-            class="modal-content search-modal-content"
-        >
+        <div class="header-actions">
 
             <button
-                class="modal-close"
                 type="button"
-                data-close="searchModal"
+                id="searchButton"
+                aria-label="Cari produk"
             >
-                ×
+                🔍
             </button>
 
 
-            <div class="search-modal-inner">
+            <button
+                type="button"
+                id="openCart"
+                aria-label="Buka shopping bag"
+            >
 
-                <span>
-                    SEARCH COLLECTION
+                🛍️
+
+                <span id="cartCount">
+                    0
                 </span>
 
-                <h2>
-                    Find Your Scent
-                </h2>
+            </button>
 
 
-                <input
-                    type="text"
-                    id="searchModalInput"
-                    placeholder="Ketik nama fragrance..."
-                >
+            <button
+                type="button"
+                id="mobileMenuButton"
+                aria-label="Buka menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobileMenu"
+        class="mobile-menu"
+    >
+
+        <a href="#home">
+            HOME
+        </a>
+
+        <a href="#shop">
+            SHOP
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<main>
+
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            THE ART OF SIGNATURE SCENT
+        </span>
+
+
+        <h1>
+
+            YOUR SCENT.
+
+            <br>
+
+            YOUR
+
+            <em>
+                IDENTITY.
+            </em>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Luxury fragrance dengan karakter
+            elegan untuk melengkapi signature
+            identity kamu.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#shop"
+                class="btn btn-dark"
+            >
+                EXPLORE COLLECTION
+            </a>
+
+
+            <a
+                href="#dee-gelvi-collection"
+                class="btn btn-outline"
+            >
+                DEE GELVI ORIGINAL
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-product">
+
+        <div class="hero-frame">
+
+            <img
+                src="images/shadow.jpg"
+                alt="DEE GELVI Shadow Man"
+            >
+
+
+            <div class="hero-label">
+
+                <span>
+                    SHADOW MAN
+                </span>
+
+                <small>
+                    DEE GELVI SIGNATURE
+                </small>
 
             </div>
 
@@ -2983,1265 +253,1402 @@
 
     </div>
 
+</section>
 
 
-    <!-- =====================================================
-         QUICK VIEW MODAL
-    ====================================================== -->
+
+<!-- ==================================================
+     TRUST
+================================================== -->
+
+<section class="trust">
+
+    <div class="trust-item">
+
+        <span>
+            ✦
+        </span>
+
+        <div>
+
+            <strong>
+                SIGNATURE QUALITY
+            </strong>
+
+            <p>
+                Fragrance pilihan dengan karakter
+                yang kuat.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <span>
+            ◇
+        </span>
+
+        <div>
+
+            <strong>
+                CURATED SELECTION
+            </strong>
+
+            <p>
+                Produk pilihan dari brand
+                fragrance terpercaya.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <span>
+            ♢
+        </span>
+
+        <div>
+
+            <strong>
+                EASY ORDER
+            </strong>
+
+            <p>
+                Pesan dengan mudah melalui
+                WhatsApp atau Telegram.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SHOP
+================================================== -->
+
+<section
+    id="shop"
+    class="shop-section"
+>
+
+
+    <!-- SECTION HEADING -->
+
+    <div class="section-heading">
+
+        <span>
+            OUR COLLECTION
+        </span>
+
+        <h2>
+            Find Your Signature
+        </h2>
+
+        <p>
+            Explore fragrance dari DEE GELVI
+            dan pilihan curated collection kami.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         COLLECTION INTRO
+    ================================================== -->
+
+    <div class="collection-intro">
+
+        <div>
+
+            <span>
+                ORIGINAL COLLECTION
+            </span>
+
+            <h3>
+                DEE GELVI
+            </h3>
+
+            <p>
+                Signature fragrance yang menjadi
+                identitas utama DEE GELVI.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                SELECTED COLLECTION
+            </span>
+
+            <h3>
+                CURATED
+            </h3>
+
+            <p>
+                Fragrance pilihan dari brand
+                di luar DEE GELVI.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         SEARCH
+    ================================================== -->
+
+    <div class="shop-tools">
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="productSearch"
+                placeholder="Cari parfum..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- CATEGORY -->
+
+        <div class="categories">
+
+            <button
+                type="button"
+                class="category active"
+                data-filter="all"
+            >
+                ALL
+            </button>
+
+
+            <button
+                type="button"
+                class="category"
+                data-filter="dee-gelvi"
+            >
+                DEE GELVI
+            </button>
+
+
+            <button
+                type="button"
+                class="category"
+                data-filter="curated"
+            >
+                CURATED
+            </button>
+
+
+            <button
+                type="button"
+                class="category"
+                data-filter="men"
+            >
+                MEN
+            </button>
+
+
+            <button
+                type="button"
+                class="category"
+                data-filter="women"
+            >
+                WOMEN
+            </button>
+
+
+            <button
+                type="button"
+                class="category"
+                data-filter="unisex"
+            >
+                UNISEX
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NO RESULT -->
 
     <div
-        class="modal"
-        id="quickViewModal"
+        id="noResult"
+        class="no-result"
+        hidden
     >
+
+        <p>
+            Produk tidak ditemukan.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         DEE GELVI COLLECTION
+    ================================================== -->
+
+    <div
+        id="dee-gelvi-collection"
+        class="collection-section"
+    >
+
+        <div class="collection-title">
+
+            <span>
+                DEE GELVI ORIGINAL
+            </span>
+
+            <h3>
+                The Signature Collection
+            </h3>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+
+            <!-- PRODUCT 1 -->
+
+    
+        class="product-card"
+        data-name="NOAM THE GENTLE"
+        data-category="men"
+        data-collection="dee-gelvi"
+>
+>
+>
+
+      <div class="product-image">
+
+         <img
+            src="images/noam.jpg"
+            alt="NOAM THE GENTLE"
+            loading="lazy"
+        >
+
+        <span class="badge">
+            DEE GELVI
+        </span>
+
+        <button
+            type="button"
+            class="quick-view"
+            data-product="noir"
+        >
+            QUICK VIEW
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            MEN
+        </span>
+
+        <h3>
+            NOAM THE GENTLE
+        </h3>
+
+        <p class="product-desc">
+            Aroma maskulin, dark,
+            elegant, dan berkarakter.
+        </p>
+
+        <div class="product-price">
+
+            <strong>
+                Rp199.000
+            </strong>
+
+            <button
+                type="button"
+                class="add-cart"
+                data-product="noir"
+            >
+                + BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <article
+                class="product-card"
+                data-name="FELIX EXCLUSIVE"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/felix.jpg"
+                        alt="FELIX EXCLUSIVE"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="royale"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MEN
+                    </span>
+
+
+                    <h3>
+                        FELIX EXCLUSIVE
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Fresh, sophisticated,
+                        dan cocok untuk acara spesial.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp199.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="royale"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <article
+                class="product-card"
+                data-name="VAN URBAN VOYAGER"
+                data-category="women"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/van.jpg"
+                        alt="VAN URBAN VOYAGER"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="velvet"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        WOMEN
+                    </span>
+
+
+                    <h3>
+                        VAN URBAN VOYAGER
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Lembut, sensual,
+                        feminine, dan elegan.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp199.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="velvet"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <article
+                class="product-card"
+                data-name="DEE GELVI AMBER"
+                data-category="unisex"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/perfume4.jpg"
+                        alt="DEE GELVI AMBER"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="amber"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        UNISEX
+                    </span>
+
+
+                    <h3>
+                        DEE GELVI AMBER
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Warm amber dengan karakter
+                        mewah dan timeless.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp289.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="amber"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 5 -->
+
+            <article
+                class="product-card"
+                data-name="SHADOW MAN"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/shadow.jpg"
+                        alt="SHADOW MAN"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="shadow"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MEN
+                    </span>
+
+
+                    <h3>
+                        SHADOW MAN
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Dark, woody, maskulin,
+                        dan berkarakter kuat.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp299.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="shadow"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 6 -->
+
+            <article
+                class="product-card"
+                data-name="DEE GELVI BLOOM"
+                data-category="women"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/perfume6.jpg"
+                        alt="DEE GELVI BLOOM"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="bloom"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        WOMEN
+                    </span>
+
+
+                    <h3>
+                        DEE GELVI BLOOM
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Floral, fresh, manis,
+                        dan memorable.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp269.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="bloom"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CURATED COLLECTION
+    ================================================== -->
+
+    <div
+        id="curated-collection"
+        class="collection-section curated-section"
+    >
+
+        <div class="collection-title">
+
+            <span>
+                SELECTED FRAGRANCES
+            </span>
+
+            <h3>
+                Curated Collection
+            </h3>
+
+            <p>
+                Pilihan fragrance dari brand luar
+                yang kami pilih untuk melengkapi
+                koleksi DEE GELVI.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+
+            <!-- CURATED PRODUCT 1 -->
+
+            <article
+                class="product-card"
+                data-name="CURATED FRAGRANCE ONE"
+                data-category="men"
+                data-collection="curated"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/curated1.jpg"
+                        alt="Curated fragrance"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge badge-light">
+                        CURATED
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="curated1"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        MEN
+                    </span>
+
+
+                    <h3>
+                        CURATED FRAGRANCE ONE
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Selected fragrance dari
+                        koleksi pilihan DEE GELVI.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp299.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="curated1"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CURATED PRODUCT 2 -->
+
+            <article
+                class="product-card"
+                data-name="CURATED FRAGRANCE TWO"
+                data-category="women"
+                data-collection="curated"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="images/curated2.jpg"
+                        alt="Curated fragrance"
+                        loading="lazy"
+                    >
+
+
+                    <span class="badge badge-light">
+                        CURATED
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="quick-view"
+                        data-product="curated2"
+                    >
+                        QUICK VIEW
+                    </button>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        WOMEN
+                    </span>
+
+
+                    <h3>
+                        CURATED FRAGRANCE TWO
+                    </h3>
+
+
+                    <p class="product-desc">
+                        Selected fragrance dengan
+                        karakter elegan.
+                    </p>
+
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp299.000
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="curated2"
+                        >
+                            + BAG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section
+    id="about"
+    class="about-section"
+>
+
+    <div class="about-content">
+
+        <span>
+            ABOUT DEE GELVI
+        </span>
+
+
+        <h2>
+            More Than Just
+            A Fragrance.
+        </h2>
+
+
+        <p>
+            Fragrance bukan hanya tentang aroma.
+            Ia adalah karakter, mood, dan sesuatu
+            yang membuat seseorang diingat.
+        </p>
+
+
+        <p>
+            DEE GELVI hadir untuk menghadirkan
+            fragrance yang elegan, modern,
+            dan berkarakter.
+        </p>
+
+
+        <div class="about-values">
+
+            <div>
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    SIGNATURE
+                </span>
+            </div>
+
+
+            <div>
+                <strong>
+                    02
+                </strong>
+
+                <span>
+                    CHARACTER
+                </span>
+            </div>
+
+
+            <div>
+                <strong>
+                    03
+                </strong>
+
+                <span>
+                    MEMORY
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta">
+
+    <span>
+        FIND YOUR SIGNATURE
+    </span>
+
+
+    <h2>
+        Wear Your Identity.
+    </h2>
+
+
+    <a
+        href="#shop"
+        class="btn btn-gold"
+    >
+        EXPLORE COLLECTION
+    </a>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section
+    id="contact"
+    class="contact-section"
+>
+
+    <div class="section-heading">
+
+        <span>
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            Need Help?
+        </h2>
+
+        <p>
+            Hubungi DEE GELVI untuk informasi
+            produk, stok, dan pemesanan.
+        </p>
+
+        <button
+            type="button"
+            id="telegramContact"
+            class="btn btn-dark"
+        >
+            CONTACT VIA TELEGRAM
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ==================================================
+     PRODUCT MODAL
+================================================== -->
+
+<div
+    id="productModal"
+    class="modal"
+    aria-hidden="true"
+>
+
+    <div class="product-modal">
+
+        <button
+            type="button"
+            class="close"
+            data-close="productModal"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-image">
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
 
         <div class="modal-content">
 
-            <button
-                class="modal-close"
-                type="button"
-                data-close="quickViewModal"
+            <span
+                id="modalCategory"
+                class="product-category"
             >
-                ×
-            </button>
+            </span>
 
 
-            <div class="modal-product">
-
-                <div class="modal-image">
-
-                    <img
-                        id="modalImage"
-                        src=""
-                        alt=""
-                    >
-
-                </div>
+            <span
+                id="modalCollection"
+                class="modal-collection"
+            >
+            </span>
 
 
-                <div class="modal-info">
-
-                    <span
-                        class="product-category"
-                        id="modalCategory"
-                    ></span>
+            <h2 id="modalName">
+            </h2>
 
 
-                    <h2
-                        id="modalName"
-                    ></h2>
+            <p id="modalDescription">
+            </p>
 
 
-                    <p
-                        class="modal-description"
-                        id="modalDescription"
-                    ></p>
-
-
-                    <div
-                        class="modal-notes"
-                        id="modalNotes"
-                    ></div>
-
-
-                    <strong
-                        class="modal-price"
-                        id="modalPrice"
-                    ></strong>
-
-
-                    <button
-                        type="button"
-                        class="modal-add-cart"
-                        id="modalAddCart"
-                    >
-                        ADD TO CART
-                    </button>
-
-                </div>
-
+            <div id="modalNotes">
             </div>
+
+
+            <strong
+                id="modalPrice"
+                class="modal-price"
+            >
+            </strong>
+
+
+            <button
+                type="button"
+                id="modalAddCart"
+                class="add-modal"
+            >
+                ADD TO SHOPPING BAG
+            </button>
 
         </div>
 
     </div>
 
+</div>
 
 
-    <!-- =====================================================
-         CART
-    ====================================================== -->
 
-    <aside
-        class="cart-panel"
-        id="cartPanel"
-    >
+<!-- ==================================================
+     SEARCH MODAL
+================================================== -->
 
-        <div class="cart-header">
+<div
+    id="searchModal"
+    class="modal"
+    aria-hidden="true"
+>
 
-            <div>
+    <div class="search-modal">
 
-                <span>
-                    YOUR SELECTION
-                </span>
-
-                <h2>
-                    Shopping Bag
-                </h2>
-
-            </div>
+        <button
+            type="button"
+            class="close"
+            data-close="searchModal"
+        >
+            ×
+        </button>
 
 
-            <button
-                type="button"
-                id="closeCart"
-            >
-                ×
-            </button>
-
-        </div>
+        <span>
+            SEARCH
+        </span>
 
 
-        <div
-            class="cart-items"
-            id="cartItems"
+        <h2>
+            Find Your Fragrance
+        </h2>
+
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Cari nama parfum..."
+            autocomplete="off"
         >
 
-            <div class="empty-cart">
-                Your shopping bag is empty.
-            </div>
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     CART OVERLAY
+================================================== -->
+
+<div
+    id="cartOverlay"
+    class="cart-overlay"
+>
+</div>
+
+
+
+<!-- ==================================================
+     CART PANEL
+================================================== -->
+
+<aside
+    id="cartPanel"
+    class="cart-panel"
+>
+
+    <div class="cart-header">
+
+        <div>
+
+            <small>
+                YOUR SELECTION
+            </small>
+
+
+            <h2>
+                Shopping Bag
+            </h2>
 
         </div>
 
 
-        <div class="cart-footer">
+        <button
+            type="button"
+            id="closeCart"
+            class="close-cart"
+        >
+            ×
+        </button>
 
-            <div class="cart-total-row">
-
-                <span>
-                    TOTAL
-                </span>
-
-                <strong
-                    id="cartTotal"
-                >
-                    Rp0
-                </strong>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="checkout-button whatsapp"
-                id="whatsappCheckout"
-            >
-                ORDER VIA WHATSAPP
-            </button>
-
-
-            <button
-                type="button"
-                class="checkout-button telegram"
-                id="telegramCheckout"
-            >
-                ORDER VIA TELEGRAM
-            </button>
-
-        </div>
-
-    </aside>
-
-
-
-    <!-- =====================================================
-         NOTIFICATION
-    ====================================================== -->
-
-    <div
-        class="cart-notification"
-        id="notification"
-    >
-        Product added to your bag.
     </div>
 
 
+    <div
+        id="cartItems"
+        class="cart-items"
+    >
+    </div>
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
 
-    <footer class="site-footer">
+    <div class="cart-footer">
 
-        <div class="footer-content">
+        <div class="total-row">
 
-            <div>
+            <span>
+                TOTAL
+            </span>
+
+
+            <strong id="cartTotal">
+                Rp0
+            </strong>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="checkoutWhatsApp"
+            class="checkout-btn"
+        >
+            CHECKOUT VIA WHATSAPP
+        </button>
+
+
+        <button
+            type="button"
+            id="checkoutTelegram"
+            class="checkout-btn"
+        >
+            CHECKOUT VIA TELEGRAM
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ==================================================
+     NOTIFICATION
+================================================== -->
+
+<div
+    id="cartNotification"
+    class="notification"
+>
+</div>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo footer-logo">
 
                 <strong>
                     DEE GELVI
                 </strong>
 
-                <p>
-                    Luxury fragrance for your signature identity.
-                </p>
+                <span>
+                    LUXURY FRAGRANCE
+                </span>
 
             </div>
 
 
             <p>
-                © 2026 DEE GELVI STORE. All Rights Reserved.
+                Luxury fragrance for your
+                signature identity.
             </p>
 
         </div>
 
-    </footer>
 
+        <div class="footer-column">
 
+            <h4>
+                COLLECTION
+            </h4>
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+            <a href="#dee-gelvi-collection">
+                DEE GELVI
+            </a>
 
-    <script>
+            <a href="#curated-collection">
+                CURATED
+            </a>
 
-        /* =====================================================
-           PRODUCT DATA
-        ===================================================== */
+        </div>
 
-        const products = [
 
-            {
-                id: 1,
-                name: "OUD NOIR",
-                category: "men",
-                categoryLabel: "MEN",
-                price: 199000,
-                image: "images/oud.jpg",
-                description:
-                    "Aroma oud yang deep, elegant, warm dan berkarakter.",
-                notes:
-                    "OUD • AMBER • WOODY"
-            },
+        <div class="footer-column">
 
-            {
-                id: 2,
-                name: "VANILLA DREAM",
-                category: "women",
-                categoryLabel: "WOMEN",
-                price: 159000,
-                image: "images/vanilla.jpg",
-                description:
-                    "Vanilla creamy yang soft, sweet dan sophisticated.",
-                notes:
-                    "VANILLA • MUSK • CARAMEL"
-            },
+            <h4>
+                EXPLORE
+            </h4>
 
-            {
-                id: 3,
-                name: "WHITE MUSK",
-                category: "unisex",
-                categoryLabel: "UNISEX",
-                price: 169000,
-                image: "images/white-musk.jpg",
-                description:
-                    "Clean musk yang lembut dengan karakter modern.",
-                notes:
-                    "WHITE MUSK • POWDERY • CLEAN"
-            },
+            <a href="#home">
+                HOME
+            </a>
 
-            {
-                id: 4,
-                name: "ROYAL AMBER",
-                category: "unisex",
-                categoryLabel: "UNISEX",
-                price: 189000,
-                image: "images/royal-amber.jpg",
-                description:
-                    "Amber warm dengan sentuhan luxurious yang memorable.",
-                notes:
-                    "AMBER • SPICE • WOODY"
-            },
+            <a href="#shop">
+                SHOP
+            </a>
 
-            {
-                id: 5,
-                name: "SHADOW MAN",
-                category: "men",
-                categoryLabel: "MEN",
-                price: 179000,
-                image: "images/shadow.jpg",
-                description:
-                    "Aroma masculine, dark dan confident untuk malam hari.",
-                notes:
-                    "WOODY • LEATHER • AMBER"
-            },
+            <a href="#about">
+                ABOUT
+            </a>
 
-            {
-                id: 6,
-                name: "ROSE ELIXIR",
-                category: "women",
-                categoryLabel: "WOMEN",
-                price: 169000,
-                image: "images/rose.jpg",
-                description:
-                    "Rose elegant dengan karakter feminine dan refined.",
-                notes:
-                    "ROSE • PEONY • MUSK"
-            }
+        </div>
 
-        ];
 
+        <div class="footer-column">
 
+            <h4>
+                CONTACT
+            </h4>
 
-        /* =====================================================
-           STATE
-        ===================================================== */
+            <a href="#contact">
+                CONTACT US
+            </a>
 
-        let cart = [];
+        </div>
 
-        let activeCategory = "all";
+    </div>
 
-        let currentProduct = null;
 
+    <div class="footer-bottom">
 
+        © 2026 DEE GELVI STORE — ALL RIGHTS RESERVED.
 
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
+    </div>
 
-        const productGrid =
-            document.getElementById("productGrid");
+</footer>
 
-        const productSearch =
-            document.getElementById("productSearch");
 
-        const searchProductButton =
-            document.getElementById("searchProductButton");
 
-        const categories =
-            document.querySelectorAll(".category");
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
 
-        const cartButton =
-            document.getElementById("cartButton");
+<script src="script.js"></script>
 
-        const cartPanel =
-            document.getElementById("cartPanel");
-
-        const closeCart =
-            document.getElementById("closeCart");
-
-        const cartItems =
-            document.getElementById("cartItems");
-
-        const cartCount =
-            document.getElementById("cartCount");
-
-        const cartTotal =
-            document.getElementById("cartTotal");
-
-        const notification =
-            document.getElementById("notification");
-
-        const searchButton =
-            document.getElementById("searchButton");
-
-        const searchModal =
-            document.getElementById("searchModal");
-
-        const searchModalInput =
-            document.getElementById("searchModalInput");
-
-        const quickViewModal =
-            document.getElementById("quickViewModal");
-
-        const mobileMenuButton =
-            document.getElementById("mobileMenuButton");
-
-        const mobileMenu =
-            document.getElementById("mobileMenu");
-
-
-
-        /* =====================================================
-           FORMAT PRICE
-        ===================================================== */
-
-        function formatPrice(price) {
-
-            return new Intl.NumberFormat(
-                "id-ID",
-                {
-                    style: "currency",
-                    currency: "IDR",
-                    maximumFractionDigits: 0
-                }
-            ).format(price);
-
-        }
-
-
-
-        /* =====================================================
-           RENDER PRODUCTS
-        ===================================================== */
-
-        function renderProducts() {
-
-            const search =
-                productSearch.value
-                .trim()
-                .toLowerCase();
-
-
-            const filtered =
-                products.filter(product => {
-
-                    const matchCategory =
-                        activeCategory === "all"
-                        ||
-                        product.category === activeCategory;
-
-
-                    const matchSearch =
-                        product.name
-                            .toLowerCase()
-                            .includes(search);
-
-
-                    return (
-                        matchCategory
-                        &&
-                        matchSearch
-                    );
-
-                });
-
-
-            if (!filtered.length) {
-
-                productGrid.innerHTML = `
-                    <div
-                        style="
-                            grid-column:1/-1;
-                            text-align:center;
-                            padding:70px 20px;
-                            color:#81786d;
-                        "
-                    >
-                        No fragrance found.
-                    </div>
-                `;
-
-                return;
-
-            }
-
-
-            productGrid.innerHTML =
-                filtered.map(product => `
-
-                    <article
-                        class="product-card"
-                        data-id="${product.id}"
-                    >
-
-                        <div class="product-image">
-
-                            <img
-                                src="${product.image}"
-                                alt="${product.name}"
-                                loading="lazy"
-                            >
-
-                            <span class="badge">
-                                ${product.categoryLabel}
-                            </span>
-
-
-                            <button
-                                type="button"
-                                class="quick-view"
-                                data-product="${product.id}"
-                            >
-                                QUICK VIEW
-                            </button>
-
-                        </div>
-
-
-                        <div class="product-info">
-
-                            <span class="product-category">
-                                ${product.categoryLabel}
-                            </span>
-
-
-                            <h3>
-                                ${product.name}
-                            </h3>
-
-
-                            <p class="product-desc">
-                                ${product.description}
-                            </p>
-
-
-                            <div class="product-price">
-
-                                <strong>
-                                    ${formatPrice(product.price)}
-                                </strong>
-
-
-                                <button
-                                    type="button"
-                                    class="add-cart"
-                                    data-cart="${product.id}"
-                                >
-                                    ADD TO BAG
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                `).join("");
-
-
-            attachProductEvents();
-
-        }
-
-
-
-        /* =====================================================
-           PRODUCT EVENTS
-        ===================================================== */
-
-        function attachProductEvents() {
-
-            document
-                .querySelectorAll(".quick-view")
-                .forEach(button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            const id =
-                                Number(
-                                    button.dataset.product
-                                );
-
-                            openQuickView(id);
-
-                        }
-                    );
-
-                });
-
-
-            document
-                .querySelectorAll(".add-cart")
-                .forEach(button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            const id =
-                                Number(
-                                    button.dataset.cart
-                                );
-
-                            addToCart(id);
-
-                        }
-                    );
-
-                });
-
-        }
-
-
-
-        /* =====================================================
-           QUICK VIEW
-        ===================================================== */
-
-        function openQuickView(id) {
-
-            const product =
-                products.find(
-                    item => item.id === id
-                );
-
-
-            if (!product) return;
-
-
-            currentProduct =
-                product;
-
-
-            document.getElementById(
-                "modalImage"
-            ).src =
-                product.image;
-
-
-            document.getElementById(
-                "modalImage"
-            ).alt =
-                product.name;
-
-
-            document.getElementById(
-                "modalCategory"
-            ).textContent =
-                product.categoryLabel;
-
-
-            document.getElementById(
-                "modalName"
-            ).textContent =
-                product.name;
-
-
-            document.getElementById(
-                "modalDescription"
-            ).textContent =
-                product.description;
-
-
-            document.getElementById(
-                "modalNotes"
-            ).textContent =
-                product.notes;
-
-
-            document.getElementById(
-                "modalPrice"
-            ).textContent =
-                formatPrice(product.price);
-
-
-            quickViewModal.classList.add(
-                "active"
-            );
-
-
-            document.body.classList.add(
-                "no-scroll"
-            );
-
-        }
-
-
-
-        /* =====================================================
-           CLOSE MODALS
-        ===================================================== */
-
-        document
-            .querySelectorAll("[data-close]")
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        const id =
-                            button.dataset.close;
-
-                        document
-                            .getElementById(id)
-                            .classList.remove("active");
-
-                        document.body.classList.remove(
-                            "no-scroll"
-                        );
-
-                    }
-                );
-
-            });
-
-
-
-        document
-            .querySelectorAll(".modal")
-            .forEach(modal => {
-
-                modal.addEventListener(
-                    "click",
-                    event => {
-
-                        if (
-                            event.target === modal
-                        ) {
-
-                            modal.classList.remove(
-                                "active"
-                            );
-
-                            document.body.classList.remove(
-                                "no-scroll"
-                            );
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-
-        /* =====================================================
-           ADD TO CART
-        ===================================================== */
-
-        function addToCart(id) {
-
-            const product =
-                products.find(
-                    item => item.id === id
-                );
-
-
-            if (!product) return;
-
-
-            const existing =
-                cart.find(
-                    item => item.id === id
-                );
-
-
-            if (existing) {
-
-                existing.quantity++;
-
-            } else {
-
-                cart.push({
-
-                    ...product,
-
-                    quantity: 1
-
-                });
-
-            }
-
-
-            updateCart();
-
-            showNotification(
-                `${product.name} added to your bag.`
-            );
-
-        }
-
-
-
-        /* =====================================================
-           UPDATE CART
-        ===================================================== */
-
-        function updateCart() {
-
-            const quantity =
-                cart.reduce(
-                    (total, item) =>
-                        total + item.quantity,
-                    0
-                );
-
-
-            const total =
-                cart.reduce(
-                    (sum, item) =>
-                        sum +
-                        item.price *
-                        item.quantity,
-                    0
-                );
-
-
-            cartCount.textContent =
-                quantity;
-
-
-            cartTotal.textContent =
-                formatPrice(total);
-
-
-            if (!cart.length) {
-
-                cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        Your shopping bag is empty.
-                    </div>
-                `;
-
-                return;
-
-            }
-
-
-            cartItems.innerHTML =
-                cart.map(item => `
-
-                    <div class="cart-item">
-
-                        <img
-                            src="${item.image}"
-                            alt="${item.name}"
-                        >
-
-
-                        <div>
-
-                            <h4>
-                                ${item.name}
-                            </h4>
-
-                            <small>
-                                ${item.quantity}
-                                ×
-                                ${formatPrice(item.price)}
-                            </small>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            class="cart-remove"
-                            data-remove="${item.id}"
-                        >
-                            REMOVE
-                        </button>
-
-                    </div>
-
-                `).join("");
-
-
-            document
-                .querySelectorAll(".cart-remove")
-                .forEach(button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            const id =
-                                Number(
-                                    button.dataset.remove
-                                );
-
-                            cart =
-                                cart.filter(
-                                    item =>
-                                        item.id !== id
-                                );
-
-                            updateCart();
-
-                        }
-                    );
-
-                });
-
-        }
-
-
-
-        /* =====================================================
-           CART OPEN / CLOSE
-        ===================================================== */
-
-        cartButton.addEventListener(
-            "click",
-            () => {
-
-                cartPanel.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-
-        closeCart.addEventListener(
-            "click",
-            () => {
-
-                cartPanel.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-
-
-        /* =====================================================
-           MODAL ADD CART
-        ===================================================== */
-
-        document.getElementById(
-            "modalAddCart"
-        ).addEventListener(
-            "click",
-            () => {
-
-                if (!currentProduct)
-                    return;
-
-
-                addToCart(
-                    currentProduct.id
-                );
-
-
-                quickViewModal.classList.remove(
-                    "active"
-                );
-
-                document.body.classList.remove(
-                    "no-scroll"
-                );
-
-            }
-        );
-
-
-
-        /* =====================================================
-           CATEGORY FILTER
-        ===================================================== */
-
-        categories.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    categories.forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                    button.classList.add(
-                        "active"
-                    );
-
-
-                    activeCategory =
-                        button.dataset.category;
-
-
-                    renderProducts();
-
-                }
-            );
-
-        });
-
-
-
-        /* =====================================================
-           SEARCH
-        ===================================================== */
-
-        productSearch.addEventListener(
-            "input",
-            renderProducts
-        );
-
-
-        searchProductButton.addEventListener(
-            "click",
-            renderProducts
-        );
-
-
-        searchButton.addEventListener(
-            "click",
-            () => {
-
-                searchModal.classList.add(
-                    "active"
-                );
-
-                searchModalInput.focus();
-
-            }
-        );
-
-
-        searchModalInput.addEventListener(
-            "input",
-            () => {
-
-                productSearch.value =
-                    searchModalInput.value;
-
-                renderProducts();
-
-            }
-        );
-
-
-
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
-
-        mobileMenuButton.addEventListener(
-            "click",
-            () => {
-
-                mobileMenu.classList.toggle(
-                    "active"
-                );
-
-            }
-        );
-
-
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        mobileMenu.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-            });
-
-
-
-        /* =====================================================
-           NOTIFICATION
-        ===================================================== */
-
-        let notificationTimer;
-
-
-        function showNotification(message) {
-
-            notification.textContent =
-                message;
-
-
-            notification.classList.add(
-                "show"
-            );
-
-
-            clearTimeout(
-                notificationTimer
-            );
-
-
-            notificationTimer =
-                setTimeout(
-                    () => {
-
-                        notification.classList.remove(
-                            "show"
-                        );
-
-                    },
-                    2500
-                );
-
-        }
-
-
-
-        /* =====================================================
-           CONTACT
-        ===================================================== */
-
-        document.getElementById(
-            "contactButton"
-        ).addEventListener(
-            "click",
-            () => {
-
-                const phone =
-                    "6281234567890";
-
-                const message =
-                    encodeURIComponent(
-                        "Halo DEE GELVI, saya ingin bertanya tentang fragrance."
-                    );
-
-
-                window.open(
-                    `https://wa.me/${phone}?text=${message}`,
-                    "_blank"
-                );
-
-            }
-        );
-
-
-
-        /* =====================================================
-           WHATSAPP CHECKOUT
-        ===================================================== */
-
-        document.getElementById(
-            "whatsappCheckout"
-        ).addEventListener(
-            "click",
-            () => {
-
-                if (!cart.length) {
-
-                    showNotification(
-                        "Your shopping bag is empty."
-                    );
-
-                    return;
-
-                }
-
-
-                const phone =
-                    "6281234567890";
-
-
-                let message =
-                    "Halo DEE GELVI, saya ingin order:%0A%0A";
-
-
-                cart.forEach(item => {
-
-                    message +=
-                        `• ${item.name} x${item.quantity} - ${formatPrice(item.price * item.quantity)}%0A`;
-
-                });
-
-
-                const total =
-                    cart.reduce(
-                        (sum, item) =>
-                            sum +
-                            item.price *
-                            item.quantity,
-                        0
-                    );
-
-
-                message +=
-                    `%0ATotal: ${formatPrice(total)}`;
-
-
-                window.open(
-                    `https://wa.me/${phone}?text=${message}`,
-                    "_blank"
-                );
-
-            }
-        );
-
-
-
-        /* =====================================================
-           TELEGRAM CHECKOUT
-        ===================================================== */
-
-        document.getElementById(
-            "telegramCheckout"
-        ).addEventListener(
-            "click",
-            () => {
-
-                if (!cart.length) {
-
-                    showNotification(
-                        "Your shopping bag is empty."
-                    );
-
-                    return;
-
-                }
-
-
-                window.open(
-                    "https://t.me/",
-                    "_blank"
-                );
-
-            }
-        );
-
-
-
-        /* =====================================================
-           ESC KEY
-        ===================================================== */
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    document
-                        .querySelectorAll(".modal")
-                        .forEach(modal =>
-                            modal.classList.remove(
-                                "active"
-                            )
-                        );
-
-
-                    cartPanel.classList.remove(
-                        "active"
-                    );
-
-
-                    document.body.classList.remove(
-                        "no-scroll"
-                    );
-
-                }
-
-            }
-        );
-
-
-
-        /* =====================================================
-           INITIALIZE
-        ===================================================== */
-
-        renderProducts();
-
-        updateCart();
-
-    </script>
 
 </body>
 
