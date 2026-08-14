@@ -32,18 +32,19 @@
 
 <body>
 
-<!-- ==================================================
+
+<!-- =========================================================
      TOP BAR
-================================================== -->
+========================================================= -->
 
 <div class="top-bar">
     DISCOVER YOUR SIGNATURE SCENT — DEE GELVI STORE
 </div>
 
 
-<!-- ==================================================
+<!-- =========================================================
      HEADER
-================================================== -->
+========================================================= -->
 
 <header class="site-header">
 
@@ -52,13 +53,17 @@
         <a
             href="#home"
             class="logo"
+            aria-label="DEE GELVI Store"
         >
             <strong>DEE GELVI</strong>
             <span>LUXURY FRAGRANCE</span>
         </a>
 
 
-        <nav class="desktop-nav">
+        <nav
+            class="desktop-nav"
+            aria-label="Navigasi utama"
+        >
 
             <a href="#home">HOME</a>
             <a href="#shop">SHOP</a>
@@ -84,11 +89,10 @@
                 id="openCart"
                 aria-label="Buka shopping bag"
             >
+
                 🛍️
 
-                <span id="cartCount">
-                    0
-                </span>
+                <span id="cartCount">0</span>
 
             </button>
 
@@ -106,6 +110,8 @@
     </div>
 
 
+    <!-- MOBILE MENU -->
+
     <div
         id="mobileMenu"
         class="mobile-menu"
@@ -121,16 +127,16 @@
 </header>
 
 
-<!-- ==================================================
+<!-- =========================================================
      MAIN
-================================================== -->
+========================================================= -->
 
 <main>
 
 
-<!-- ==================================================
+<!-- =========================================================
      HERO
-================================================== -->
+========================================================= -->
 
 <section
     id="home"
@@ -179,6 +185,10 @@
     </div>
 
 
+    <!-- HERO IMAGE
+         JANGAN DIUBAH
+    -->
+
     <div class="hero-product">
 
         <div class="hero-frame">
@@ -208,9 +218,9 @@
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      TRUST
-================================================== -->
+========================================================= -->
 
 <section class="trust">
 
@@ -276,9 +286,9 @@
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      SHOP
-================================================== -->
+========================================================= -->
 
 <section
     id="shop"
@@ -303,7 +313,7 @@
     </div>
 
 
-    <!-- SEARCH -->
+    <!-- SHOP TOOLS -->
 
     <div class="shop-tools">
 
@@ -314,6 +324,7 @@
                 id="productSearch"
                 placeholder="Cari parfum..."
                 autocomplete="off"
+                aria-label="Cari parfum"
             >
 
         </div>
@@ -379,6 +390,8 @@
     </div>
 
 
+    <!-- NO RESULT -->
+
     <div
         id="noResult"
         class="no-result"
@@ -392,406 +405,630 @@
     </div>
 
 
-<!-- ==================================================
-     DEE GELVI COLLECTION
-================================================== -->
+    <!-- =====================================================
+         DEE GELVI ORIGINAL
+    ====================================================== -->
 
-<div
-    id="dee-gelvi-collection"
-    class="collection-section"
->
+    <section
+        id="dee-gelvi-collection"
+        class="collection-section"
+    >
 
-    <div class="collection-title">
+        <div class="collection-title">
 
-        <span>
-            DEE GELVI ORIGINAL
-        </span>
+            <span>
+                DEE GELVI ORIGINAL
+            </span>
 
-        <h3>
-            The Signature Collection
-        </h3>
+            <h3>
+                The Signature Collection
+            </h3>
 
-        <p>
-            Koleksi original DEE GELVI
-            dengan karakter khas dan elegan.
-        </p>
+            <p>
+                Koleksi original DEE GELVI
+                dengan karakter khas dan elegan.
+            </p>
 
-    </div>
-
-
-    <div class="product-grid">
+        </div>
 
 
-        <!-- ==================================================
-             PRODUCT 1 — NOAM
-        ================================================== -->
-
-        <article
-            class="product-card"
-            data-name="NOAM THE GENTLE"
-            data-category="men"
-            data-collection="dee-gelvi"
-        >
-
-            <div class="product-image">
-
-                <img
-                    src="images/noam.jpg"
-                    alt="NOAM THE GENTLE"
-                    loading="lazy"
-                >
+        <div class="product-grid">
 
 
-                <span class="badge">
-                    DEE GELVI
-                </span>
+            <!-- =================================================
+                 PRODUCT 01 — NOAM
+            ================================================== -->
 
+            <article
+                class="product-card"
+                data-name="NOAM THE GENTLE"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
 
-                <button
-                    type="button"
-                    class="quick-view"
-                    data-product="noam"
-                >
-                    QUICK VIEW
-                </button>
+                <div class="product-image">
 
-            </div>
+                    <img
+                        src="images/noam.jpg"
+                        alt="NOAM THE GENTLE"
+                        loading="lazy"
+                    >
 
-
-            <div class="product-info">
-
-                <span class="product-category">
-                    MEN
-                </span>
-
-
-                <h3>
-                    NOAM THE GENTLE
-                </h3>
-
-
-                <p class="product-desc">
-                    Aroma maskulin, dark,
-                    elegant, dan berkarakter.
-                </p>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        Rp199.000
-                    </strong>
-
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
 
                     <button
                         type="button"
-                        class="add-cart"
+                        class="quick-view"
                         data-product="noam"
                     >
-                        + BAG
+                        QUICK VIEW
                     </button>
 
                 </div>
 
-            </div>
 
-        </article>
+                <div class="product-info">
 
+                    <span class="product-category">
+                        MEN
+                    </span>
 
-        <!-- ==================================================
-             PRODUCT 2 — FELIX
-        ================================================== -->
+                    <h3>
+                        NOAM THE GENTLE
+                    </h3>
 
-        <article
-            class="product-card"
-            data-name="FELIX EXCLUSIVE"
-            data-category="men"
-            data-collection="dee-gelvi"
-        >
+                    <p class="product-desc">
+                        Aroma maskulin, dark,
+                        elegant, dan berkarakter.
+                    </p>
 
-            <div class="product-image">
+                    <div class="product-price">
 
-                <img
-                    src="images/felix.jpg"
-                    alt="FELIX EXCLUSIVE"
-                    loading="lazy"
-                >
+                        <strong>
+                            Rp199.000
+                        </strong>
 
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="noam"
+                        >
+                            + BAG
+                        </button>
 
-                <span class="badge">
-                    DEE GELVI
-                </span>
+                    </div>
 
+                </div>
 
-                <button
-                    type="button"
-                    class="quick-view"
-                    data-product="felix"
-                >
-                    QUICK VIEW
-                </button>
-
-            </div>
+            </article>
 
 
-            <div class="product-info">
+            <!-- =================================================
+                 PRODUCT 02 — FELIX
+            ================================================== -->
 
-                <span class="product-category">
-                    MEN
-                </span>
+            <article
+                class="product-card"
+                data-name="FELIX EXCLUSIVE"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
 
+                <div class="product-image">
 
-                <h3>
-                    FELIX EXCLUSIVE
-                </h3>
+                    <img
+                        src="images/felix.jpg"
+                        alt="FELIX EXCLUSIVE"
+                        loading="lazy"
+                    >
 
-
-                <p class="product-desc">
-                    Fresh, sophisticated,
-                    dan cocok untuk acara spesial.
-                </p>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        Rp199.000
-                    </strong>
-
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
 
                     <button
                         type="button"
-                        class="add-cart"
+                        class="quick-view"
                         data-product="felix"
                     >
-                        + BAG
+                        QUICK VIEW
                     </button>
 
                 </div>
 
-            </div>
 
-        </article>
+                <div class="product-info">
 
+                    <span class="product-category">
+                        MEN
+                    </span>
 
-        <!-- ==================================================
-             PRODUCT 3 — VAN
-        ================================================== -->
+                    <h3>
+                        FELIX EXCLUSIVE
+                    </h3>
 
-        <article
-            class="product-card"
-            data-name="VAN URBAN VOYAGER"
-            data-category="women"
-            data-collection="dee-gelvi"
-        >
+                    <p class="product-desc">
+                        Fresh, sophisticated,
+                        dan cocok untuk acara spesial.
+                    </p>
 
-            <div class="product-image">
+                    <div class="product-price">
 
-                <img
-                    src="images/van.jpg"
-                    alt="VAN URBAN VOYAGER"
-                    loading="lazy"
-                >
+                        <strong>
+                            Rp199.000
+                        </strong>
 
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="felix"
+                        >
+                            + BAG
+                        </button>
 
-                <span class="badge">
-                    DEE GELVI
-                </span>
+                    </div>
 
+                </div>
 
-                <button
-                    type="button"
-                    class="quick-view"
-                    data-product="van"
-                >
-                    QUICK VIEW
-                </button>
-
-            </div>
+            </article>
 
 
-            <div class="product-info">
+            <!-- =================================================
+                 PRODUCT 03 — VAN
+            ================================================== -->
 
-                <span class="product-category">
-                    WOMEN
-                </span>
+            <article
+                class="product-card"
+                data-name="VAN URBAN VOYAGER"
+                data-category="women"
+                data-collection="dee-gelvi"
+            >
 
+                <div class="product-image">
 
-                <h3>
-                    VAN URBAN VOYAGER
-                </h3>
+                    <img
+                        src="images/van.jpg"
+                        alt="VAN URBAN VOYAGER"
+                        loading="lazy"
+                    >
 
-
-                <p class="product-desc">
-                    Lembut, sensual,
-                    feminine, dan elegan.
-                </p>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        Rp199.000
-                    </strong>
-
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
 
                     <button
                         type="button"
-                        class="add-cart"
+                        class="quick-view"
                         data-product="van"
                     >
-                        + BAG
+                        QUICK VIEW
                     </button>
 
                 </div>
 
-            </div>
 
-        </article>
+                <div class="product-info">
 
+                    <span class="product-category">
+                        WOMEN
+                    </span>
 
-        <!-- ==================================================
-             PRODUCT 4 — SHADOW
-        ================================================== -->
+                    <h3>
+                        VAN URBAN VOYAGER
+                    </h3>
 
-        <article
-            class="product-card"
-            data-name="SHADOW MAN"
-            data-category="men"
-            data-collection="dee-gelvi"
-        >
+                    <p class="product-desc">
+                        Lembut, sensual,
+                        feminine, dan elegan.
+                    </p>
 
-            <div class="product-image">
+                    <div class="product-price">
 
-                <img
-                    src="images/shadow.jpg"
-                    alt="SHADOW MAN"
-                    loading="lazy"
-                >
+                        <strong>
+                            Rp199.000
+                        </strong>
 
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="van"
+                        >
+                            + BAG
+                        </button>
 
-                <span class="badge">
-                    DEE GELVI
-                </span>
+                    </div>
 
+                </div>
 
-                <button
-                    type="button"
-                    class="quick-view"
-                    data-product="shadow"
-                >
-                    QUICK VIEW
-                </button>
-
-            </div>
+            </article>
 
 
-            <div class="product-info">
+            <!-- =================================================
+                 PRODUCT 04 — SHADOW
+            ================================================== -->
 
-                <span class="product-category">
-                    MEN
-                </span>
+            <article
+                class="product-card"
+                data-name="SHADOW MAN"
+                data-category="men"
+                data-collection="dee-gelvi"
+            >
 
+                <div class="product-image">
 
-                <h3>
-                    SHADOW MAN
-                </h3>
+                    <img
+                        src="images/shadow.jpg"
+                        alt="SHADOW MAN"
+                        loading="lazy"
+                    >
 
-
-                <p class="product-desc">
-                    Dark, woody, maskulin,
-                    dan berkarakter kuat.
-                </p>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        Rp299.000
-                    </strong>
-
+                    <span class="badge">
+                        DEE GELVI
+                    </span>
 
                     <button
                         type="button"
-                        class="add-cart"
+                        class="quick-view"
                         data-product="shadow"
                     >
-                        + BAG
+                        QUICK VIEW
                     </button>
 
                 </div>
 
-            </div>
 
-        </article>
+                <div class="product-info">
 
-    </div>
+                    <span class="product-category">
+                        MEN
+                    </span>
 
-</div>
+                    <h3>
+                        SHADOW MAN
+                    </h3>
 
+                    <p class="product-desc">
+                        Dark, woody, maskulin,
+                        dan berkarakter kuat.
+                    </p>
 
-<!-- ==================================================
-     CURATED COLLECTION
-================================================== -->
+                    <div class="product-price">
 
-<div
-    id="curated-collection"
-    class="collection-section curated-section"
->
+                        <strong>
+                            Rp299.000
+                        </strong>
 
-    <div class="collection-title">
+                        <button
+                            type="button"
+                            class="add-cart"
+                            data-product="shadow"
+                        >
+                            + BAG
+                        </button>
 
-        <span>
-            SELECTED FRAGRANCES
-        </span>
+                    </div>
 
+                </div>
 
-        <h3>
-            Curated Collection
-        </h3>
-
-
-        <p>
-            Pilihan fragrance dari brand luar
-            yang kami pilih untuk melengkapi
-            koleksi DEE GELVI.
-        </p>
-
-    </div>
+            </article>
 
 
-    <div class="curated-coming-soon">
+            <!-- =================================================
+                 PRODUCT 05 — COMING SOON
+            ================================================== -->
 
-        <span class="coming-soon-label">
-            CURATED COLLECTION
-        </span>
+            <article
+                class="product-card coming-soon-card"
+                data-name="NEW DEE GELVI"
+                data-category="unisex"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        COMING SOON
+                    </span>
+
+                </div>
 
 
-        <h4>
-            COMING SOON
-        </h4>
+                <div class="product-info">
+
+                    <span class="product-category">
+                        DEE GELVI
+                    </span>
+
+                    <h3>
+                        NEW DEE GELVI
+                    </h3>
+
+                    <p class="product-desc">
+                        Fragrance terbaru DEE GELVI
+                        sedang dipersiapkan.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            COMING SOON
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
 
 
-        <p>
-            Koleksi fragrance pilihan kami
-            sedang dipersiapkan.
-        </p>
+            <!-- =================================================
+                 PRODUCT 06 — COMING SOON
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="NEW SIGNATURE"
+                data-category="unisex"
+                data-collection="dee-gelvi"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        COMING SOON
+                    </span>
+
+                </div>
 
 
-        <span class="coming-soon-line">
-            STAY TUNED
-        </span>
+                <div class="product-info">
 
-    </div>
+                    <span class="product-category">
+                        DEE GELVI
+                    </span>
 
-</div>
+                    <h3>
+                        NEW SIGNATURE
+                    </h3>
+
+                    <p class="product-desc">
+                        Signature fragrance terbaru
+                        segera hadir.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            COMING SOON
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CURATED COLLECTION
+    ====================================================== -->
+
+    <section
+        id="curated-collection"
+        class="collection-section curated-section"
+    >
+
+        <div class="collection-title">
+
+            <span>
+                SELECTED FRAGRANCES
+            </span>
+
+            <h3>
+                Curated Collection
+            </h3>
+
+            <p>
+                Pilihan fragrance dari brand luar
+                yang kami pilih untuk melengkapi
+                koleksi DEE GELVI.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid curated-grid">
+
+
+            <!-- =================================================
+                 CURATED 01
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 01"
+                data-category="unisex"
+                data-collection="curated"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        CURATED
+                    </span>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CURATED
+                    </span>
+
+                    <h3>
+                        CURATED FRAGRANCE 01
+                    </h3>
+
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            COMING SOON
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CURATED 02
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 02"
+                data-category="unisex"
+                data-collection="curated"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        CURATED
+                    </span>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CURATED
+                    </span>
+
+                    <h3>
+                        CURATED FRAGRANCE 02
+                    </h3>
+
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            COMING SOON
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CURATED 03
+            ================================================== -->
+
+            <article
+                class="product-card coming-soon-card"
+                data-name="CURATED FRAGRANCE 03"
+                data-category="unisex"
+                data-collection="curated"
+            >
+
+                <div class="product-image">
+
+                    <div class="coming-soon-image">
+                        <span>
+                            COMING SOON
+                        </span>
+                    </div>
+
+                    <span class="badge">
+                        CURATED
+                    </span>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CURATED
+                    </span>
+
+                    <h3>
+                        CURATED FRAGRANCE 03
+                    </h3>
+
+                    <p class="product-desc">
+                        Selected fragrance
+                        coming soon.
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            COMING SOON
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      ABOUT
-================================================== -->
+========================================================= -->
 
 <section
     id="about"
@@ -833,12 +1070,10 @@
                 <span>SIGNATURE</span>
             </div>
 
-
             <div>
                 <strong>02</strong>
                 <span>CHARACTER</span>
             </div>
-
 
             <div>
                 <strong>03</strong>
@@ -852,9 +1087,9 @@
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      CTA
-================================================== -->
+========================================================= -->
 
 <section class="cta">
 
@@ -878,9 +1113,9 @@
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      CONTACT
-================================================== -->
+========================================================= -->
 
 <section
     id="contact"
@@ -920,9 +1155,9 @@
 </main>
 
 
-<!-- ==================================================
+<!-- =========================================================
      PRODUCT MODAL
-================================================== -->
+========================================================= -->
 
 <div
     id="productModal"
@@ -936,6 +1171,7 @@
             type="button"
             class="modal-close"
             data-close="productModal"
+            aria-label="Tutup"
         >
             ×
         </button>
@@ -1006,9 +1242,9 @@
 </div>
 
 
-<!-- ==================================================
+<!-- =========================================================
      SEARCH MODAL
-================================================== -->
+========================================================= -->
 
 <div
     id="searchModal"
@@ -1022,6 +1258,7 @@
             type="button"
             class="modal-close"
             data-close="searchModal"
+            aria-label="Tutup"
         >
             ×
         </button>
@@ -1053,9 +1290,9 @@
 </div>
 
 
-<!-- ==================================================
+<!-- =========================================================
      CART OVERLAY
-================================================== -->
+========================================================= -->
 
 <div
     id="cartOverlay"
@@ -1063,9 +1300,9 @@
 ></div>
 
 
-<!-- ==================================================
-     CART
-================================================== -->
+<!-- =========================================================
+     SHOPPING CART
+========================================================= -->
 
 <aside
     id="cartPanel"
@@ -1091,6 +1328,7 @@
         <button
             type="button"
             id="closeCart"
+            aria-label="Tutup shopping bag"
         >
             ×
         </button>
@@ -1142,19 +1380,20 @@
 </aside>
 
 
-<!-- ==================================================
-     NOTIFICATION
-================================================== -->
+<!-- =========================================================
+     CART NOTIFICATION
+========================================================= -->
 
 <div
     id="cartNotification"
     class="cart-notification"
+    aria-live="polite"
 ></div>
 
 
-<!-- ==================================================
+<!-- =========================================================
      FOOTER
-================================================== -->
+========================================================= -->
 
 <footer class="site-footer">
 
@@ -1204,6 +1443,10 @@
 
 </footer>
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script src="script.js"></script>
 
