@@ -4,6 +4,11 @@
    LUXURY GREY / CHAMPAGNE
 ========================================================= */
 
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root {
 
     --bg-main: #e3e4e6;
@@ -1467,267 +1472,488 @@ img {
 
 
 /* =========================================================
-   CONTACT
+   CONTACT — FINAL LUXURY
 ========================================================= */
 
 .contact-section {
 
-    padding:
-        110px 5%;
+    position: relative;
 
-    background:
-        linear-gradient(
-            180deg,
-            #e7e7e8,
-            #dedfe1
-        );
+    width: 100%;
+
+    min-height: 430px;
+
+    padding:
+        90px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
 
     text-align: center;
-}
 
-.contact-section .section-heading {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200,165,106,.16),
+            transparent 35%
+        ),
 
-    margin-bottom: 0;
-}
-
-.contact-section .section-heading > span {
-
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: var(--gold-dark);
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-}
-
-.contact-section .section-heading h2 {
-
-    margin: 0;
-
-    color: #252628;
-
-    font-family: var(--serif);
-
-    font-size:
-        clamp(38px, 5vw, 58px);
-
-    font-weight: 400;
-
-    line-height: 1.1;
-}
-
-.contact-section .section-heading p {
-
-    max-width: 520px;
-
-    margin:
-        18px auto 0;
-
-    color: #77787a;
-
-    font-size: 12px;
-
-    line-height: 1.8;
+        linear-gradient(
+            180deg,
+            #e9e9e9 0%,
+            #dedfe1 50%,
+            #d5d6d8 100%
+        );
 }
 
 
 /* =========================================================
-   TELEGRAM CONTACT BUTTON
-   FINAL LUXURY VERSION
+   CONTACT DECORATION
 ========================================================= */
 
-#telegramContact {
+.contact-section::before {
 
-    appearance: none !important;
+    content: "";
 
-    -webkit-appearance: none !important;
+    position: absolute;
 
-    position: relative !important;
+    top: -180px;
 
-    display: inline-flex !important;
+    left: 50%;
 
-    align-items: center !important;
+    width: 420px;
 
-    justify-content: center !important;
+    height: 420px;
 
-    width: 260px !important;
+    transform:
+        translateX(-50%);
 
-    height: 52px !important;
-
-    margin:
-        28px auto 0 !important;
-
-    padding:
-        0 35px !important;
-
-    box-sizing: border-box !important;
+    border-radius: 50%;
 
     border:
         1px solid
-        #b99a67 !important;
+        rgba(181,155,112,.22);
 
-    border-radius: 2px !important;
+    pointer-events: none;
+}
+
+.contact-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 0;
+
+    width: 1px;
+
+    height: 80px;
 
     background:
         linear-gradient(
-            135deg,
-            #303236 0%,
-            #1f2022 100%
-        ) !important;
+            to bottom,
+            transparent,
+            rgba(181,155,112,.45)
+        );
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+========================================================= */
+
+.contact-luxury {
+
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(700px, 100%);
+
+    padding:
+        55px 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.62),
+            rgba(235,235,235,.35)
+        );
+
+    border:
+        1px solid
+        rgba(181,155,112,.35);
+
+    box-shadow:
+        0 25px 70px
+        rgba(50,50,50,.10),
+
+        inset 0 1px 0
+        rgba(255,255,255,.8);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   CONTACT LABEL
+========================================================= */
+
+.contact-label {
+
+    display: block;
 
     color:
-        #f4ead8 !important;
+        #a9824b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CONTACT LINE
+========================================================= */
+
+.contact-line {
+
+    position: relative;
+
+    width: 70px;
+
+    height: 1px;
+
+    margin:
+        18px auto 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b59b70,
+            transparent
+        );
+}
+
+.contact-line::before,
+.contact-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 4px;
+
+    height: 4px;
+
+    border:
+        1px solid
+        #b59b70;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+.contact-line::before {
+    left: 0;
+}
+
+.contact-line::after {
+    right: 0;
+}
+
+
+/* =========================================================
+   CONTACT TITLE
+========================================================= */
+
+.contact-luxury h2 {
+
+    margin: 0;
+
+    color:
+        #292a2c;
 
     font-family:
         Georgia,
         "Times New Roman",
-        serif !important;
+        serif;
 
-    font-size: 10px !important;
+    font-size:
+        clamp(45px, 6vw, 68px);
 
-    font-weight: normal !important;
+    font-weight: 400;
 
-    letter-spacing: 2.5px !important;
+    line-height: 1;
 
-    text-transform: uppercase !important;
+    letter-spacing: -1px;
+}
 
-    cursor: pointer !important;
+
+/* =========================================================
+   CONTACT DESCRIPTION
+========================================================= */
+
+.contact-luxury p {
+
+    width:
+        min(500px, 100%);
+
+    margin:
+        20px auto 0;
+
+    color:
+        #6c6e71;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   TELEGRAM BUTTON
+========================================================= */
+
+.contact-luxury .contact-button,
+#telegramContact {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    width: 260px;
+
+    height: 52px;
+
+    margin-top: 30px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid
+        rgba(181,155,112,.75);
+
+    border-radius: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292a2c,
+            #414348
+        );
+
+    color:
+        #f4eee4;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
 
     box-shadow:
         0 12px 30px
         rgba(0,0,0,.16),
 
         inset 0 1px 0
-        rgba(255,255,255,.08) !important;
+        rgba(255,255,255,.12);
+
+    cursor: pointer;
+
+    overflow: hidden;
 
     transition:
-        transform .35s ease,
-        background .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease !important;
-
-    overflow: hidden !important;
+        all .35s ease;
 }
 
 
-/* GOLD LINE */
+/* =========================================================
+   TELEGRAM SHINE
+========================================================= */
 
+.contact-luxury .contact-button::before,
 #telegramContact::before {
 
-    content: "" !important;
+    content: "";
 
-    position: absolute !important;
+    position: absolute;
 
-    left: 22px !important;
+    top: 0;
 
-    right: 22px !important;
+    left: -120%;
 
-    bottom: 5px !important;
+    width: 80%;
 
-    height: 1px !important;
+    height: 100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #c8a56a,
+            rgba(255,255,255,.16),
             transparent
-        ) !important;
+        );
 
-    opacity: .9 !important;
+    transform:
+        skewX(-20deg);
 
-    transition: .35s ease !important;
+    transition:
+        left .6s ease;
+}
+
+.contact-luxury .contact-button:hover::before,
+#telegramContact:hover::before {
+
+    left: 140%;
 }
 
 
-/* ARROW */
+/* =========================================================
+   TELEGRAM ICON
+========================================================= */
 
-#telegramContact::after {
+.telegram-icon {
 
-    content: "↗" !important;
+    display: flex;
 
-    position: absolute !important;
+    align-items: center;
 
-    right: 17px !important;
+    justify-content: center;
+
+    width: 24px;
+
+    height: 24px;
+
+    border:
+        1px solid
+        rgba(200,165,106,.55);
+
+    border-radius: 50%;
 
     color:
-        #c8a56a !important;
+        #d5b579;
 
-    font-family:
-        Arial,
-        sans-serif !important;
-
-    font-size: 13px !important;
-
-    transition: .35s ease !important;
+    font-size: 10px;
 }
 
 
-/* HOVER */
+/* =========================================================
+   TELEGRAM ARROW
+========================================================= */
 
+.telegram-arrow {
+
+    color:
+        #d5b579;
+
+    font-size: 15px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================================
+   TELEGRAM HOVER
+========================================================= */
+
+.contact-luxury .contact-button:hover,
 #telegramContact:hover {
 
     transform:
-        translateY(-4px) !important;
+        translateY(-4px);
 
     border-color:
-        #d8bd8b !important;
+        #d5b579;
 
     background:
         linear-gradient(
             135deg,
-            #3c3e41,
-            #171819
-        ) !important;
-
-    color:
-        #ffffff !important;
+            #202123,
+            #303235
+        );
 
     box-shadow:
         0 18px 40px
-        rgba(0,0,0,.23),
+        rgba(0,0,0,.22),
 
-        0 0 25px
-        rgba(200,165,106,.08) !important;
+        0 0 0 1px
+        rgba(181,155,112,.12);
 }
 
-#telegramContact:hover::before {
-
-    left: 10px !important;
-
-    right: 10px !important;
-}
-
-#telegramContact:hover::after {
+.contact-luxury .contact-button:hover
+.telegram-arrow {
 
     transform:
-        translate(3px,-2px) !important;
+        translate(4px,-2px);
 }
 
-#telegramContact:active {
 
-    transform:
-        translateY(-1px) !important;
-}
+/* =========================================================
+   CONTACT BOTTOM LINE
+========================================================= */
 
-#telegramContact:focus,
-#telegramContact:focus-visible {
+.contact-bottom-line {
 
-    outline: none !important;
+    margin-top: 30px;
 
-    box-shadow:
-        0 0 0 2px
-        rgba(200,165,106,.25),
+    color:
+        #9b9c9f;
 
-        0 12px 30px
-        rgba(0,0,0,.18) !important;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
 }
 
 
@@ -2373,7 +2599,9 @@ img {
 }
 
 
-/* TOTAL */
+/* =========================================================
+   CART TOTAL
+========================================================= */
 
 #cartPanel .cart-total,
 #cartPanel .cart-total-row {
@@ -2947,32 +3175,60 @@ body.cart-open .main-footer {
             80px 5%;
     }
 
+
+    /* =====================================================
+       CONTACT MOBILE
+    ===================================================== */
+
     .contact-section {
 
+        min-height: 420px;
+
         padding:
-            90px 5%;
+            70px 15px;
     }
 
+    .contact-luxury {
+
+        padding:
+            45px 22px;
+    }
+
+    .contact-luxury h2 {
+
+        font-size: 43px;
+    }
+
+    .contact-luxury p {
+
+        font-size: 11px;
+    }
+
+    .contact-luxury .contact-button,
     #telegramContact {
 
-        width:
-            100% !important;
+        width: 100%;
 
-        max-width:
-            290px !important;
+        max-width: 280px;
 
-        min-width:
-            0 !important;
+        height: 50px;
 
-        height:
-            50px !important;
+        font-size: 7.5px;
 
-        font-size:
-            9px !important;
-
-        letter-spacing:
-            2px !important;
+        letter-spacing: 2px;
     }
+
+    .contact-bottom-line {
+
+        font-size: 6px;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* =====================================================
+       MODAL MOBILE
+    ===================================================== */
 
     .modal {
 
@@ -3013,6 +3269,11 @@ body.cart-open .main-footer {
         font-size: 34px;
     }
 
+
+    /* =====================================================
+       CART MOBILE
+    ===================================================== */
+
     #cartPanel {
 
         width:
@@ -3040,6 +3301,11 @@ body.cart-open .main-footer {
             14px 12px 12px !important;
     }
 
+
+    /* =====================================================
+       FOOTER MOBILE
+    ===================================================== */
+
     .footer-content {
 
         flex-direction: column;
@@ -3065,9 +3331,25 @@ body.cart-open .main-footer {
         font-size: 45px;
     }
 
+    .contact-luxury {
+
+        padding:
+            40px 18px;
+    }
+
+    .contact-luxury h2 {
+
+        font-size: 38px;
+    }
+
+    .contact-luxury .contact-button,
     #telegramContact {
 
-        max-width: 270px !important;
+        max-width: 100%;
+
+        gap: 9px;
+
+        letter-spacing: 1.5px;
     }
 
     .product-image {
@@ -3075,600 +3357,13 @@ body.cart-open .main-footer {
         height: 340px;
     }
 }/* =========================================================
-   DEE GELVI STORE
-   CONTACT SECTION — FINAL LUXURY
-   ========================================================= */
-
-.contact-section {
-
-    position: relative;
-
-    width: 100%;
-
-    min-height: 430px;
-
-    padding:
-        90px 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(200,165,106,.16),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            180deg,
-            #e9e9e9 0%,
-            #dedfe1 50%,
-            #d5d6d8 100%
-        );
-
-}
-
-
-/* =========================================================
-   DECORATIVE LIGHT
+   COMING SOON — REMOVE SHADOW
 ========================================================= */
 
-.contact-section::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: -180px;
-
-    left: 50%;
-
-    width: 420px;
-
-    height: 420px;
-
-    transform:
-        translateX(-50%);
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(181,155,112,.22);
-
-    pointer-events: none;
-
+.product-card.coming-soon-card {
+    box-shadow: none !important;
 }
 
-
-.contact-section::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 0;
-
-    width: 1px;
-
-    height: 80px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            rgba(181,155,112,.45)
-        );
-
-    transform:
-        translateX(-50%);
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
-.contact-luxury {
-
-    position: relative;
-
-    z-index: 2;
-
-    width:
-        min(700px, 100%);
-
-    padding:
-        55px 40px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.62),
-            rgba(235,235,235,.35)
-        );
-
-    border:
-        1px solid
-        rgba(181,155,112,.35);
-
-    box-shadow:
-        0 25px 70px
-        rgba(50,50,50,.10),
-
-        inset 0 1px 0
-        rgba(255,255,255,.8);
-
-    backdrop-filter:
-        blur(10px);
-
-}
-
-
-/* =========================================================
-   TOP LABEL
-========================================================= */
-
-.contact-label {
-
-    display: block;
-
-    color:
-        #a9824b;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 8px;
-
-    font-weight: 600;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-}
-
-
-/* =========================================================
-   GOLD DECORATIVE LINE
-========================================================= */
-
-.contact-line {
-
-    position: relative;
-
-    width: 70px;
-
-    height: 1px;
-
-    margin:
-        18px auto 22px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #b59b70,
-            transparent
-        );
-
-}
-
-
-.contact-line::before,
-.contact-line::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-
-    width: 4px;
-
-    height: 4px;
-
-    border:
-        1px solid
-        #b59b70;
-
-    transform:
-        translateY(-50%)
-        rotate(45deg);
-
-}
-
-
-.contact-line::before {
-    left: 0;
-}
-
-
-.contact-line::after {
-    right: 0;
-}
-
-
-/* =========================================================
-   TITLE
-========================================================= */
-
-.contact-luxury h2 {
-
-    margin: 0;
-
-    color:
-        #292a2c;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(45px, 6vw, 68px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -1px;
-
-}
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-.contact-luxury p {
-
-    width:
-        min(500px, 100%);
-
-    margin:
-        20px auto 0;
-
-    color:
-        #6c6e71;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 12px;
-
-    line-height: 1.9;
-
-}
-
-
-/* =========================================================
-   TELEGRAM BUTTON
-========================================================= */
-
-.contact-luxury .contact-button {
-
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 13px;
-
-    width: 260px;
-
-    height: 52px;
-
-    margin-top: 30px;
-
-    padding: 0 20px;
-
-    border:
-        1px solid
-        rgba(181,155,112,.75);
-
-    border-radius: 2px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #292a2c,
-            #414348
-        );
-
-    color:
-        #f4eee4;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 8px;
-
-    font-weight: 600;
-
-    letter-spacing: 2.5px;
-
-    text-transform: uppercase;
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.16),
-
-        inset 0 1px 0
-        rgba(255,255,255,.12);
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-    transition:
-        all .35s ease;
-
-}
-
-
-/* =========================================================
-   GOLD SHINE
-========================================================= */
-
-.contact-luxury .contact-button::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: -120%;
-
-    width: 80%;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.16),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    transition:
-        left .6s ease;
-
-}
-
-
-.contact-luxury .contact-button:hover::before {
-
-    left: 140%;
-
-}
-
-
-/* =========================================================
-   TELEGRAM ICON
-========================================================= */
-
-.telegram-icon {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 24px;
-
-    height: 24px;
-
-    border:
-        1px solid
-        rgba(200,165,106,.55);
-
-    border-radius: 50%;
-
-    color:
-        #d5b579;
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   ARROW
-========================================================= */
-
-.telegram-arrow {
-
-    color:
-        #d5b579;
-
-    font-size: 15px;
-
-    transition:
-        transform .3s ease;
-
-}
-
-
-.contact-luxury .contact-button:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        #d5b579;
-
-    background:
-        linear-gradient(
-            135deg,
-            #202123,
-            #303235
-        );
-
-    box-shadow:
-        0 18px 40px
-        rgba(0,0,0,.22),
-
-        0 0 0 1px
-        rgba(181,155,112,.12);
-
-}
-
-
-.contact-luxury .contact-button:hover
-.telegram-arrow {
-
-    transform:
-        translate(4px,-2px);
-
-}
-
-
-/* =========================================================
-   BOTTOM BRAND LINE
-========================================================= */
-
-.contact-bottom-line {
-
-    margin-top: 30px;
-
-    color:
-        #9b9c9f;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 7px;
-
-    letter-spacing: 4px;
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .contact-section {
-
-        min-height: 420px;
-
-        padding:
-            70px 15px;
-
-    }
-
-
-    .contact-luxury {
-
-        padding:
-            45px 22px;
-
-    }
-
-
-    .contact-luxury h2 {
-
-        font-size: 43px;
-
-    }
-
-
-    .contact-luxury p {
-
-        font-size: 11px;
-
-    }
-
-
-    .contact-luxury .contact-button {
-
-        width: 100%;
-
-        max-width: 280px;
-
-        height: 50px;
-
-        font-size: 7.5px;
-
-        letter-spacing: 2px;
-
-    }
-
-
-    .contact-bottom-line {
-
-        font-size: 6px;
-
-        letter-spacing: 3px;
-
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .contact-luxury {
-
-        padding:
-            40px 18px;
-
-    }
-
-
-    .contact-luxury h2 {
-
-        font-size: 38px;
-
-    }
-
-
-    .contact-luxury .contact-button {
-
-        max-width: 100%;
-
-        gap: 9px;
-
-        letter-spacing: 1.5px;
-
-    }
-
+.product-card.coming-soon-card:hover {
+    box-shadow: none !important;
 }
