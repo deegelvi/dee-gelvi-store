@@ -1,6 +1,7 @@
 /* =========================================================
    DEE GELVI STORE
    FINAL CLEAN JAVASCRIPT
+   PRICE SYSTEM : USD
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,125 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
             image: "images/van.jpg",
             price: 12.5,
             description:
-                "Fragrance lembut, sensual, feminine, dan elegan untuk melengkapi penampilan dengan karakter yang memorable.",
+                "Fresh, modern, maskulin, dan elegan untuk menemani aktivitas harian maupun perjalanan dengan karakter yang memorable.",
             notes:
-                "CHARACTER — SOFT • FEMININE • ELEGANT"
-        },
-
-        shadow: {
-            name: "SHADOW MAN",
-            category: "MEN",
-            collection: "DEE GELVI ORIGINAL",
-            image: "images/shadow.jpg",
-            price: 12.5,
-            description:
-                "Dark, woody, maskulin, dan berkarakter kuat. Signature fragrance untuk menciptakan kesan yang sulit dilupakan.",
-            notes:
-                "CHARACTER — DARK • WOODY • MASCULINE"
+                "CHARACTER — FRESH • MODERN • MASCULINE • ELEGANT"
         }
 
     };
-
-
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
-
-    const body =
-        document.body;
-
-    const productCards =
-        document.querySelectorAll(".product-card");
-
-    const categoryButtons =
-        document.querySelectorAll(".category");
-
-    const quickViewButtons =
-        document.querySelectorAll(".quick-view");
-
-    const addCartButtons =
-        document.querySelectorAll(".add-cart");
-
-    const productSearch =
-        document.getElementById("productSearch");
-
-    const noResult =
-        document.getElementById("noResult");
-
-    const searchButton =
-        document.getElementById("searchButton");
-
-    const searchModal =
-        document.getElementById("searchModal");
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-    const productModal =
-        document.getElementById("productModal");
-
-    const modalImage =
-        document.getElementById("modalImage");
-
-    const modalCategory =
-        document.getElementById("modalCategory");
-
-    const modalCollection =
-        document.getElementById("modalCollection");
-
-    const modalName =
-        document.getElementById("modalName");
-
-    const modalDescription =
-        document.getElementById("modalDescription");
-
-    const modalNotes =
-        document.getElementById("modalNotes");
-
-    const modalPrice =
-        document.getElementById("modalPrice");
-
-    const modalAddCart =
-        document.getElementById("modalAddCart");
-
-    const openCart =
-        document.getElementById("openCart");
-
-    const closeCart =
-        document.getElementById("closeCart");
-
-    const cartPanel =
-        document.getElementById("cartPanel");
-
-    const cartOverlay =
-        document.getElementById("cartOverlay");
-
-    const cartItems =
-        document.getElementById("cartItems");
-
-    const cartTotal =
-        document.getElementById("cartTotal");
-
-    const cartCount =
-        document.getElementById("cartCount");
-
-    const checkoutWhatsApp =
-        document.getElementById("checkoutWhatsApp");
-
-    const checkoutTelegram =
-        document.getElementById("checkoutTelegram");
-
-    const telegramContact =
-        document.getElementById("telegramContact");
-
-    const cartNotification =
-        document.getElementById("cartNotification");
-
-    const mobileMenuButton =
-        document.getElementById("mobileMenuButton");
-
-    const mobileMenu =
-        document.getElementById("mobileMenu");
 
 
     /* =====================================================
@@ -173,12 +61,176 @@ document.addEventListener("DOMContentLoaded", () => {
     const TELEGRAM_USERNAME =
         "NewEra889";
 
+    const CART_STORAGE_KEY =
+        "deeGelviShoppingCart";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const body =
+        document.body;
+
+    const productCards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+    const categoryButtons =
+        document.querySelectorAll(
+            ".category"
+        );
+
+    const quickViewButtons =
+        document.querySelectorAll(
+            ".quick-view"
+        );
+
+    const addCartButtons =
+        document.querySelectorAll(
+            ".add-cart"
+        );
+
+    const productSearch =
+        document.getElementById(
+            "productSearch"
+        );
+
+    const noResult =
+        document.getElementById(
+            "noResult"
+        );
+
+    const searchButton =
+        document.getElementById(
+            "searchButton"
+        );
+
+    const searchModal =
+        document.getElementById(
+            "searchModal"
+        );
+
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
+
+    const productModal =
+        document.getElementById(
+            "productModal"
+        );
+
+    const modalImage =
+        document.getElementById(
+            "modalImage"
+        );
+
+    const modalCategory =
+        document.getElementById(
+            "modalCategory"
+        );
+
+    const modalCollection =
+        document.getElementById(
+            "modalCollection"
+        );
+
+    const modalName =
+        document.getElementById(
+            "modalName"
+        );
+
+    const modalDescription =
+        document.getElementById(
+            "modalDescription"
+        );
+
+    const modalNotes =
+        document.getElementById(
+            "modalNotes"
+        );
+
+    const modalPrice =
+        document.getElementById(
+            "modalPrice"
+        );
+
+    const modalAddCart =
+        document.getElementById(
+            "modalAddCart"
+        );
+
+    const openCart =
+        document.getElementById(
+            "openCart"
+        );
+
+    const closeCart =
+        document.getElementById(
+            "closeCart"
+        );
+
+    const cartPanel =
+        document.getElementById(
+            "cartPanel"
+        );
+
+    const cartOverlay =
+        document.getElementById(
+            "cartOverlay"
+        );
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+    const checkoutWhatsApp =
+        document.getElementById(
+            "checkoutWhatsApp"
+        );
+
+    const checkoutTelegram =
+        document.getElementById(
+            "checkoutTelegram"
+        );
+
+    const telegramContact =
+        document.getElementById(
+            "telegramContact"
+        );
+
+    const cartNotification =
+        document.getElementById(
+            "cartNotification"
+        );
+
+    const mobileMenuButton =
+        document.getElementById(
+            "mobileMenuButton"
+        );
+
+    const mobileMenu =
+        document.getElementById(
+            "mobileMenu"
+        );
+
 
     /* =====================================================
        STATE
     ===================================================== */
-
-    let cart = [];
 
     let currentModalProduct =
         null;
@@ -186,14 +238,83 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentFilter =
         "all";
 
+    let cart =
+        [];
+
 
     /* =====================================================
-       FORMAT PRICE
+       PRICE FORMAT
     ===================================================== */
 
     function formatPrice(number) {
 
         return `$${Number(number).toFixed(1)}`;
+
+    }
+
+
+    /* =====================================================
+       LOAD CART
+    ===================================================== */
+
+    try {
+
+        const savedCart =
+            localStorage.getItem(
+                CART_STORAGE_KEY
+            );
+
+        if (savedCart) {
+
+            const parsedCart =
+                JSON.parse(savedCart);
+
+            if (Array.isArray(parsedCart)) {
+
+                cart =
+                    parsedCart.filter(
+                        item =>
+                            products[item.id] &&
+                            Number(item.quantity) > 0
+                    );
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Cart storage tidak dapat dibaca.",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    /* =====================================================
+       SAVE CART
+    ===================================================== */
+
+    function saveCart() {
+
+        try {
+
+            localStorage.setItem(
+                CART_STORAGE_KEY,
+                JSON.stringify(cart)
+            );
+
+        } catch (error) {
+
+            console.warn(
+                "Cart tidak dapat disimpan.",
+                error
+            );
+
+        }
 
     }
 
@@ -216,10 +337,10 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         clearTimeout(
-            window.notificationTimer
+            window.deeGelviNotificationTimer
         );
 
-        window.notificationTimer =
+        window.deeGelviNotificationTimer =
             setTimeout(() => {
 
                 cartNotification.classList.remove(
@@ -272,20 +393,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "true"
         );
 
-
         const productOpen =
             productModal &&
             productModal.classList.contains(
                 "active"
             );
 
-
         const searchOpen =
             searchModal &&
             searchModal.classList.contains(
                 "active"
             );
-
 
         if (
             !productOpen &&
@@ -310,7 +428,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const product =
             products[productId];
 
-
         if (!product) {
 
             console.warn(
@@ -321,7 +438,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
 
         }
-
 
         currentModalProduct =
             productId;
@@ -406,6 +522,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "click",
                 event => {
 
+                    event.preventDefault();
+
                     event.stopPropagation();
 
                     const productId =
@@ -431,7 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const product =
             products[productId];
 
-
         if (!product) {
 
             console.warn(
@@ -447,7 +564,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const existing =
             cart.find(
                 item =>
-                    item.id === productId
+                    item.id ===
+                    productId
             );
 
 
@@ -459,14 +577,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cart.push({
 
-                id: productId,
+                id:
+                    productId,
 
-                quantity: 1
+                quantity:
+                    1
 
             });
 
         }
 
+
+        saveCart();
 
         renderCart();
 
@@ -492,11 +614,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-
                 addToCart(
                     currentModalProduct
                 );
-
 
                 closeModal(
                     productModal
@@ -509,7 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PRODUCT ADD CART BUTTONS
+       PRODUCT ADD CART
     ===================================================== */
 
     addCartButtons.forEach(
@@ -517,7 +637,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             button.addEventListener(
                 "click",
-                () => {
+                event => {
+
+                    event.preventDefault();
 
                     const productId =
                         button.dataset.product;
@@ -551,10 +673,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let total =
             0;
 
-
         let totalQuantity =
             0;
 
+
+        /* EMPTY */
 
         if (cart.length === 0) {
 
@@ -577,21 +700,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        /* ITEMS */
+
         cart.forEach(
             item => {
 
                 const product =
                     products[item.id];
 
-
                 if (!product) {
                     return;
                 }
 
 
+                const quantity =
+                    Number(item.quantity);
+
+
                 const subtotal =
                     product.price *
-                    item.quantity;
+                    quantity;
 
 
                 total +=
@@ -599,7 +727,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 totalQuantity +=
-                    item.quantity;
+                    quantity;
 
 
                 const itemElement =
@@ -630,7 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${product.name}
                         </h4>
 
-                        <span>
+                        <span class="cart-item-price">
                             ${formatPrice(product.price)}
                         </span>
 
@@ -647,7 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                             <strong>
-                                ${item.quantity}
+                                ${quantity}
                             </strong>
 
 
@@ -669,7 +797,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         class="remove-cart"
                         data-action="remove"
                         data-id="${item.id}"
-                        aria-label="Hapus produk"
                     >
                         ×
                     </button>
@@ -685,15 +812,17 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
+        /* TOTAL */
+
         if (cartTotal) {
 
             cartTotal.textContent =
-                formatPrice(
-                    total
-                );
+                formatPrice(total);
 
         }
 
+
+        /* COUNT */
 
         if (cartCount) {
 
@@ -702,11 +831,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
+        saveCart();
+
     }
 
 
     /* =====================================================
-       CART ACTION
+       CART ACTIONS
     ===================================================== */
 
     if (cartItems) {
@@ -720,7 +852,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         "button"
                     );
 
-
                 if (!button) {
                     return;
                 }
@@ -728,7 +859,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const productId =
                     button.dataset.id;
-
 
                 const action =
                     button.dataset.action;
@@ -752,8 +882,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "increase"
                 ) {
 
-                    item.quantity +=
-                        1;
+                    item.quantity += 1;
 
                 }
 
@@ -763,9 +892,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "decrease"
                 ) {
 
-                    item.quantity -=
-                        1;
-
+                    item.quantity -= 1;
 
                     if (
                         item.quantity <=
@@ -799,6 +926,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
+                saveCart();
+
                 renderCart();
 
             }
@@ -815,7 +944,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         openCart.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
 
                 renderCart();
 
@@ -927,21 +1058,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     (
                         card.dataset.name ||
                         ""
-                    ).toLowerCase();
+                    )
+                    .toLowerCase();
 
 
                 const category =
                     (
                         card.dataset.category ||
                         ""
-                    ).toLowerCase();
+                    )
+                    .toLowerCase();
 
 
                 const collection =
                     (
                         card.dataset.collection ||
                         ""
-                    ).toLowerCase();
+                    )
+                    .toLowerCase();
 
 
                 const matchesSearch =
@@ -989,8 +1123,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     case "dee-gelvi":
 
                         matchesFilter =
-                            collection ===
-                            "dee-gelvi";
+                            collection.includes(
+                                "dee-gelvi"
+                            );
 
                         break;
 
@@ -998,8 +1133,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     case "curated":
 
                         matchesFilter =
-                            collection ===
-                            "curated";
+                            collection.includes(
+                                "curated"
+                            );
 
                         break;
 
@@ -1024,7 +1160,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 if (visible) {
+
                     visibleCount++;
+
                 }
 
             }
@@ -1060,7 +1198,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             button.addEventListener(
                 "click",
-                () => {
+                event => {
+
+                    event.preventDefault();
+
 
                     categoryButtons.forEach(
                         item => {
@@ -1100,7 +1241,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         searchButton.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
 
                 openModal(
                     searchModal
@@ -1139,7 +1282,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-
                 filterProducts();
 
             }
@@ -1154,7 +1296,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     event.key !==
                     "Enter"
                 ) {
+
                     return;
+
                 }
 
 
@@ -1197,7 +1341,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 button.addEventListener(
                     "click",
-                    () => {
+                    event => {
+
+                        event.preventDefault();
+
 
                         const targetId =
                             button.dataset.close;
@@ -1269,7 +1416,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.key !==
                 "Escape"
             ) {
+
                 return;
+
             }
 
 
@@ -1277,11 +1426,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 productModal
             );
 
-
             closeModal(
                 searchModal
             );
-
 
             closeCartPanel();
 
@@ -1306,7 +1453,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mobileMenuButton.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
+
 
                 if (mobileMenu) {
 
@@ -1347,6 +1497,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
+       CREATE CHECKOUT MESSAGE
+    ===================================================== */
+
+    function createCheckoutMessage() {
+
+        if (cart.length === 0) {
+
+            return null;
+
+        }
+
+
+        let message =
+            "Halo DEE GELVI 👋\n\n" +
+            "Saya ingin memesan:\n\n";
+
+
+        let total =
+            0;
+
+
+        cart.forEach(
+            item => {
+
+                const product =
+                    products[item.id];
+
+
+                if (!product) {
+                    return;
+                }
+
+
+                const subtotal =
+                    product.price *
+                    item.quantity;
+
+
+                total +=
+                    subtotal;
+
+
+                message +=
+                    `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
+
+            }
+        );
+
+
+        message +=
+            `\nTOTAL: ${formatPrice(total)}`;
+
+
+        message +=
+            "\n\nMohon info ketersediaan dan cara pembayarannya. Terima kasih 🙏";
+
+
+        return message;
+
+    }
+
+
+    /* =====================================================
        WHATSAPP CHECKOUT
     ===================================================== */
 
@@ -1354,12 +1567,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         checkoutWhatsApp.addEventListener(
             "click",
-            () => {
+            event => {
 
-                if (
-                    cart.length ===
-                    0
-                ) {
+                event.preventDefault();
+
+
+                const message =
+                    createCheckoutMessage();
+
+
+                if (!message) {
 
                     showNotification(
                         "Shopping bag masih kosong."
@@ -1368,46 +1585,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
 
                 }
-
-
-                let message =
-                    "Halo DEE GELVI, saya ingin memesan:\n\n";
-
-
-                let total =
-                    0;
-
-
-                cart.forEach(
-                    item => {
-
-                        const product =
-                            products[item.id];
-
-
-                        if (!product) {
-                            return;
-                        }
-
-
-                        const subtotal =
-                            product.price *
-                            item.quantity;
-
-
-                        total +=
-                            subtotal;
-
-
-                        message +=
-                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
-
-                    }
-                );
-
-
-                message +=
-                    `\nTOTAL: ${formatPrice(total)}`;
 
 
                 const url =
@@ -1433,7 +1610,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         telegramContact.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
+
 
                 window.open(
                     `https://t.me/${TELEGRAM_USERNAME}`,
@@ -1454,12 +1634,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         checkoutTelegram.addEventListener(
             "click",
-            () => {
+            event => {
 
-                if (
-                    cart.length ===
-                    0
-                ) {
+                event.preventDefault();
+
+
+                const message =
+                    createCheckoutMessage();
+
+
+                if (!message) {
 
                     showNotification(
                         "Shopping bag masih kosong."
@@ -1470,59 +1654,56 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                let message =
-                    "Halo DEE GELVI 👋\n\n" +
-                    "Saya ingin memesan:\n\n";
-
-
-                let total =
-                    0;
-
-
-                cart.forEach(
-                    item => {
-
-                        const product =
-                            products[item.id];
-
-
-                        if (!product) {
-                            return;
-                        }
-
-
-                        const subtotal =
-                            product.price *
-                            item.quantity;
-
-
-                        total +=
-                            subtotal;
-
-
-                        message +=
-                            `• ${product.name} x${item.quantity} — ${formatPrice(subtotal)}\n`;
-
-                    }
-                );
-
-
-                message +=
-                    `\nTOTAL: ${formatPrice(total)}`;
-
-
-                message +=
-                    "\n\nMohon info ketersediaan dan cara pembayarannya. Terima kasih 🙏";
-
+                /*
+                 * Telegram username biasa tidak selalu
+                 * mendukung pre-filled message.
+                 * Kita buka chat terlebih dahulu.
+                 */
 
                 const telegramURL =
-                    `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
+                    `https://t.me/${TELEGRAM_USERNAME}`;
 
 
                 window.open(
                     telegramURL,
                     "_blank"
                 );
+
+
+                /*
+                 * Salin pesan ke clipboard agar
+                 * user tinggal paste ke Telegram.
+                 */
+
+                if (
+                    navigator.clipboard &&
+                    navigator.clipboard.writeText
+                ) {
+
+                    navigator.clipboard
+                        .writeText(message)
+                        .then(() => {
+
+                            showNotification(
+                                "Pesanan disalin. Paste pesan di Telegram."
+                            );
+
+                        })
+                        .catch(() => {
+
+                            showNotification(
+                                "Telegram dibuka. Salin detail pesanan secara manual."
+                            );
+
+                        });
+
+                } else {
+
+                    showNotification(
+                        "Telegram dibuka."
+                    );
+
+                }
 
             }
         );
@@ -1531,11 +1712,628 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       INITIAL
+       FORCE CHECKOUT BUTTON SIZE
+    ===================================================== */
+
+    function fixCheckoutButtons() {
+
+        [
+            checkoutWhatsApp,
+            checkoutTelegram
+        ].forEach(
+            button => {
+
+                if (!button) {
+                    return;
+                }
+
+
+                button.style.width =
+                    "100%";
+
+                button.style.minWidth =
+                    "100%";
+
+                button.style.maxWidth =
+                    "100%";
+
+                button.style.boxSizing =
+                    "border-box";
+
+                button.style.display =
+                    "flex";
+
+                button.style.alignItems =
+                    "center";
+
+                button.style.justifyContent =
+                    "center";
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FINAL CART UI
+    ===================================================== */
+
+    const finalCartStyle =
+        document.createElement(
+            "style"
+        );
+
+
+    finalCartStyle.textContent = `
+
+        #cartOverlay {
+
+            position: fixed !important;
+
+            inset: 0 !important;
+
+            width: 100vw !important;
+
+            height: 100vh !important;
+
+            z-index: 99998 !important;
+
+            background:
+                rgba(0,0,0,.45) !important;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+        }
+
+
+        #cartOverlay.active {
+
+            opacity: 1 !important;
+
+            visibility: visible !important;
+
+            pointer-events: auto !important;
+
+        }
+
+
+        #cartPanel {
+
+            position: fixed !important;
+
+            top: 0 !important;
+
+            right: 0 !important;
+
+            bottom: 0 !important;
+
+            left: auto !important;
+
+            width: 410px !important;
+
+            max-width: 100vw !important;
+
+            height: 100vh !important;
+
+            max-height: 100vh !important;
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            box-sizing: border-box !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            background: #fffdf9 !important;
+
+            z-index: 99999 !important;
+
+            overflow: hidden !important;
+
+            transform:
+                translateX(100%) !important;
+
+            transition:
+                transform .35s ease !important;
+
+        }
+
+
+        #cartPanel.active {
+
+            transform:
+                translateX(0) !important;
+
+        }
+
+
+        #cartPanel .cart-header {
+
+            flex:
+                0 0 auto !important;
+
+            width: 100% !important;
+
+            min-height: 84px !important;
+
+            height: 84px !important;
+
+            box-sizing: border-box !important;
+
+            padding:
+                15px 14px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            background: #fffdf9 !important;
+
+            border-bottom:
+                1px solid #dedbd5 !important;
+
+        }
+
+
+        #cartPanel .cart-header h2 {
+
+            margin:
+                4px 0 0 !important;
+
+            font-family:
+                Georgia,
+                serif !important;
+
+            font-size: 20px !important;
+
+            font-weight: normal !important;
+
+        }
+
+
+        #cartPanel .cart-header span {
+
+            display: block !important;
+
+            font-size: 7px !important;
+
+            letter-spacing: 3px !important;
+
+            color: #b8945f !important;
+
+        }
+
+
+        #cartPanel #closeCart {
+
+            width: 28px !important;
+
+            height: 28px !important;
+
+            padding: 0 !important;
+
+            border: 0 !important;
+
+            background: transparent !important;
+
+            color: #333 !important;
+
+            font-size: 18px !important;
+
+            cursor: pointer !important;
+
+        }
+
+
+        #cartPanel #cartItems {
+
+            flex:
+                1 1 auto !important;
+
+            min-height: 0 !important;
+
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            overflow-x: hidden !important;
+
+            overflow-y: auto !important;
+
+            padding:
+                10px 14px !important;
+
+            background: #fffdf9 !important;
+
+        }
+
+
+        #cartPanel .cart-item {
+
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            display: grid !important;
+
+            grid-template-columns:
+                52px
+                minmax(0,1fr)
+                20px !important;
+
+            gap: 10px !important;
+
+            align-items: start !important;
+
+            padding:
+                10px 0 14px !important;
+
+            margin:
+                0 0 10px !important;
+
+            border-bottom:
+                1px solid #dedbd5 !important;
+
+        }
+
+
+        #cartPanel .cart-item-image {
+
+            width: 52px !important;
+
+            height: 52px !important;
+
+            overflow: hidden !important;
+
+            background: #eee !important;
+
+        }
+
+
+        #cartPanel .cart-item-image img {
+
+            width: 100% !important;
+
+            height: 100% !important;
+
+            object-fit: cover !important;
+
+            display: block !important;
+
+        }
+
+
+        #cartPanel .cart-item-info {
+
+            min-width: 0 !important;
+
+        }
+
+
+        #cartPanel .cart-item-info h4 {
+
+            margin:
+                0 0 5px !important;
+
+            font-family:
+                Georgia,
+                serif !important;
+
+            font-size: 12px !important;
+
+            font-weight: normal !important;
+
+            line-height: 1.3 !important;
+
+            color: #222 !important;
+
+        }
+
+
+        #cartPanel .cart-item-info > span {
+
+            display: block !important;
+
+            margin-bottom: 7px !important;
+
+            font-size: 9px !important;
+
+            color: #b8945f !important;
+
+        }
+
+
+        #cartPanel .cart-quantity {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 5px !important;
+
+        }
+
+
+        #cartPanel .cart-quantity button {
+
+            width: 18px !important;
+
+            height: 18px !important;
+
+            padding: 0 !important;
+
+            border:
+                1px solid #ddd !important;
+
+            background: #fff !important;
+
+            color: #333 !important;
+
+            font-size: 10px !important;
+
+            cursor: pointer !important;
+
+        }
+
+
+        #cartPanel .cart-quantity strong {
+
+            min-width: 14px !important;
+
+            text-align: center !important;
+
+            font-size: 10px !important;
+
+            font-weight: normal !important;
+
+        }
+
+
+        #cartPanel .remove-cart {
+
+            width: 20px !important;
+
+            height: 20px !important;
+
+            padding: 0 !important;
+
+            border: 0 !important;
+
+            background: transparent !important;
+
+            color: #777 !important;
+
+            font-size: 13px !important;
+
+            cursor: pointer !important;
+
+        }
+
+
+        #cartPanel .empty-cart {
+
+            padding:
+                65px 10px !important;
+
+            text-align: center !important;
+
+        }
+
+
+        #cartPanel .empty-cart p {
+
+            margin:
+                0 0 10px !important;
+
+            font-size: 7px !important;
+
+            letter-spacing: 3px !important;
+
+            color: #b8945f !important;
+
+        }
+
+
+        #cartPanel .empty-cart span {
+
+            font-size: 9px !important;
+
+            color: #888 !important;
+
+        }
+
+
+        #cartPanel .cart-footer {
+
+            position: relative !important;
+
+            flex:
+                0 0 auto !important;
+
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            padding:
+                14px 10px 12px !important;
+
+            margin: 0 !important;
+
+            background: #fffdf9 !important;
+
+            border-top:
+                1px solid #dedbd5 !important;
+
+            z-index: 5 !important;
+
+        }
+
+
+        #cartPanel .cart-total-row {
+
+            width: 100% !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            margin:
+                0 0 14px !important;
+
+        }
+
+
+        #cartPanel .cart-total-row span {
+
+            font-size: 7px !important;
+
+            letter-spacing: 3px !important;
+
+            color: #777 !important;
+
+        }
+
+
+        #cartPanel #cartTotal {
+
+            font-family:
+                Georgia,
+                serif !important;
+
+            font-size: 16px !important;
+
+            font-weight: bold !important;
+
+            color: #b8945f !important;
+
+            white-space: nowrap !important;
+
+        }
+
+
+        #cartPanel #checkoutWhatsApp,
+        #cartPanel #checkoutTelegram {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            width: 100% !important;
+
+            height: 38px !important;
+
+            min-height: 38px !important;
+
+            box-sizing: border-box !important;
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            border: 0 !important;
+
+            border-radius: 0 !important;
+
+            font-family:
+                inherit !important;
+
+            font-size: 7px !important;
+
+            font-weight: bold !important;
+
+            letter-spacing: 2px !important;
+
+            text-transform: uppercase !important;
+
+            cursor: pointer !important;
+
+        }
+
+
+        #cartPanel #checkoutWhatsApp {
+
+            background:
+                #3f4144 !important;
+
+            color:
+                #ffffff !important;
+
+            margin-bottom:
+                2px !important;
+
+        }
+
+
+        #cartPanel #checkoutTelegram {
+
+            background:
+                #d5b06b !important;
+
+            color:
+                #ffffff !important;
+
+        }
+
+
+        footer.site-footer,
+        footer {
+
+            position:
+                relative !important;
+
+            z-index:
+                1 !important;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            #cartPanel {
+
+                width: 100vw !important;
+
+                max-width: 100vw !important;
+
+            }
+
+        }
+
+    `;
+
+
+    document.head.appendChild(
+        finalCartStyle
+    );
+
+
+    /* =====================================================
+       INITIALIZE
     ===================================================== */
 
     renderCart();
 
     filterProducts();
+
+    fixCheckoutButtons();
+
+
+    console.log(
+        "DEE GELVI STORE — JavaScript berhasil dimuat."
+    );
 
 });
