@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         van: {
             name: "VAN URBAN VOYAGER",
-            category: "WOMEN",
+            category: "MEN",
             collection: "DEE GELVI ORIGINAL",
             image: "images/van.jpg",
             price: 12.5,
